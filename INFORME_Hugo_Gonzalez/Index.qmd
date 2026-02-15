@@ -1,0 +1,29 @@
+---
+title: "BEC simulazioa"
+author:
+  - name: "Hugo González González"
+    email: hgonzalez031@ikasle.ehu.eus
+keywords:
+  - TFG
+  - Grade of Physics
+  - Physics Lab
+  - BEC
+abstract: |
+  This analysis provides ... |
+
+plain-language-summary: 
+  "..."
+key-points:
+  - BEC
+  - BEC
+date: last-modified
+bibliography: references.bib
+citation:
+  container-title: Grade of Physics TFG, Bose-Einstein Condensation
+number-sections: true
+
+---
+
+{{< include BIBLIOGRAFIA/ROADMAP/roadmap.qmd >}}
+{{< include BIBLIOGRAFIA/PITAEVSKII/pitaevskii.qmd >}}
+{{< include SIMULACION/simulacion.qmd >}}

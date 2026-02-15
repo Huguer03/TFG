@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Hugo González González">
+<meta name="dcterms.date" content="2026-02-13">
+<meta name="keywords" content="TFG, Grade of Physics, Physics Lab, BEC">
+
+<title>BEC simulazioa</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-dda6bcf18c14475f7348b817eb15352b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#roadmap-tfg" id="toc-roadmap-tfg" class="nav-link active" data-scroll-target="#roadmap-tfg"><span class="header-section-number">1</span> ROADMAP TFG</a>
+  <ul class="collapse">
+  <li><a href="#fundamentos-teóricos-la-ecuación-de-gross-pitaevskii" id="toc-fundamentos-teóricos-la-ecuación-de-gross-pitaevskii" class="nav-link" data-scroll-target="#fundamentos-teóricos-la-ecuación-de-gross-pitaevskii"><span class="header-section-number">1.1</span> 1. Fundamentos Teóricos (La Ecuación de Gross-Pitaevskii)</a></li>
+  <li><a href="#fenomenología-de-vórtices-lo-que-vas-a-simular" id="toc-fenomenología-de-vórtices-lo-que-vas-a-simular" class="nav-link" data-scroll-target="#fenomenología-de-vórtices-lo-que-vas-a-simular"><span class="header-section-number">1.2</span> 2. Fenomenología de Vórtices (Lo que vas a simular)</a></li>
+  <li><a href="#dinámica-y-turbulencia-tiempo-real" id="toc-dinámica-y-turbulencia-tiempo-real" class="nav-link" data-scroll-target="#dinámica-y-turbulencia-tiempo-real"><span class="header-section-number">1.3</span> 3. Dinámica y Turbulencia (Tiempo Real)</a></li>
+  <li><a href="#configuración-numérica-en-pygpe" id="toc-configuración-numérica-en-pygpe" class="nav-link" data-scroll-target="#configuración-numérica-en-pygpe"><span class="header-section-number">1.4</span> 4. Configuración Numérica en PyGPE</a></li>
+  <li><a href="#resumen-de-parámetros-físicos-helio-ii" id="toc-resumen-de-parámetros-físicos-helio-ii" class="nav-link" data-scroll-target="#resumen-de-parámetros-físicos-helio-ii"><span class="header-section-number">1.5</span> 5. Resumen de Parámetros Físicos (Helio-II)</a></li>
+  </ul></li>
+  <li><a href="#oinarrizko-teoria" id="toc-oinarrizko-teoria" class="nav-link" data-scroll-target="#oinarrizko-teoria"><span class="header-section-number">2</span> Oinarrizko teoria</a>
+  <ul class="collapse">
+  <li><a href="#ez-uniforme-bose-gasak-t0k" id="toc-ez-uniforme-bose-gasak-t0k" class="nav-link" data-scroll-target="#ez-uniforme-bose-gasak-t0k"><span class="header-section-number">2.1</span> Ez uniforme Bose gasak T=0K</a>
+  <ul class="collapse">
+  <li><a href="#gross-pitaevskii-ekuazioa-gpe" id="toc-gross-pitaevskii-ekuazioa-gpe" class="nav-link" data-scroll-target="#gross-pitaevskii-ekuazioa-gpe"><span class="header-section-number">2.1.1</span> Gross-Pitaevskii ekuazioa (GPE)</a></li>
+  <li><a href="#bortex-zuzenak-interakzio-txikiko-bose-gasan" id="toc-bortex-zuzenak-interakzio-txikiko-bose-gasan" class="nav-link" data-scroll-target="#bortex-zuzenak-interakzio-txikiko-bose-gasan"><span class="header-section-number">2.1.2</span> Bortex zuzenak interakzio txikiko Bose gasan</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#spin-1-kondentsatuaren-simulazio-txostena-trampa-harmonikoa" id="toc-spin-1-kondentsatuaren-simulazio-txostena-trampa-harmonikoa" class="nav-link" data-scroll-target="#spin-1-kondentsatuaren-simulazio-txostena-trampa-harmonikoa"><span class="header-section-number">3</span> Spin-1 Kondentsatuaren Simulazio Txostena: Trampa Harmonikoa</a>
+  <ul class="collapse">
+  <li><a href="#liburutegiak-eta-azpiegitura" id="toc-liburutegiak-eta-azpiegitura" class="nav-link" data-scroll-target="#liburutegiak-eta-azpiegitura"><span class="header-section-number">3.1</span> 1. Liburutegiak eta Azpiegitura</a></li>
+  <li><a href="#normalizazio-globalerako-funtzioa" id="toc-normalizazio-globalerako-funtzioa" class="nav-link" data-scroll-target="#normalizazio-globalerako-funtzioa"><span class="header-section-number">3.2</span> 2. Normalizazio Globalerako Funtzioa</a></li>
+  <li><a href="#sistemaren-konfigurazioa" id="toc-sistemaren-konfigurazioa" class="nav-link" data-scroll-target="#sistemaren-konfigurazioa"><span class="header-section-number">3.3</span> 3. Sistemaren Konfigurazioa</a></li>
+  <li><a href="#hasieratzea-eta-bilakaera" id="toc-hasieratzea-eta-bilakaera" class="nav-link" data-scroll-target="#hasieratzea-eta-bilakaera"><span class="header-section-number">3.4</span> 4. Hasieratzea eta Bilakaera</a></li>
+  <li><a href="#emaitzen-analisia" id="toc-emaitzen-analisia" class="nav-link" data-scroll-target="#emaitzen-analisia"><span class="header-section-number">3.5</span> 5. Emaitzen Analisia</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">BEC simulazioa</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Hugo González González <a href="mailto:hgonzalez031@ikasle.ehu.eus" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 13, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+<div>
+  <div class="abstract">
+    <div class="block-title">Abstract</div>
+    <p>This analysis provides … |</p>
+  </div>
+</div>
+
+<div>
+  <div class="keywords">
+    <div class="block-title">Keywords</div>
+    <p>TFG, Grade of Physics, Physics Lab, BEC</p>
+  </div>
+</div>
+
+</header>
+
+
+<section id="roadmap-tfg" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> ROADMAP TFG</h1>
+<p>Esta guía organiza la lectura de los textos fundamentales para entender la física del Helio-II y cómo implementarla numéricamente en la librería <strong>PyGPE</strong> .</p>
+<section id="fundamentos-teóricos-la-ecuación-de-gross-pitaevskii" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="fundamentos-teóricos-la-ecuación-de-gross-pitaevskii"><span class="header-section-number">1.1</span> 1. Fundamentos Teóricos (La Ecuación de Gross-Pitaevskii)</h2>
+<p><strong>Libro:</strong> <em>Bose-Einstein Condensation and Superfluidity</em> - Pitaevskii &amp; Stringari.</p>
+<ul>
+<li><strong>Capítulo 5:</strong> Secciones 5.1 y 5.3.</li>
+<li><em>Por qué:</em> Aquí se deriva la GPE y se define la <strong>longitud de curación</strong> (<span class="math inline">\(\xi\)</span>). Es la escala física que determinará el tamaño de tu rejilla (grid) en PyGPE.</li>
+<li><strong>Capítulo 6:</strong> Secciones 6.1 a 6.4.</li>
+<li><em>Por qué:</em> Explica la hidrodinámica cuántica. Aprenderás a extraer la velocidad del superfluido a partir del gradiente de la fase de la función de onda.</li>
+<li><strong>Capítulo 8:</strong> Superfluid <span class="math inline">\(^4\)</span>He.</li>
+<li><em>Por qué:</em> Explica las particularidades del Helio-II frente a otros condensados, como la fuerte interacción entre átomos.</li>
+</ul>
+</section>
+<section id="fenomenología-de-vórtices-lo-que-vas-a-simular" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="fenomenología-de-vórtices-lo-que-vas-a-simular"><span class="header-section-number">1.2</span> 2. Fenomenología de Vórtices (Lo que vas a simular)</h2>
+<p><strong>Libro:</strong> <em>Quantized Vortices in Helium II</em> - Russell J. Donnelly.</p>
+<ul>
+<li><strong>Capítulo 4:</strong> Estructura de los vórtices cuantizados.</li>
+<li><em>Por qué:</em> Describe el perfil de densidad del núcleo del vórtice. Es esencial para validar que tus resultados de PyGPE sean físicamente correctos.</li>
+<li><strong>Capítulo 5:</strong> Arreglos de vórtices (Vortex Lattices).</li>
+<li><em>Por qué:</em> Si simulas Helio en un recipiente rotante, este capítulo describe las redes de Abrikosov que deberías observar.</li>
+</ul>
+</section>
+<section id="dinámica-y-turbulencia-tiempo-real" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="dinámica-y-turbulencia-tiempo-real"><span class="header-section-number">1.3</span> 3. Dinámica y Turbulencia (Tiempo Real)</h2>
+<p><strong>Libro:</strong> <em>Vortex Dynamics in Superfluid Helium-4</em> - Sergey K. Nemirovskii.</p>
+<ul>
+<li><strong>Capítulo 2:</strong> El modelo GPE para líneas de vórtice.</li>
+<li><em>Por qué:</em> Es el puente directo entre la teoría y la computación. Explica cómo la GPE permite que los vórtices se reconecten, algo fundamental en la turbulencia del Helio-II.</li>
+<li><strong>Capítulo 4:</strong> Dinámica de filamentos.</li>
+<li><em>Por qué:</em> Útil si planeas evolucionar el sistema en tiempo real para ver cómo interactúan los vórtices entre sí.</li>
+</ul>
+</section>
+<section id="configuración-numérica-en-pygpe" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="configuración-numérica-en-pygpe"><span class="header-section-number">1.4</span> 4. Configuración Numérica en PyGPE</h2>
+<p>Para que la simulación sea estable, debes seguir estas reglas de oro:</p>
+<ol type="1">
+<li><strong>Resolución Espacial:</strong> El espaciado entre puntos de tu malla (<code>dx</code>) debe cumplir:</li>
+</ol>
+<ul>
+<li><span class="math inline">\(dx \leq \xi\)</span> (lo ideal es <span class="math inline">\(0.5\xi\)</span>).</li>
+</ul>
+<ol start="2" type="1">
+<li><strong>Tiempo Imaginario:</strong> Usa siempre <code>find_ground_state()</code> primero para obtener una configuración inicial suave y de baja energía.</li>
+<li><strong>Tiempo Real:</strong> Usa <code>evolve()</code> para estudiar fenómenos dinámicos como colisiones de vórtices o flujo a través de obstáculos.</li>
+</ol>
+</section>
+<section id="resumen-de-parámetros-físicos-helio-ii" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="resumen-de-parámetros-físicos-helio-ii"><span class="header-section-number">1.5</span> 5. Resumen de Parámetros Físicos (Helio-II)</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Parámetro</th>
+<th style="text-align: left;">Símbolo</th>
+<th style="text-align: left;">Valor Típico</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Longitud de curación</td>
+<td style="text-align: left;"><span class="math inline">\(\xi\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\approx 1 \times 10^{-10}\)</span> m (1 Å)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Masa del átomo</td>
+<td style="text-align: left;"><span class="math inline">\(m\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(6.64 \times 10^{-27}\)</span> kg</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Quantum de circulación</td>
+<td style="text-align: left;"><span class="math inline">\(\kappa\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(h/m \approx 9.97 \times 10^{-8}\)</span> m²/s</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="oinarrizko-teoria" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Oinarrizko teoria</h1>
+<p>Parte hau dago osatuta <span class="citation" data-cites="pitaevskii2016">(<a href="#ref-pitaevskii2016" role="doc-biblioref"><strong>pitaevskii2016?</strong></a>)</span> liburutik. Aztertuko ditugu oinarrizko gauzak GPE ekuazioa ulertu ahal izateko.</p>
+<section id="ez-uniforme-bose-gasak-t0k" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="ez-uniforme-bose-gasak-t0k"><span class="header-section-number">2.1</span> Ez uniforme Bose gasak T=0K</h2>
+<p>Ikertuko ditugu Bose gas diluituen dinamika.</p>
+<section id="gross-pitaevskii-ekuazioa-gpe" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="gross-pitaevskii-ekuazioa-gpe"><span class="header-section-number">2.1.1</span> Gross-Pitaevskii ekuazioa (GPE)</h3>
+<p>Elektromagnetismoan eginen dugun moduan, eremu eragilea <span class="math inline">\(\hat{\Psi}(\mathbf{r},t)\)</span> eremu klasiko batekin <span class="math inline">\(\Psi_0(\mathbf{r},t)\)</span> (honi ere deitzen zaio kondentsatuaren uhin funtzioa edo ordenako parametroa) aldatuko dugu. Orain behar dugu ekuazio bat duena <span class="math inline">\(\Psi_0\)</span> funtzio klasikoaren dinamika. Hau lortzeko gogoratu Heisemberg-en irudian hurrengo erlazioa bete behar duela <span class="math inline">\(\hat{\Psi}\)</span>:</p>
+<p><span class="math display">\[
+i\hbar \frac{\partial}{\partial t} \hat{\Psi}(\mathbf{r}, t) = [\hat{\Psi}(\mathbf{r}, t), \hat{H}]
+\]</span></p>
+<p><span id="eq-p1"><span class="math display">\[
+= \left[ -\frac{\hbar^2 \nabla^2}{2m} + V_{ext}(\mathbf{r}, t) + \int \hat{\Psi}^\dagger(\mathbf{r}', t) V(\mathbf{r}' - \mathbf{r}) \hat{\Psi}(\mathbf{r}', t) d\mathbf{r}' \right] \hat{\Psi}(\mathbf{r}, t),
+\tag{1}\]</span></span></p>
+<p>Aldaketa egin ahal izateko, Bornen hurbilketa bete beharko da. Honetarako <span class="math inline">\(V_{eff}\)</span> bete beharko ditu energia txikiko sakabanaketaren baldintzak eta <span class="math inline">\(\Psi_0\)</span> era motelean aldatuko da elkarrekintza indarraren ahalmenean. Hau betetzen bada <span class="math inline">\(\mathbf{r'}\)</span> <span class="math inline">\(\mathbf{r}\)</span>-rekin aldatu dezakegu.</p>
+<p><span id="eq-GPE"><span class="math display">\[
+i\hbar \frac{\partial}{\partial t} \Psi(\mathbf{r}, t) = \left( -\frac{\hbar^2 \nabla^2}{2m} + V_{ext}(\mathbf{r}, t) + g|\Psi(\mathbf{r}, t)|^2 \right) \Psi(\mathbf{r}, t)
+\tag{2}\]</span></span></p>
+<p>ordeneko parametroa <span class="math inline">\(g = \int V_{eff} \; d\mathbf{r}\)</span>-rekin. Hau s-wave sakabanaketaren <span class="math inline">\(a\)</span> parametroaren funtzioan jar dezakegu:</p>
+<p><span id="eq-p3"><span class="math display">\[
+g = \frac{4 \pi \hbar^2 a}{m}
+\tag{3}\]</span></span></p>
+<p>Hau izango da Maxwell ekuazioen analogoa baina energia eta momentuaren erlazioa fotoiena izan beharrean De Brogliren erlazioa beteko dute.</p>
+<p>Zenbait gauza bete beharko dira <a href="#eq-GPE" class="quarto-xref">Equation&nbsp;2</a> erabili ahal izateko.</p>
+<ul>
+<li>BCE-a sortzeko partikula kopuru handia behar ditugu.</li>
+<li>Temperatura txikia izatea behar dugu partikulen artean sortzen diren elkarrekintzak txikiak izateko.</li>
+<li>Gure uhin funtzioa dago normalizatuta hurrengo moduan: <span class="math inline">\(\int |\Psi|^2 \; d\mathbf{r} = N\)</span></li>
+<li>Ekuazioa bete egingo da <span class="math inline">\(\mathbf{r} \gg a\)</span> denean.</li>
+</ul>
+<p>Hau guztia betetzen bada, gasaren dentsitatea kondentzatuarenarekin bat etorriko da:</p>
+<p><span id="eq-density"><span class="math display">\[
+n(\mathbf{r}) = |\Psi(\mathbf{r})|^2
+\tag{4}\]</span></span></p>
+<p>Beste era bat izango da egoera estazionario bat inposatzen</p>
+<p><span id="eq-p5"><span class="math display">\[
+\delta \left[ -i\hbar \int \Psi^* \frac{\partial}{\partial t} \Psi \, d\mathbf{r}dt + \int E \, dt \right] = 0
+\tag{5}\]</span></span></p>
+<p>akzioari. Honekin izango dugun ekuazioa</p>
+<p><span id="eq-p6"><span class="math display">\[
+i\hbar \frac{\partial \Psi(\mathbf{r}, t)}{\partial t} = \frac{\delta E}{\delta \Psi^*(\mathbf{r}, t)}
+\tag{6}\]</span></span></p>
+<p>izango da, non energia funtzionalaren orden parametroa</p>
+<p><span id="eq-p7"><span class="math display">\[
+E = \int \left( \frac{\hbar^2}{2m}|\nabla\Psi|^2 + V_{ext}(\mathbf{r})|\Psi|^2 + \frac{g}{2}|\Psi|^4 \right) d\mathbf{r}
+\tag{7}\]</span></span></p>
+<p>Orain ikusiko ditugu <a href="#eq-GPE" class="quarto-xref">Equation&nbsp;2</a>-ren kontserbazio legeak. Lehenengo, kontuan izanda <span class="math inline">\(\int |\Psi|^2 \; d\mathbf{r} = N\)</span> dela, hau da, partikula kopurua konstante mantenduko dela. Beraz, <a href="#eq-GPE" class="quarto-xref">Equation&nbsp;2</a> <span class="math inline">\(\Psi^*\)</span>-rekin biderkatuz lortuko dugu hurrengo probabilitatearen kontserbazioaren legea lortzen da.</p>
+<p><span id="eq-kontinuidad"><span class="math display">\[
+\frac{\partial n}{\partial t} + \text{div}\mathbf{j} = 0
+\tag{8}\]</span></span></p>
+<p>non erabili dugun <a href="#eq-density" class="quarto-xref">Equation&nbsp;4</a> eta sartu dugun korronte dentsitatea:</p>
+<p><span id="eq-korrontea"><span class="math display">\[
+\mathbf{j}(\mathbf{r}, t) = -\frac{i\hbar}{2m} (\Psi^* \nabla \Psi - \Psi \nabla \Psi^*) = n \frac{\hbar}{m} \nabla S
+\tag{9}\]</span></span></p>
+<p>non <span class="math inline">\(S\)</span> orden parametroaren fasea den. Gogoratu, orden parametroa funtzio konplexua izanda honela idatzi dezakegula:</p>
+<p><span id="eq-uf"><span class="math display">\[
+\Psi(\mathbf{r},t) = \sqrt{n(\mathbf{r},t)}e^{i S(\mathbf{r},t)}.
+\tag{10}\]</span></span></p>
+<p>Ekuazio honetatik lortu ahal dugu zein den kondentsatuaren abiadura fasearen bitartez</p>
+<p><span id="eq-abiadura"><span class="math display">\[
+\mathbf{v_s}(\mathbf{r},t) = \frac{\hbar}{m} \nabla S
+\tag{11}\]</span></span></p>
+<p>gainera ikusi dezakegunez hau irrotazionala izango da, zentsua daukana, azkenean superfluido guztiek propietate hau erakusten baitute.</p>
+<p>Jakinda energia ere kontserbatu egingo dela lortu ahal izango dugu momentu dentsitatearen ekuazioa.</p>
+<p><span id="eq-momentu-kontserbazioa"><span class="math display">\[
+m \frac{\partial j_i}{\partial t} + \frac{\partial \Pi_{ik}}{\partial x_k} = -n \frac{\partial V_{ext}}{\partial x_i},
+\tag{12}\]</span></span></p>
+<p>non</p>
+<p><span id="eq-momentu-tentsorea"><span class="math display">\[
+\Pi_{ik} = \frac{\hbar^2}{4m^2} \left[ \frac{\partial \Psi}{\partial x_i} \frac{\partial \Psi^*}{\partial x_k} - \Psi \frac{\partial^2 \Psi^*}{\partial x_i \partial x_k} + \text{c.c.} \right] + \frac{gn^2}{2} \delta_{ik},
+\tag{13}\]</span></span></p>
+<p>momentuaren fluxu tentsorea da. Ohartu, kanpo indar barik momentua kontserbatu egingo dela.</p>
+<p>Erabilgarria da lortzea ekuazio bat fasearentzat, hau lortzen da <a href="#eq-uf" class="quarto-xref">Equation&nbsp;10</a> <a href="#eq-GPE" class="quarto-xref">Equation&nbsp;2</a> sartzen</p>
+<p><span id="eq-S"><span class="math display">\[
+\hbar \frac{\partial}{\partial t} S + \left( \frac{1}{2} m \mathbf{v}_s^2 + V_{ext} + gn - \frac{\hbar^2}{2m\sqrt{n}} \nabla^2 \sqrt{n} \right) = 0.
+\tag{14}\]</span></span></p>
+<p>Konturatu <a href="#eq-density" class="quarto-xref">Equation&nbsp;4</a> eta <a href="#eq-S" class="quarto-xref">Equation&nbsp;14</a> osatzen dutela ekuazio multzo bat analogoa dena GPE ekuazioarekin. <span class="math inline">\(\hbar\)</span> ekuazioan sartzen da dentsitatearen gradientearen bitartez, honi deitzen zaio “presio kuantikoa”.</p>
+<p><a href="#eq-GPE" class="quarto-xref">Equation&nbsp;2</a>-ren soluzio geldikorra forma simple bat du</p>
+<p><span id="eq-guf"><span class="math display">\[
+\Psi(\mathbf{r},t) = \Psi_0(\mathbf{r}) e^{-\frac{i\mu t}{\hbar}}.
+\tag{15}\]</span></span></p>
+<p>Denboraren menpekotasuna potentzial kimikoa zehazten du</p>
+<p><span id="eq-mu(E)"><span class="math display">\[
+\mu = \frac{\partial E}{\partial N},
+\tag{16}\]</span></span></p>
+<p>guzti honekin Gross-Pitaevskii ekuazioa honela idatzi dezakegu</p>
+<p><span id="eq-egonGPE"><span class="math display">\[
+\left( -\frac{\hbar^2 \nabla^2}{2m} + V_{ext}(\mathbf{r}) + g|\Psi_0(\mathbf{r})|^2 - \mu \right) \Psi_0(\mathbf{r}) = 0,
+\tag{17}\]</span></span></p>
+<p>non suposatu egin dugu gure potentziala ez dela denboraren menpekoa. <span class="math inline">\(\mu\)</span>-ren balioa normalizazio baldintzak ezarriko digu.</p>
+</section>
+<section id="bortex-zuzenak-interakzio-txikiko-bose-gasan" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="bortex-zuzenak-interakzio-txikiko-bose-gasan"><span class="header-section-number">2.1.2</span> Bortex zuzenak interakzio txikiko Bose gasan</h3>
+<p>Esan dugunez, GPE deskribatuta dago <a href="#eq-guf" class="quarto-xref">Equation&nbsp;15</a>-ren bitartez, hau da, magnitude orden bat denborarekiko menpekotasuna duena, non menpekotasuna fase global bat deskribatzen duen potentziak kimikoaren funtzioa dena.</p>
+<p>Orain aztertuko ditugu bortez soluzioak. Hauek ematen dira gure kondentsatuaren dentsitatea zerorantz doanean. Hauek ematen diren eremuak, berreskuratze distantzia baino txikiagoko eskualdetan gertatzen dira eta kontuan izan behar dugu presio kuantikoaren terminoa GPE-n.&nbsp;Normalean, azkar biratzen duen erreferentzia sisteman izango dira egonkorrak, sistema horretan energiaren funtzionala zero baita.</p>
+<p>Superfluidoetan dauden biraketak ez dira solido zurrunean dauden bezalakoak <span class="math inline">\(\mathbf{v} = \mathbf{\Omega} \times \mathbf{r}\)</span>, baizik eta deskribatuta egongo da bortizitatea difusioarekin: <span class="math inline">\(\text{curl}\mathbf{v} = 2\mathbf{\Omega}\)</span>. Hau konturatzen bagara, kontraesan bat izango da superfluidoak irrotazionalak direla esan genuelako, hau da, espero dugu hauek ez biratzea solido zurruna bezala.</p>
+<p>Demagun daukagula <span class="math inline">\(R\)</span> erradioko eta <span class="math inline">\(L\)</span> luzerako zilindro batean gasa konfinatuta. Izango dugun soluzioa hurrengo formakoa izango datos</p>
+<p><span id="eq-zuf"><span class="math display">\[
+\Psi_0(\mathbf{r}) = e^{is\varphi}|\Psi_0(r)|,
+\tag{18}\]</span></span></p>
+<p>non sartu ditugun koordenatu zilindrikoak <span class="math inline">\(z\)</span>, <span class="math inline">\(r\)</span> eta <span class="math inline">\(\varphi\)</span>. <span class="math inline">\(s\)</span> dago gure uhin funtzioak balio bakarra izateko. Konturatzen bagara <a href="#eq-zuf" class="quarto-xref">Equation&nbsp;18</a> <span class="math inline">\(l_z\)</span>-ren autobalioa izango da <span class="math inline">\(l_z = s \hbar\)</span> izaten. Beraz, bortex osoaren lomentu angeluarra <span class="math inline">\(L_z = N s \hbar\)</span> izango da. <a href="#eq-zuf" class="quarto-xref">Equation&nbsp;18</a> adierazten du gas bat biratzen hurrengo abiadura tangentzialarekin</p>
+<p><span id="eq-abiadura-tangen"><span class="math display">\[
+v_s = \frac{\hbar}{m}\frac{s}{r}.
+\tag{19}\]</span></span></p>
+<p>Konturatzen bagara hau guztiz desberdina da solido zurrunean geneukanarekin, hau <span class="math inline">\(1/r\)</span>-ren proportzionala baita (<a href="#fig-vel-eremuak" class="quarto-xref">Figure&nbsp;1</a>).</p>
+<div id="cell-fig-vel-eremuak" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display">
+<div id="fig-vel-eremuak" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-vel-eremuak-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Index_files/figure-html/fig-vel-eremuak-output-1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vel-eremuak-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Abiadura-eremu tangentziala fluxu irrotazionalerako (<span class="math inline">\(v_{\text{irr}}\)</span>) eta errotazio rigidoko (<span class="math inline">\(v_{\text{rig}}\)</span>) fluxurako. Abiadura-eremu irrotazionala <span class="math inline">\(1/r\)</span> bezala dibergitzen da <span class="math inline">\(r \to 0\)</span> denean. Hemen <span class="math inline">\(r\)</span> eta <span class="math inline">\(v\)</span> unitate arbitrarioetan (a.u.) neurtzen dira.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Ordezkatuz <a href="#eq-zuf" class="quarto-xref">Equation&nbsp;18</a> <a href="#eq-egonGPE" class="quarto-xref">Equation&nbsp;17</a>, lortuko dugun adierazpena <span class="math inline">\(|\Psi_0|\)</span>:</p>
+<p><span id="eq-20"><span class="math display">\[
+-\frac{\hbar^2}{2m} \frac{1}{r} \frac{d}{dr} \left( r \frac{d|\Psi_0|}{dr} \right) + \frac{\hbar^2 s^2}{2mr^2} |\Psi_0| + g|\Psi_0|^3 - \mu|\Psi_0| = 0.
+\tag{20}\]</span></span></p>
+<p>Bortexaren distantzia handietara dakigu izan behar dugun dentsitatea kondentsatuarena izango dela <span class="math inline">\(|\Psi_0| \to \sqrt{n}\)</span>. Hau dela eta, sartuko dugu hurrengo funtzio adimensionala <span class="math inline">\(f(\eta)\)</span> eta gure dentsitatea:</p>
+<p><span id="eq-aduf"><span class="math display">\[
+|\Psi_0| = \sqrt{n} f(\eta),
+\tag{21}\]</span></span></p>
+<p>non <span class="math inline">\(\eta = r/\xi\)</span> eta <span class="math inline">\(\xi = \hbar / \sqrt{2mgn}\)</span> berreskuratze luzera. Funtzio honek betetzen duen ekuazioa</p>
+<p><span id="eq-f"><span class="math display">\[
+\frac{1}{\eta} \frac{d}{d\eta} \left( \eta \frac{df}{d\eta} \right) + \left( 1 - \frac{s^2}{\eta^2} \right) f - f^3 = 0,
+\tag{22}\]</span></span></p>
+<p>non muga baldintzak <span class="math inline">\(f(\eta\to\infty) = 1\)</span> eta <span class="math inline">\(f(0) = 0\)</span> izan behar diren. Hau numerikoki ebasten badugu ikusten da (<a href="#fig-bortex-profila" class="quarto-xref">Figure&nbsp;2</a>) nola <span class="math inline">\(r\)</span>-ren ordenekoa denean izango dugun aldaketa dentsitatean bortitza izango dentsitatean</p>
+<div id="cell-fig-bortex-profila" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display">
+<div id="fig-bortex-profila" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-bortex-profila-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Index_files/figure-html/fig-bortex-profila-output-1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bortex-profila-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: <a href="#eq-f" class="quarto-xref">Equation&nbsp;22</a>-ren soluzio numerikoak <span class="math inline">\(s=1\)</span> eta <span class="math inline">\(s=2\)</span> kasuetarako. Ikusten da nola kondentsatuaren dentsitatea aldatzen den <span class="math inline">\(\eta\)</span>-ren funtzioan.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="spin-1-kondentsatuaren-simulazio-txostena-trampa-harmonikoa" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Spin-1 Kondentsatuaren Simulazio Txostena: Trampa Harmonikoa</h1>
+<p>Txosten honek <code>armonico.py</code> script-aren funtzionamendua zehazten du. Script honek spin-1 motako Bose-Einstein kondentsatu baten (BEC) fisika simulatzen du <strong>pyGPE</strong> liburutegia erabiliz. Helburu nagusia sistemaren <strong>oinarrizko egoera</strong> (ground state) aurkitzea da denbora imaginarioaren metodoaren bidez.</p>
+<section id="liburutegiak-eta-azpiegitura" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="liburutegiak-eta-azpiegitura"><span class="header-section-number">3.1</span> 1. Liburutegiak eta Azpiegitura</h2>
+<ul>
+<li><strong>Kalkulu Motorra</strong>: Kodeak automatikoki detektatzen du GPU bat erabilgarri dagoen <code>cupy</code> erabiltzeko; bestela, <code>numpy</code> erabiltzen du CPU bidezko kalkuluetarako.</li>
+<li><strong>Nukleo Fisikoa</strong>: <code>pygpe.spinone</code> modulua erabiltzen du uhin-funtzioaren hiru osagaien dinamika kudeatzeko: <span class="math inline">\(\psi_+\)</span>, <span class="math inline">\(\psi_0\)</span> eta <span class="math inline">\(\psi_-\)</span>.</li>
+<li><strong>Ikusaraztea</strong>: <code>matplotlib</code> erabiltzen du dentsitate eta fase mapak sortzeko.</li>
+<li><strong>Prozesuaren Jarraipena (tqdm)</strong>: <code>tqdm</code> liburutegia erabiltzen da simulazioaren begiztan egoera-barra bat erakusteko (programa orokorrean dago, baina txosten honetan kendu dugu). Honek kalkuluen progresioa, abiadura eta geratzen den denbora estimatua denbora errealean ikusteko aukera ematen du.</li>
+</ul>
+<div id="f7089dbb" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tqdm</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> cupy <span class="im">as</span> cp  <span class="co"># type: ignore</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">ImportError</span>:</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> numpy <span class="im">as</span> cp</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pygpe.shared.utils <span class="im">import</span> handle_array</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pygpe.shared.vortices <span class="im">as</span> vort</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pygpe.spinone <span class="im">as</span> gpe</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="normalizazio-globalerako-funtzioa" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="normalizazio-globalerako-funtzioa"><span class="header-section-number">3.2</span> 2. Normalizazio Globalerako Funtzioa</h2>
+<p><strong>Denbora imaginarioaren</strong> metodoak ez du uhin-funtzioaren norma kontserbatzen (egoera kitzikatuak iragazteko gutxitu egiten du), beraz, <code>global_normalize</code> funtzioa ezartzen da: * Dentsitate osoa kalkulatzen du hiru osagaiak batuz: <span class="math inline">\(n = |\psi_+|^2 + |\psi_0|^2 + |\psi_-|^2\)</span>. * Osagaiak eskalatze-faktore baten bidez doitzen ditu, dentsitatearen integrala partikula kopuru osoarekin (<span class="math inline">\(N\)</span>) bat datorrela ziurtatzeko.</p>
+<div id="e0511775" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> global_normalize(psi, dx, dy, target_norm):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calcular densidad total</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    density <span class="op">=</span> cp.<span class="bu">abs</span>(psi.plus_component)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> cp.<span class="bu">abs</span>(psi.zero_component)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> cp.<span class="bu">abs</span>(psi.minus_component)<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calcular integral (número total de partículas)</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    current_norm <span class="op">=</span> cp.<span class="bu">sum</span>(density) <span class="op">*</span> dx <span class="op">*</span> dy</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">abs</span>(current_norm <span class="op">-</span> target_norm) <span class="op">&gt;</span> <span class="fl">1e-16</span>:</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        factor <span class="op">=</span> cp.sqrt(target_norm <span class="op">/</span> current_norm)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Aplicar a todas las componentes</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        psi.plus_component <span class="op">*=</span> factor</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        psi.zero_component <span class="op">*=</span> factor</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        psi.minus_component <span class="op">*=</span> factor</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> psi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="sistemaren-konfigurazioa" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="sistemaren-konfigurazioa"><span class="header-section-number">3.3</span> 3. Sistemaren Konfigurazioa</h2>
+<ul>
+<li><strong>Sarea (Grid)</strong>: <span class="math inline">\(128 \times 128\)</span> puntuko sare bat definitzen da, <span class="math inline">\(0.5\)</span> unitateko espazio-tartearekin.</li>
+</ul>
+<div id="54fc81f3" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sortu sarea</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>points<span class="op">=</span>(<span class="dv">128</span>,<span class="dv">128</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> points[<span class="dv">0</span>]<span class="op">*</span>points[<span class="dv">1</span>]</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>grid_spacing<span class="op">=</span>(<span class="fl">0.5</span>,<span class="fl">0.5</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>grid <span class="op">=</span> gpe.Grid(points, grid_spacing)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Trampa harmonikoa</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>omega <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>trap_strength <span class="op">=</span> omega<span class="op">**</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ul>
+<li><strong>Trampa Harmonikoa</strong>: Potentzial paraboliko bat aplikatzen da: <span class="math inline">\(V(x,y) = \frac{1}{2} \omega^2 (x^2 + y^2)\)</span>, non <span class="math inline">\(\omega = 2\)</span>.</li>
+<li><strong>Parametro Fisikoak (<code>params</code>)</strong>:
+<ul>
+<li><code>c0 = 100.0</code>: Dentsitatearen arteko interakzio repulsiboa.</li>
+<li><code>c2 = -10.0</code>: Spin interakzio ferromagnetikoa (Helio-4 metaestagarriaren antzekoa).</li>
+<li><code>q = 0.001</code>: Zeeman efektu koadratikoa, egonkortasun numerikoa emateko.</li>
+<li><code>dt = -1j * 1e-2</code>: <strong>Denbora imaginarioaren</strong> pausoa sistemaren erlaxaziorako.</li>
+</ul></li>
+</ul>
+<div id="01a1a78c" class="cell" data-execution_count="6">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parametroak</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> {</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Interacciones (Basadas en longitudes de dispersión del Helio-4 metaestable)</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"c0"</span>: <span class="fl">100.0</span>,   <span class="co"># Interacción de densidad (repulsiva, mantiene el condensado unido)</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"c2"</span>: <span class="op">-</span><span class="fl">10.0</span>,   <span class="co"># Interacción de spin (NEGATIVA para Helio = Ferromagnético)</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Campos externos</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"p"</span>: <span class="fl">0.0</span>,      <span class="co"># Zeeman lineal (usualmente 0 a menos que haya gradiente)</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"q"</span>: <span class="fl">0.001</span>,    <span class="co"># Zeeman cuadrático (pequeño pero positivo para estabilidad numérica)</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Trampa armonica</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"trap"</span>: trap_strength, </span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"n0"</span>: <span class="fl">1.0</span>,     </span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"dt"</span>: <span class="op">-</span><span class="ot">1j</span> <span class="op">*</span> <span class="fl">1e-2</span>, </span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"nt"</span>: <span class="dv">10000</span>,</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"t"</span>: <span class="dv">0</span>,</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="hasieratzea-eta-bilakaera" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="hasieratzea-eta-bilakaera"><span class="header-section-number">3.4</span> 4. Hasieratzea eta Bilakaera</h2>
+<ol type="1">
+<li><strong>Hasierako Egoera</strong>: Konfigurazio ferromagnetiko puru batetik abiatzen da: <span class="math inline">\(\psi = (1, 0, 0)^T\)</span>.</li>
+<li><strong>Zzarata eta Bortexa</strong>: Zarata gehitzen zaio simetria hausteko eta fase-profil bat aplikatzen da bortex bat sorrarazteko.</li>
+<li><strong>Simulazio Buklea</strong>: Programak <span class="math inline">\(10.000\)</span> iterazio egiten ditu. 10 urrats bakoitzean, datuak gordetzen dira eta sistema normalizatzen da energia minimorantz konbergitzen duela ziurtatzeko.</li>
+</ol>
+<div id="0a3124c9" class="cell" data-execution_count="7">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sortu uhin funtzioa</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>psi <span class="op">=</span> gpe.SpinOneWavefunction(grid)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>psi.set_ground_state(<span class="st">"ferromagnetic"</span>, params)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>psi.add_noise(<span class="st">"all"</span>, <span class="fl">0.0</span>, <span class="fl">1e-2</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Bortexak sortu</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>phase <span class="op">=</span> vort.vortex_phase_profile(grid, <span class="dv">100</span>, <span class="dv">1</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>psi.apply_phase(phase)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>psi <span class="op">=</span> global_normalize(psi, grid_spacing[<span class="dv">0</span>], grid_spacing[<span class="dv">1</span>],N)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> gpe.DataManager(<span class="st">"spin_one_data.hdf5"</span>, <span class="st">"SIMULACION/data"</span>, psi, params) <span class="co"># Normalean hau ez da beharreskoa baina funtzionatzeko Quarton pth guztia jarri behar da.</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>psi.fft() <span class="co"># Preparar el k espacio</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(params[<span class="st">"nt"</span>]):</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Perform the evolution</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    gpe.step_wavefunction(psi, params)</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">%</span> <span class="dv">10</span> <span class="op">==</span> <span class="dv">0</span>:  <span class="co"># Save data every 10 time steps</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>        psi <span class="op">=</span> global_normalize(psi, grid_spacing[<span class="dv">0</span>], grid_spacing[<span class="dv">1</span>],N) <span class="co"># En el metodo de tiempo imaginario es recomendable renormalizar periodicamente</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>        data.save_wavefunction(psi)</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    params[<span class="st">"t"</span>] <span class="op">+=</span> params[<span class="st">"dt"</span>]</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>psi <span class="op">=</span> global_normalize(psi, grid_spacing[<span class="dv">0</span>], grid_spacing[<span class="dv">1</span>],N)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Attempting to find 100 positions...
+Successfully found 100 positions in 100 iterations!</code></pre>
+</div>
+</div>
+</section>
+<section id="emaitzen-analisia" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="emaitzen-analisia"><span class="header-section-number">3.5</span> 5. Emaitzen Analisia</h2>
+<p>Script-ak lau paneleko irudi bat sortzen du: * <strong>Dentsitate Osoa</strong>: Kondentsatua tranparen erdian nola metatzen den erakusten du.</p>
+<div id="aefa2f2f" class="cell" data-execution_count="8">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>density <span class="op">=</span> cp.<span class="bu">abs</span>(psi.plus_component)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> cp.<span class="bu">abs</span>(psi.zero_component)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> cp.<span class="bu">abs</span>(psi.minus_component)<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> cp.<span class="bu">sum</span>(density)<span class="op">/</span>N</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>n_max <span class="op">=</span> cp.<span class="bu">max</span>(density)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>n_min <span class="op">=</span> cp.<span class="bu">min</span>(density)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"·Partikula dentzitatea n=</span><span class="sc">{</span>n<span class="sc">}</span><span class="ch">\n</span><span class="ss">·Partikula dentzitate maximoa nmax=</span><span class="sc">{</span>n_max<span class="sc">}</span><span class="ch">\n</span><span class="ss">·Partikula dentzitate minimoa nmin=</span><span class="sc">{</span>n_min<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>·Partikula dentzitatea n=4.0
+·Partikula dentzitate maximoa nmax=4.002224138940347
+·Partikula dentzitate minimoa nmin=3.9087265935901794</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Faseak (<span class="math inline">\(m_s = 1, 0, -1\)</span>)</strong>: Osagai bakoitzaren tokiko fasea erakusten duten hiru mapa. Kolore-aldaketa zirkularrek bortexen egitura topologikoa adierazten dute.</li>
+</ul>
+<div id="814ed883" class="cell" data-execution_count="9">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot density and phase of zero component</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">5</span>))</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Graficar Densidad</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>im0 <span class="op">=</span> ax[<span class="dv">0</span>,<span class="dv">0</span>].pcolormesh(</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    handle_array(grid.x_mesh),</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    handle_array(grid.y_mesh),</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    handle_array(density<span class="op">/</span>n_max),</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    shading<span class="op">=</span><span class="st">'auto'</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">0</span>].set_title(<span class="vs">r"Densidad </span><span class="dv">$</span><span class="cf">|</span><span class="er">\</span><span class="vs">psi_0</span><span class="cf">|</span><span class="dv">^</span><span class="vs">2 / n</span><span class="dv">$</span><span class="vs">"</span>)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">0</span>].set_ylabel(<span class="vs">r"</span><span class="dv">$</span><span class="vs">y</span><span class="dv">$</span><span class="vs">"</span>)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>fig.colorbar(im0, ax<span class="op">=</span>ax[<span class="dv">0</span>,<span class="dv">0</span>])</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Graficar Fase spin up</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>im1 <span class="op">=</span> ax[<span class="dv">0</span>,<span class="dv">1</span>].pcolormesh(</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    handle_array(grid.x_mesh),</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    handle_array(grid.y_mesh),</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    handle_array(cp.angle(psi.plus_component)),</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">"jet"</span>,</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    shading<span class="op">=</span><span class="st">'auto'</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">1</span>].set_title(<span class="vs">r"Fase </span><span class="dv">$</span><span class="vs">m_s = 1</span><span class="dv">$</span><span class="vs">"</span>)</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>fig.colorbar(im1, ax<span class="op">=</span>ax[<span class="dv">0</span>,<span class="dv">1</span>])</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Graficar Fase spin cero</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>im2 <span class="op">=</span> ax[<span class="dv">1</span>,<span class="dv">0</span>].pcolormesh(</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>    handle_array(grid.x_mesh),</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>    handle_array(grid.y_mesh),</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>    handle_array(cp.angle(psi.zero_component)),</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">"jet"</span>,</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>    shading<span class="op">=</span><span class="st">'auto'</span></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">0</span>].set_title(<span class="vs">r"Fase </span><span class="dv">$</span><span class="vs">m_s = 0</span><span class="dv">$</span><span class="vs">"</span>)</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">0</span>].set_ylabel(<span class="vs">r"</span><span class="dv">$</span><span class="vs">y</span><span class="dv">$</span><span class="vs">"</span>)</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">0</span>].set_xlabel(<span class="vs">r"</span><span class="dv">$</span><span class="vs">x</span><span class="dv">$</span><span class="vs">"</span>)</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>fig.colorbar(im2, ax<span class="op">=</span>ax[<span class="dv">1</span>,<span class="dv">0</span>])</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Graficar Fase spin minus</span></span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>im3 <span class="op">=</span> ax[<span class="dv">1</span>,<span class="dv">1</span>].pcolormesh(</span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>    handle_array(grid.x_mesh),</span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>    handle_array(grid.y_mesh),</span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>    handle_array(cp.angle(psi.minus_component)),</span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">"jet"</span>,</span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>    shading<span class="op">=</span><span class="st">'auto'</span></span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">1</span>].set_title(<span class="vs">r"Fase </span><span class="dv">$</span><span class="vs">m_s = -1</span><span class="dv">$</span><span class="vs">"</span>)</span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">1</span>].set_xlabel(<span class="st">"x"</span>)</span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>fig.colorbar(im3, ax<span class="op">=</span>ax[<span class="dv">1</span>,<span class="dv">1</span>])</span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Index_files/figure-html/cell-10-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{gonzález_gonzález2026,
+  author = {González González, Hugo},
+  title = {BEC Simulazioa},
+  date = {2026-02-13},
+  langid = {en},
+  abstract = {This analysis provides ... \textbar{}}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-gonzález_gonzález2026" class="csl-entry quarto-appendix-citeas" role="listitem">
+González González, Hugo. 2026. <span>“BEC Simulazioa.”</span> Grade of
+Physics TFG, Bose-Einstein Condensation. February 13, 2026.
+</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

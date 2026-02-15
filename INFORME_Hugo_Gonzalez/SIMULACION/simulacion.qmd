@@ -1,0 +1,185 @@
+# Spin-1 Kondentsatuaren Simulazio Txostena: Trampa Harmonikoa
+
+Txosten honek `armonico.py` script-aren funtzionamendua zehazten du. Script honek spin-1 motako Bose-Einstein kondentsatu baten (BEC) fisika simulatzen du **pyGPE** liburutegia erabiliz. Helburu nagusia sistemaren **oinarrizko egoera** (ground state) aurkitzea da denbora imaginarioaren metodoaren bidez.
+
+## 1. Liburutegiak eta Azpiegitura
+* **Kalkulu Motorra**: Kodeak automatikoki detektatzen du GPU bat erabilgarri dagoen `cupy` erabiltzeko; bestela, `numpy` erabiltzen du CPU bidezko kalkuluetarako.
+* **Nukleo Fisikoa**: `pygpe.spinone` modulua erabiltzen du uhin-funtzioaren hiru osagaien dinamika kudeatzeko: $\psi_+$, $\psi_0$ eta $\psi_-$.
+* **Ikusaraztea**: `matplotlib` erabiltzen du dentsitate eta fase mapak sortzeko.
+* **Prozesuaren Jarraipena (tqdm)**: `tqdm` liburutegia erabiltzen da simulazioaren begiztan egoera-barra bat erakusteko (programa orokorrean dago, baina txosten honetan kendu dugu). Honek kalkuluen progresioa, abiadura eta geratzen den denbora estimatua denbora errealean ikusteko aukera ematen du.
+
+```{python}
+import tqdm
+try:
+    import cupy as cp  # type: ignore
+except ImportError:
+    import numpy as cp
+from pygpe.shared.utils import handle_array
+import matplotlib.pyplot as plt
+import pygpe.shared.vortices as vort
+import pygpe.spinone as gpe
+```
+
+## 2. Normalizazio Globalerako Funtzioa
+**Denbora imaginarioaren** metodoak ez du uhin-funtzioaren norma kontserbatzen (egoera kitzikatuak iragazteko gutxitu egiten du), beraz, `global_normalize` funtzioa ezartzen da:
+* Dentsitate osoa kalkulatzen du hiru osagaiak batuz: $n = |\psi_+|^2 + |\psi_0|^2 + |\psi_-|^2$.
+* Osagaiak eskalatze-faktore baten bidez doitzen ditu, dentsitatearen integrala partikula kopuru osoarekin ($N$) bat datorrela ziurtatzeko.
+
+```{python}
+def global_normalize(psi, dx, dy, target_norm):
+    # Calcular densidad total
+    density = cp.abs(psi.plus_component)**2 + cp.abs(psi.zero_component)**2 + cp.abs(psi.minus_component)**2
+
+    # Calcular integral (número total de partículas)
+    current_norm = cp.sum(density) * dx * dy
+
+    if abs(current_norm - target_norm) > 1e-16:
+        factor = cp.sqrt(target_norm / current_norm)
+        # Aplicar a todas las componentes
+        psi.plus_component *= factor
+        psi.zero_component *= factor
+        psi.minus_component *= factor
+    return psi
+```
+
+## 3. Sistemaren Konfigurazioa
+* **Sarea (Grid)**: $128 \times 128$ puntuko sare bat definitzen da, $0.5$ unitateko espazio-tartearekin.
+```{python}
+# Sortu sarea
+points=(128,128)
+N = points[0]*points[1]
+grid_spacing=(0.5,0.5)
+grid = gpe.Grid(points, grid_spacing)
+
+# Trampa harmonikoa
+omega = 2
+trap_strength = omega**2
+```
+
+* **Trampa Harmonikoa**: Potentzial paraboliko bat aplikatzen da: $V(x,y) = \frac{1}{2} \omega^2 (x^2 + y^2)$, non $\omega = 2$.
+* **Parametro Fisikoak (`params`)**:
+    * `c0 = 100.0`: Dentsitatearen arteko interakzio repulsiboa.
+    * `c2 = -10.0`: Spin interakzio ferromagnetikoa (Helio-4 metaestagarriaren antzekoa).
+    * `q = 0.001`: Zeeman efektu koadratikoa, egonkortasun numerikoa emateko.
+    * `dt = -1j * 1e-2`: **Denbora imaginarioaren** pausoa sistemaren erlaxaziorako.
+
+```{python}
+# Parametroak
+params = {
+    # Interacciones (Basadas en longitudes de dispersión del Helio-4 metaestable)
+    "c0": 100.0,   # Interacción de densidad (repulsiva, mantiene el condensado unido)
+    "c2": -10.0,   # Interacción de spin (NEGATIVA para Helio = Ferromagnético)
+    # Campos externos
+    "p": 0.0,      # Zeeman lineal (usualmente 0 a menos que haya gradiente)
+    "q": 0.001,    # Zeeman cuadrático (pequeño pero positivo para estabilidad numérica)
+    # Trampa armonica
+    "trap": trap_strength, 
+    "n0": 1.0,     
+    "dt": -1j * 1e-2, 
+    "nt": 10000,
+    "t": 0,
+}
+```
+
+## 4. Hasieratzea eta Bilakaera
+1. **Hasierako Egoera**: Konfigurazio ferromagnetiko puru batetik abiatzen da: $\psi = (1, 0, 0)^T$.
+2. **Zzarata eta Bortexa**: Zarata gehitzen zaio simetria hausteko eta fase-profil bat aplikatzen da bortex bat sorrarazteko.
+3. **Simulazio Buklea**: Programak $10.000$ iterazio egiten ditu. 10 urrats bakoitzean, datuak gordetzen dira eta sistema normalizatzen da energia minimorantz konbergitzen duela ziurtatzeko.
+
+```{python}
+# Sortu uhin funtzioa
+psi = gpe.SpinOneWavefunction(grid)
+
+psi.set_ground_state("ferromagnetic", params)
+psi.add_noise("all", 0.0, 1e-2)
+
+# Bortexak sortu
+phase = vort.vortex_phase_profile(grid, 100, 1)
+psi.apply_phase(phase)
+
+psi = global_normalize(psi, grid_spacing[0], grid_spacing[1],N)
+
+data = gpe.DataManager("spin_one_data.hdf5", "SIMULACION/data", psi, params) # Normalean hau ez da beharreskoa baina funtzionatzeko Quarton pth guztia jarri behar da.
+
+psi.fft() # Preparar el k espacio
+for i in range(params["nt"]):
+    # Perform the evolution
+    gpe.step_wavefunction(psi, params)
+    if i % 10 == 0:  # Save data every 10 time steps
+        psi = global_normalize(psi, grid_spacing[0], grid_spacing[1],N) # En el metodo de tiempo imaginario es recomendable renormalizar periodicamente
+        data.save_wavefunction(psi)
+    params["t"] += params["dt"]
+
+psi = global_normalize(psi, grid_spacing[0], grid_spacing[1],N)
+```
+
+## 5. Emaitzen Analisia
+Script-ak lau paneleko irudi bat sortzen du:
+* **Dentsitate Osoa**: Kondentsatua tranparen erdian nola metatzen den erakusten du.
+
+```{python}
+density = cp.abs(psi.plus_component)**2 + cp.abs(psi.zero_component)**2 + cp.abs(psi.minus_component)**2
+
+n = cp.sum(density)/N
+n_max = cp.max(density)
+n_min = cp.min(density)
+
+print(f"·Partikula dentzitatea n={n}\n·Partikula dentzitate maximoa nmax={n_max}\n·Partikula dentzitate minimoa nmin={n_min}")
+```
+* **Faseak ($m_s = 1, 0, -1$)**: Osagai bakoitzaren tokiko fasea erakusten duten hiru mapa. Kolore-aldaketa zirkularrek bortexen egitura topologikoa adierazten dute.
+
+```{python}
+# Plot density and phase of zero component
+fig, ax = plt.subplots(2, 2, figsize=(12, 5))
+
+# Graficar Densidad
+im0 = ax[0,0].pcolormesh(
+    handle_array(grid.x_mesh),
+    handle_array(grid.y_mesh),
+    handle_array(density/n_max),
+    shading='auto'
+)
+ax[0,0].set_title(r"Densidad $|\psi_0|^2 / n$")
+ax[0,0].set_ylabel(r"$y$")
+fig.colorbar(im0, ax=ax[0,0])
+
+# Graficar Fase spin up
+im1 = ax[0,1].pcolormesh(
+    handle_array(grid.x_mesh),
+    handle_array(grid.y_mesh),
+    handle_array(cp.angle(psi.plus_component)),
+    cmap="jet",
+    shading='auto'
+)
+ax[0,1].set_title(r"Fase $m_s = 1$")
+fig.colorbar(im1, ax=ax[0,1])
+
+# Graficar Fase spin cero
+im2 = ax[1,0].pcolormesh(
+    handle_array(grid.x_mesh),
+    handle_array(grid.y_mesh),
+    handle_array(cp.angle(psi.zero_component)),
+    cmap="jet",
+    shading='auto'
+)
+ax[1,0].set_title(r"Fase $m_s = 0$")
+ax[1,0].set_ylabel(r"$y$")
+ax[1,0].set_xlabel(r"$x$")
+fig.colorbar(im2, ax=ax[1,0])
+
+# Graficar Fase spin minus
+im3 = ax[1,1].pcolormesh(
+    handle_array(grid.x_mesh),
+    handle_array(grid.y_mesh),
+    handle_array(cp.angle(psi.minus_component)),
+    cmap="jet",
+    shading='auto'
+)
+ax[1,1].set_title(r"Fase $m_s = -1$")
+ax[1,1].set_xlabel("x")
+fig.colorbar(im3, ax=ax[1,1])
+
+plt.tight_layout()
+plt.show()
+```
+

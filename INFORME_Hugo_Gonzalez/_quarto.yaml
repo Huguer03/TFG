@@ -1,0 +1,13 @@
+project:
+  type: website
+
+execute:
+  freeze: auto
+  enabled: true
+
+format:
+  html:
+    toc: true
+    comments:
+      hypothesis: true
+    code-fold: true
