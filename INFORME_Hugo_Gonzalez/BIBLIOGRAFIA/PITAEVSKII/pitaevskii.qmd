@@ -1,0 +1,298 @@
+# Oinarrizko teoria
+Atal hau [@Pitaevskii] liburuan oinarrituta dago. Aztertuko ditugu oinarrizko gauzak GPE ekuazioa ulertu ahal izateko.
+
+## Ez-uniforme Bose gasak T=0K
+
+Ikertuko ditugu Bose gas diluituen dinamika.
+
+### Gross-Pitaevskii ekuazioa (GPE)
+
+Elektromagnetismoan egiten dugun bezala, $\hat{\Psi}(\mathbf{r}, t)$ eremu eragilea eremu klasiko batekin, $\Psi_0(\mathbf{r}, t)$, ordezkatuko dugu. Azken honi kondentsatuaren uhin-funtzioa edo ordena-parametroa deitzen zaio. Orain behar dugu ekuazio bat duena funtzio klasikoaren dinamika. Hau lortzeko gogoratu Heisemberg-en irudian hurrengo erlazioa bete behar duela $\hat{\Psi}$:
+
+$$
+i\hbar \frac{\partial}{\partial t} \hat{\Psi}(\mathbf{r}, t) = [\hat{\Psi}(\mathbf{r}, t), \hat{H}]
+$$
+
+$$
+= \left[ -\frac{\hbar^2 \nabla^2}{2m} + V_{ext}(\mathbf{r}, t) + \int \hat{\Psi}^\dagger(\mathbf{r}', t) V(\mathbf{r}' - \mathbf{r}) \hat{\Psi}(\mathbf{r}', t) d\mathbf{r}' \right] \hat{\Psi}(\mathbf{r}, t),
+$${#eq-p1}
+
+non $V_{ext}(\mathbf{r}, t)$ kanpo-potentziala den eta $V(\mathbf{r}' - \mathbf{r})$
+
+Aldaketa egin ahal izateko, Bornen hurbilketa bete beharko da. Honetarako $V_{eff}$ bete beharko ditu energia txikiko sakabanaketaren baldintzak eta $\Psi_0$ era motelean aldatuko da elkarrekintza-potentzialaren barrutian. Hau betetzen bada $\mathbf{r'}$ $\mathbf{r}$-rekin aldatu dezakegu. 
+
+$$
+i\hbar \frac{\partial}{\partial t} \Psi(\mathbf{r}, t) = \left( -\frac{\hbar^2 \nabla^2}{2m} + V_{ext}(\mathbf{r}, t) + g|\Psi(\mathbf{r}, t)|^2 \right) \Psi(\mathbf{r}, t)
+$${#eq-GPE}
+
+non ordena-parametroa $g = \int V_{eff} \; d\mathbf{r}$ den. Hau s-wave sakabanaketaren $a$ parametroaren funtzioan jar dezakegu:
+
+$$
+g = \frac{4 \pi \hbar^2 a}{m}
+$${#eq-p3}
+
+non $a$ s-uhinen sakabanatze-luzera den eta $m$ atomo baten masa.
+
+Hau izango da Maxwell ekuazioen analogoa baina energia eta momentuaren erlazioa fotoiena izan beharrean De Brogliren erlazioa beteko dute.
+
+Zenbait baldintza bete beharko dira @eq-GPE erabili ahal izateko.
+
+* BEC-a sortzeko partikula kopuru handia behar ditugu.
+* Temperatura txikia izatea behar dugu partikulen artean sortzen diren elkarrekintzak txikiak izateko.
+* Gure uhin funtzioa dago normalizatuta hurrengo moduan: $\int |\Psi|^2 \; d\mathbf{r} = N$
+* Ekuazioa bete egingo da $\mathbf{r} \gg a$ denean.
+
+Hau guztia betetzen bada, gasaren dentsitatea kondentzatuarenarekin bat etorriko da:
+
+$$
+n(\mathbf{r}) = |\Psi(\mathbf{r})|^2
+$${#eq-density}
+
+Beste era bat izango da egoera estazionario bat inposatzen
+
+$$
+\delta \left[ -i\hbar \int \Psi^* \frac{\partial}{\partial t} \Psi \, d\mathbf{r}dt + \int E \, dt \right] = 0
+$${#eq-p5}
+
+akzioari. Honekin izango dugun ekuazioa
+
+$$
+i\hbar \frac{\partial \Psi(\mathbf{r}, t)}{\partial t} = \frac{\delta E}{\delta \Psi^*(\mathbf{r}, t)}
+$${#eq-p6}
+
+izango da, non energia funtzionalaren ordena-parametroa
+
+$$
+E = \int \left( \frac{\hbar^2}{2m}|\nabla\Psi|^2 + V_{ext}(\mathbf{r})|\Psi|^2 + \frac{g}{2}|\Psi|^4 \right) d\mathbf{r}
+$${#eq-p7}
+
+Orain ikusiko ditugu [@eq-GPE]-ren kontserbazio legeak. Lehenengo, kontuan izanda $\int |\Psi|^2 \; d\mathbf{r} = N$ dela, hau da, partikula kopurua konstante mantentzen dela. Beraz, [@eq-GPE] $\Psi^*$-rekin biderkatuz probabilitatearen kontserbazio legea lortzen da:
+
+$$
+\frac{\partial n}{\partial t} + \text{div}\mathbf{j} = 0
+$${#eq-kontinuidad}
+
+non erabili dugun [@eq-density] eta sartu dugun korronte dentsitatea:
+
+$$
+\mathbf{j}(\mathbf{r}, t) = -\frac{i\hbar}{2m} (\Psi^* \nabla \Psi - \Psi \nabla \Psi^*) = n \frac{\hbar}{m} \nabla S
+$${#eq-korrontea}
+
+non $S$ ordena-parametroaren fasea den. Gogoratu, ordena-parametroa funtzio konplexua izanda honela idatzi dezakegula:
+
+$$
+\Psi(\mathbf{r},t) = \sqrt{n(\mathbf{r},t)}e^{i S(\mathbf{r},t)}.
+$${#eq-uf}
+
+Ekuazio honetatik lortu ahal dugu zein den kondentsatuaren abiadura fasearen bitartez:
+
+$$
+\mathbf{v_s}(\mathbf{r},t) = \frac{\hbar}{m} \nabla S.
+$${#eq-abiadura}
+
+Gainera, ikusi dezakegunez hau irrotazionala izango da, zentsua daukana, azkenean superfluido guztiek propietate hau erakusten baitute.
+
+Jakinda energia ere kontserbatu egingo dela lortu ahal izango dugu momentu dentsitatearen ekuazioa.
+
+$$
+m \frac{\partial j_i}{\partial t} + \frac{\partial \Pi_{ik}}{\partial x_k} = -n \frac{\partial V_{ext}}{\partial x_i},
+$${#eq-momentu-kontserbazioa}
+
+non
+
+$$
+\Pi_{ik} = \frac{\hbar^2}{4m^2} \left[ \frac{\partial \Psi}{\partial x_i} \frac{\partial \Psi^*}{\partial x_k} - \Psi \frac{\partial^2 \Psi^*}{\partial x_i \partial x_k} + \text{c.c.} \right] + \frac{gn^2}{2} \delta_{ik},
+$${#eq-momentu-tentsorea}
+
+momentuaren fluxu tentsorea da. Ohartu, kanpo indar barik momentua kontserbatu egingo dela.
+
+Erabilgarria da fasearentzako ekuazio bat lortzea. Hau lortzen da [@eq-uf] [@eq-GPE] sartuz: 
+
+$$
+\hbar \frac{\partial}{\partial t} S + \left( \frac{1}{2} m \mathbf{v}_s^2 + V_{ext} + gn - \frac{\hbar^2}{2m\sqrt{n}} \nabla^2 \sqrt{n} \right) = 0.
+$${#eq-S}
+
+Konturatu [@eq-density] eta [@eq-S] osatzen dutela ekuazio multzo bat analogoa dena GPE ekuazioarekin. $\hbar$ ekuazioan sartzen da dentsitatearen gradientearen bitartez, honi deitzen zaio "presio kuantikoa".
+
+[@eq-GPE]-ren soluzio geldikorra forma simple bat du
+
+$$
+\Psi(\mathbf{r},t) = \Psi_0(\mathbf{r}) e^{-\frac{i\mu t}{\hbar}}.
+$${#eq-guf}
+
+Denboraren menpekotasuna potentzial kimikoa zehazten du
+
+$$
+\mu = \frac{\partial E}{\partial N},
+$${#eq-mu(E)}
+
+guzti honekin Gross-Pitaevskii ekuazioa honela idatzi dezakegu
+
+$$
+\left( -\frac{\hbar^2 \nabla^2}{2m} + V_{ext}(\mathbf{r}) + g|\Psi_0(\mathbf{r})|^2 - \mu \right) \Psi_0(\mathbf{r}) = 0,
+$${#eq-egonGPE}
+
+non suposatu egin dugu gure potentziala ez dela denboraren menpekoa. $\mu$-ren balioa normalizazio baldintzak ezarriko digu.
+
+### Bortex interakzio txikiko Bose gasan
+
+Esan dugunez, GPE deskribatuta dago [@eq-guf]-ren bitartez, hau da, magnitude orden bat denborarekiko menpekotasuna duena, non menpekotasuna fase global bat deskribatzen duen potentziak kimikoaren funtzioa dena.
+
+Orain aztertuko ditugu bortez soluzioak. Hauek ematen dira gure kondentsatuaren dentsitatea zerorantz doanean. Hauek ematen diren eremuak, berreskuratze luzera baino txikiagoko eskualdetan gertatzen dira eta kontuan izan behar dugu presio kuantikoaren terminoa GPE-n. Normalean, azkar biratzen duen erreferentzia sisteman izango dira egonkorrak, sistema horretan energiaren funtzionala zero baita.
+
+Superfluidoetan dauden biraketak ez dira solido zurrunean dauden bezalakoak $\mathbf{v} = \mathbf{\Omega} \times \mathbf{r}$, baizik eta deskribatuta egongo da bortizitatea difusioarekin: $\text{curl}\mathbf{v} = 2\mathbf{\Omega}$. Hau konturatzen bagara, kontraesan bat izango da superfluidoak irrotazionalak direla esan genuelako, hau da, espero dugu hauek ez biratzea solido zurruna bezala.
+
+Demagun dugula $R$ erradioko eta $L$ luzerako zilindro batean gasa konfinatuta. Izango dugun soluzioa hurrengo formakoa izango da:
+
+$$
+\Psi_0(\mathbf{r}) = e^{is\varphi}|\Psi_0(r)|,
+$${#eq-zuf}
+
+non sartu ditugun koordenatu zilindrikoak $z$, $r$ eta $\varphi$. $s$ zenbaki osoa da, gure uhin-funtzioa balio bakarra izan dezan. Konturatzen bagara [@eq-zuf] $l_z$-ren autobalioa izango da $l_z = s \hbar$ izaten. Beraz, bortex osoaren momentu angeluarra $L_z = N s \hbar$ izango da. [@eq-zuf] adierazten du gas bat biratzen hurrengo abiadura tangentzialarekin
+
+$$
+v_s = \frac{\hbar}{m}\frac{s}{r}.
+$${#eq-abiadura-tangen}
+
+Konturatzen bagara hau guztiz desberdina da solido zurrunean geneukanarekin, hau $1/r$-ren proportzionala baita ([@fig-vel-eremuak]).
+
+```{python}
+#| echo: false
+#| label: fig-vel-eremuak
+#| fig-cap: "Abiadura-eremu tangentziala fluxu irrotazionalerako ($v_{\\text{irr}}$) eta errotazio rigidoko ($v_{\\text{rig}}$) fluxurako. Abiadura-eremu irrotazionala $1/r$ bezala dibergitzen da $r \\to 0$ denean. Hemen $r$ eta $v$ unitate arbitrarioetan (a.u.) neurtzen dira."
+import numpy as np
+import matplotlib.pyplot as plt
+import scienceplots
+
+# Configuración del estilo
+plt.style.use(['science', 'notebook'])
+
+# Definición de los datos
+r = np.linspace(0.01, 5, 500)
+v_rig = r           # Flujo de rotación rígida (v proportional to r)
+v_irr = 1 / r       # Flujo irrotacional (v proportional to 1/r)
+
+# Creación de la figura
+fig, ax = plt.subplots(figsize=(6, 4))
+
+# Graficar las líneas
+ax.plot(r, v_irr, color='black', linewidth=1.5)
+ax.plot(r, v_rig, color='black', linewidth=1.5)
+
+# Configuración de límites y ticks
+ax.set_xlim(0, 5)
+ax.set_ylim(0, 5)
+ax.set_xticks([0, 1, 2, 3, 4, 5])
+ax.set_yticks([0, 1, 2, 3, 4, 5])
+
+# Etiquetas de los ejes
+ax.set_xlabel(r'$r$ [a.u.]')
+ax.set_ylabel(r'$v$', rotation=0, labelpad=15)
+
+# Anotaciones con flechas (posicionadas como en la imagen)
+ax.annotate(r'$v_{\mathrm{irr}}$', xy=(0.3, 3.5), xytext=(1.2, 3.5),
+            arrowprops=dict(arrowstyle='->', lw=0.8),
+            va='center')
+
+ax.annotate(r'$v_{\mathrm{rig}}$', xy=(3.0, 3.0), xytext=(3.9, 2.5),
+            arrowprops=dict(arrowstyle='->', lw=0.8),
+            va='center')
+
+# Ajuste de los bordes (ticks hacia adentro y en todos los lados)
+ax.tick_params(which='both', direction='in', top=True, right=True)
+
+plt.show()
+```
+
+Ordezkatuz [@eq-zuf] [@eq-egonGPE], lortuko dugun adierazpena $|\Psi_0|$-rentzat:
+
+$$
+-\frac{\hbar^2}{2m} \frac{1}{r} \frac{d}{dr} \left( r \frac{d|\Psi_0|}{dr} \right) + \frac{\hbar^2 s^2}{2mr^2} |\Psi_0| + g|\Psi_0|^3 - \mu|\Psi_0| = 0.
+$${#eq-20}
+
+Bortexaren distantzia handietara dakigu izan behar dugun dentsitatea kondentsatuarena izango dela $|\Psi_0| \to \sqrt{n}$. Hau dela eta, sartuko dugu hurrengo funtzio adimensionala $f(\eta)$ eta gure dentsitatea:
+
+$$
+|\Psi_0| = \sqrt{n} f(\eta),
+$${#eq-aduf}
+
+non $\eta = r/\xi$ eta $\xi = \hbar / \sqrt{2mgn}$ berreskuratze luzera den. Funtzio honek betetzen duen ekuazioa
+
+$$
+\frac{1}{\eta} \frac{d}{d\eta} \left( \eta \frac{df}{d\eta} \right) + \left( 1 - \frac{s^2}{\eta^2} \right) f - f^3 = 0,
+$${#eq-f}
+
+non muga baldintzak $f(\eta\to\infty) = 1$ eta $f(0) = 0$ izan behar diren. Hau numerikoki ebasten badugu ikusten da ([@fig-bortex-profila]) nola $r$ $\xi$-ren ordenakoa denenean dentsitate aldaketa bortitza izango den.
+
+```{python}
+#| echo: false
+#| label: fig-bortex-profila
+#| fig-cap: "[@eq-f]-ren soluzio numerikoak $s=1$ eta $s=2$ kasuetarako. Ikusten da nola kondentsatuaren dentsitatea aldatzen den $\\eta$-ren funtzioan."
+
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import solve_bvp
+import scienceplots
+
+# Estiloa aplikatu
+plt.style.use(['science', 'notebook'])
+
+def fun(eta, y, s):
+    f, df = y
+    # d2f/deta2 isolatuta ekuaziotik
+    d2f = -(1/eta)*df - (1 - s**2/eta**2)*f + f**3
+    return np.vstack((df, d2f))
+
+def bc(ya, yb):
+    # Mugalde baldintzak: f(0) = 0 eta f(inf) = 1
+    return np.array([ya[0], yb[0] - 1])
+
+# Parametroak
+s = 1
+eta_max = 10
+eta = np.linspace(0.001, eta_max, 100) # 0.1etik hasten da singularitatea saihesteko
+
+# Hasierako estimazioa
+y1_guess = np.zeros((2, eta.size))
+y1_guess[0] = 1 - np.exp(-eta) # Profil tipikoa
+
+# Ebazpena
+res1 = solve_bvp(lambda eta, y: fun(eta, y, s), bc, eta, y1_guess)
+
+# Parametroak
+s = 2
+
+# Hasierako estimazioa
+y2_guess = np.zeros((2, eta.size))
+y2_guess[0] = 1 - np.exp(-eta) # Profil tipikoa
+
+# Ebazpena
+res2 = solve_bvp(lambda eta, y: fun(eta, y, s), bc, eta, y2_guess)
+
+
+# Grafikoa osatu
+fig, ax = plt.subplots(figsize=(6,4))
+
+ax.plot(res1.x, res1.y[0], color='black', linewidth=1.5, label=r'$f(\eta)$')
+
+ax.plot(res2.x, res2.y[0], color='black', linewidth=1.5, label=r'$f(\eta)$')
+
+# Irudiaren dekorazioa
+ax.set_xlabel(r'$\eta$')
+ax.set_ylabel(r'$f(\eta)$', rotation=0, labelpad=20)
+ax.set_xlim(0, 6)
+ax.set_ylim(0, 1)
+
+# Ticks konfigurazioa estiloaren arabera
+ax.tick_params(direction='in', top=True, right=True)
+
+# Anotazioa (flecha estiloa mantenduz)
+ax.annotate(r'$s=1$', xy=(2, 0.8), xytext=(4, 0.6),
+            arrowprops=dict(arrowstyle='->', lw=0.8))
+ax.annotate(r'$s=2$', xy=(2, 0.4), xytext=(2.5, 0.2),
+            arrowprops=dict(arrowstyle='->', lw=0.8))
+
+
+plt.show()
+```
+

@@ -24,6 +24,5 @@ number-sections: true
 
 ---
 
-{{< include BIBLIOGRAFIA/ROADMAP/roadmap.qmd >}}
 {{< include BIBLIOGRAFIA/PITAEVSKII/pitaevskii.qmd >}}
-{{< include SIMULACION/simulacion.qmd >}}
+``{{< include SIMULACION/simulacion.qmd >}}``

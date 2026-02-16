@@ -1,0 +1,57 @@
+# ROADMAP TFG
+
+Esta guía organiza la lectura de los textos fundamentales para entender la física del Helio-II y cómo implementarla numéricamente en la librería **PyGPE** .
+
+
+
+## 1. Fundamentos Teóricos (La Ecuación de Gross-Pitaevskii)
+**Libro:** *Bose-Einstein Condensation and Superfluidity* - Pitaevskii & Stringari.
+
+* **Capítulo 5:** Secciones 5.1 y 5.3.
+ * *Por qué:* Aquí se deriva la GPE y se define la **longitud de curación** ($\xi$). Es la escala física que determinará el tamaño de tu rejilla (grid) en PyGPE.
+* **Capítulo 6:** Secciones 6.1 a 6.4.
+ * *Por qué:* Explica la hidrodinámica cuántica. Aprenderás a extraer la velocidad del superfluido a partir del gradiente de la fase de la función de onda.
+* **Capítulo 8:** Superfluid $^4$He.
+ * *Por qué:* Explica las particularidades del Helio-II frente a otros condensados, como la fuerte interacción entre átomos.
+
+
+
+## 2. Fenomenología de Vórtices (Lo que vas a simular)
+**Libro:** *Quantized Vortices in Helium II* - Russell J. Donnelly.
+
+* **Capítulo 4:** Estructura de los vórtices cuantizados.
+ * *Por qué:* Describe el perfil de densidad del núcleo del vórtice. Es esencial para validar que tus resultados de PyGPE sean físicamente correctos.
+* **Capítulo 5:** Arreglos de vórtices (Vortex Lattices).
+ * *Por qué:* Si simulas Helio en un recipiente rotante, este capítulo describe las redes de Abrikosov que deberías observar.
+
+
+
+## 3. Dinámica y Turbulencia (Tiempo Real)
+**Libro:** *Vortex Dynamics in Superfluid Helium-4* - Sergey K. Nemirovskii.
+
+* **Capítulo 2:** El modelo GPE para líneas de vórtice.
+ * *Por qué:* Es el puente directo entre la teoría y la computación. Explica cómo la GPE permite que los vórtices se reconecten, algo fundamental en la turbulencia del Helio-II.
+* **Capítulo 4:** Dinámica de filamentos.
+ * *Por qué:* Útil si planeas evolucionar el sistema en tiempo real para ver cómo interactúan los vórtices entre sí.
+
+
+
+## 4. Configuración Numérica en PyGPE
+
+Para que la simulación sea estable, debes seguir estas reglas de oro:
+
+1. **Resolución Espacial:** El espaciado entre puntos de tu malla (`dx`) debe cumplir:
+ * $dx \leq \xi$ (lo ideal es $0.5\xi$).
+2. **Tiempo Imaginario:** Usa siempre `find_ground_state()` primero para obtener una configuración inicial suave y de baja energía.
+3. **Tiempo Real:** Usa `evolve()` para estudiar fenómenos dinámicos como colisiones de vórtices o flujo a través de obstáculos.
+
+
+
+## 5. Resumen de Parámetros Físicos (Helio-II)
+
+| Parámetro | Símbolo | Valor Típico |
+| :--- | :--- | :--- |
+| Longitud de curación | $\xi$ | $\approx 1 \times 10^{-10}$ m (1 Å) |
+| Masa del átomo | $m$ | $6.64 \times 10^{-27}$ kg |
+| Quantum de circulación | $\kappa$ | $h/m \approx 9.97 \times 10^{-8}$ m²/s |
+

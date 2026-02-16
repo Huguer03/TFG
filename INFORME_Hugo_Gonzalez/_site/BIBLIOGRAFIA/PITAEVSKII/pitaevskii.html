@@ -6,11 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Hugo González González">
-<meta name="dcterms.date" content="2026-02-15">
-<meta name="keywords" content="TFG, Grade of Physics, Physics Lab, BEC">
 
-<title>BEC simulazioa</title>
+<title>pitaevskii</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,45 +20,25 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-dda6bcf18c14475f7348b817eb15352b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-dda6bcf18c14475f7348b817eb15352b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -140,13 +117,10 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#oinarrizko-teoria" id="toc-oinarrizko-teoria" class="nav-link active" data-scroll-target="#oinarrizko-teoria"><span class="header-section-number">1</span> Oinarrizko teoria</a>
+  <li><a href="#ez-uniforme-bose-gasak-t0k" id="toc-ez-uniforme-bose-gasak-t0k" class="nav-link active" data-scroll-target="#ez-uniforme-bose-gasak-t0k">Ez-uniforme Bose gasak T=0K</a>
   <ul class="collapse">
-  <li><a href="#ez-uniforme-bose-gasak-t0k" id="toc-ez-uniforme-bose-gasak-t0k" class="nav-link" data-scroll-target="#ez-uniforme-bose-gasak-t0k"><span class="header-section-number">1.1</span> Ez-uniforme Bose gasak T=0K</a>
-  <ul class="collapse">
-  <li><a href="#gross-pitaevskii-ekuazioa-gpe" id="toc-gross-pitaevskii-ekuazioa-gpe" class="nav-link" data-scroll-target="#gross-pitaevskii-ekuazioa-gpe"><span class="header-section-number">1.1.1</span> Gross-Pitaevskii ekuazioa (GPE)</a></li>
-  <li><a href="#bortex-interakzio-txikiko-bose-gasan" id="toc-bortex-interakzio-txikiko-bose-gasan" class="nav-link" data-scroll-target="#bortex-interakzio-txikiko-bose-gasan"><span class="header-section-number">1.1.2</span> Bortex interakzio txikiko Bose gasan</a></li>
-  </ul></li>
+  <li><a href="#gross-pitaevskii-ekuazioa-gpe" id="toc-gross-pitaevskii-ekuazioa-gpe" class="nav-link" data-scroll-target="#gross-pitaevskii-ekuazioa-gpe">Gross-Pitaevskii ekuazioa (GPE)</a></li>
+  <li><a href="#bortex-zuzenak-interakzio-txikiko-bose-gasan" id="toc-bortex-zuzenak-interakzio-txikiko-bose-gasan" class="nav-link" data-scroll-target="#bortex-zuzenak-interakzio-txikiko-bose-gasan">Bortex zuzenak interakzio txikiko Bose gasan</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -156,55 +130,29 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">BEC simulazioa</h1>
+<h1 class="title">Oinarrizko teoria</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Hugo González González <a href="mailto:hgonzalez031@ikasle.ehu.eus" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">February 15, 2026</p>
-    </div>
-  </div>
   
     
   </div>
   
-<div>
-  <div class="abstract">
-    <div class="block-title">Abstract</div>
-    <p>This analysis provides … |</p>
-  </div>
-</div>
 
-<div>
-  <div class="keywords">
-    <div class="block-title">Keywords</div>
-    <p>TFG, Grade of Physics, Physics Lab, BEC</p>
-  </div>
-</div>
 
 </header>
 
 
-<section id="oinarrizko-teoria" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Oinarrizko teoria</h1>
-<p>Atal hau <span class="citation" data-cites="Pitaevskii">(<a href="#ref-Pitaevskii" role="doc-biblioref">Pitaevskii and Stringari 2016</a>)</span> liburuan oinarrituta dago. Aztertuko ditugu oinarrizko gauzak GPE ekuazioa ulertu ahal izateko.</p>
-<section id="ez-uniforme-bose-gasak-t0k" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="ez-uniforme-bose-gasak-t0k"><span class="header-section-number">1.1</span> Ez-uniforme Bose gasak T=0K</h2>
+<p>Atal hau <span class="citation" data-cites="Pitaevskii">[@Pitaevskii]</span> liburuan oinarrituta dago. Aztertuko ditugu oinarrizko gauzak GPE ekuazioa ulertu ahal izateko.</p>
+<section id="ez-uniforme-bose-gasak-t0k" class="level2">
+<h2 class="anchored" data-anchor-id="ez-uniforme-bose-gasak-t0k">Ez-uniforme Bose gasak T=0K</h2>
 <p>Ikertuko ditugu Bose gas diluituen dinamika.</p>
-<section id="gross-pitaevskii-ekuazioa-gpe" class="level3" data-number="1.1.1">
-<h3 data-number="1.1.1" class="anchored" data-anchor-id="gross-pitaevskii-ekuazioa-gpe"><span class="header-section-number">1.1.1</span> Gross-Pitaevskii ekuazioa (GPE)</h3>
+<section id="gross-pitaevskii-ekuazioa-gpe" class="level3">
+<h3 class="anchored" data-anchor-id="gross-pitaevskii-ekuazioa-gpe">Gross-Pitaevskii ekuazioa (GPE)</h3>
 <p>Elektromagnetismoan egiten dugun bezala, <span class="math inline">\(\hat{\Psi}(\mathbf{r}, t)\)</span> eremu eragilea eremu klasiko batekin, <span class="math inline">\(\Psi_0(\mathbf{r}, t)\)</span>, ordezkatuko dugu. Azken honi kondentsatuaren uhin-funtzioa edo ordena-parametroa deitzen zaio. Orain behar dugu ekuazio bat duena funtzio klasikoaren dinamika. Hau lortzeko gogoratu Heisemberg-en irudian hurrengo erlazioa bete behar duela <span class="math inline">\(\hat{\Psi}\)</span>:</p>
 <p><span class="math display">\[
 i\hbar \frac{\partial}{\partial t} \hat{\Psi}(\mathbf{r}, t) = [\hat{\Psi}(\mathbf{r}, t), \hat{H}]
@@ -213,19 +161,18 @@ i\hbar \frac{\partial}{\partial t} \hat{\Psi}(\mathbf{r}, t) = [\hat{\Psi}(\math
 = \left[ -\frac{\hbar^2 \nabla^2}{2m} + V_{ext}(\mathbf{r}, t) + \int \hat{\Psi}^\dagger(\mathbf{r}', t) V(\mathbf{r}' - \mathbf{r}) \hat{\Psi}(\mathbf{r}', t) d\mathbf{r}' \right] \hat{\Psi}(\mathbf{r}, t),
 \tag{1}\]</span></span></p>
 <p>non <span class="math inline">\(V_{ext}(\mathbf{r}, t)\)</span> kanpo-potentziala den eta <span class="math inline">\(V(\mathbf{r}' - \mathbf{r})\)</span></p>
-<p>Aldaketa egin ahal izateko, Bornen hurbilketa bete beharko da. Honetarako <span class="math inline">\(V_{eff}\)</span> bete beharko ditu energia txikiko sakabanaketaren baldintzak eta <span class="math inline">\(\Psi_0\)</span> era motelean aldatuko da elkarrekintza-potentzialaren barrutian. Hau betetzen bada <span class="math inline">\(\mathbf{r'}\)</span> <span class="math inline">\(\mathbf{r}\)</span>-rekin aldatu dezakegu.</p>
+<p>Aldaketa egin ahal izateko, Bornen hurbilketa bete beharko da. Honetarako <span class="math inline">\(V_{eff}\)</span> bete beharko ditu energia txikiko sakabanaketaren baldintzak eta <span class="math inline">\(\Psi_0\)</span> era motelean aldatuko da elkarrekintza indarraren ahalmenean. Hau betetzen bada <span class="math inline">\(\mathbf{r'}\)</span> <span class="math inline">\(\mathbf{r}\)</span>-rekin aldatu dezakegu.</p>
 <p><span id="eq-GPE"><span class="math display">\[
 i\hbar \frac{\partial}{\partial t} \Psi(\mathbf{r}, t) = \left( -\frac{\hbar^2 \nabla^2}{2m} + V_{ext}(\mathbf{r}, t) + g|\Psi(\mathbf{r}, t)|^2 \right) \Psi(\mathbf{r}, t)
 \tag{2}\]</span></span></p>
-<p>non ordena-parametroa <span class="math inline">\(g = \int V_{eff} \; d\mathbf{r}\)</span> den. Hau s-wave sakabanaketaren <span class="math inline">\(a\)</span> parametroaren funtzioan jar dezakegu:</p>
+<p>ordeneko parametroa <span class="math inline">\(g = \int V_{eff} \; d\mathbf{r}\)</span>-rekin. Hau s-wave sakabanaketaren <span class="math inline">\(a\)</span> parametroaren funtzioan jar dezakegu:</p>
 <p><span id="eq-p3"><span class="math display">\[
 g = \frac{4 \pi \hbar^2 a}{m}
 \tag{3}\]</span></span></p>
-<p>non <span class="math inline">\(a\)</span> s-uhinen sakabanatze-luzera den eta <span class="math inline">\(m\)</span> atomo baten masa.</p>
 <p>Hau izango da Maxwell ekuazioen analogoa baina energia eta momentuaren erlazioa fotoiena izan beharrean De Brogliren erlazioa beteko dute.</p>
-<p>Zenbait baldintza bete beharko dira <a href="#eq-GPE" class="quarto-xref">Equation&nbsp;2</a> erabili ahal izateko.</p>
+<p>Zenbait gauza bete beharko dira <a href="#eq-GPE" class="quarto-xref">Equation&nbsp;2</a> erabili ahal izateko.</p>
 <ul>
-<li>BEC-a sortzeko partikula kopuru handia behar ditugu.</li>
+<li>BCE-a sortzeko partikula kopuru handia behar ditugu.</li>
 <li>Temperatura txikia izatea behar dugu partikulen artean sortzen diren elkarrekintzak txikiak izateko.</li>
 <li>Gure uhin funtzioa dago normalizatuta hurrengo moduan: <span class="math inline">\(\int |\Psi|^2 \; d\mathbf{r} = N\)</span></li>
 <li>Ekuazioa bete egingo da <span class="math inline">\(\mathbf{r} \gg a\)</span> denean.</li>
@@ -242,11 +189,11 @@ n(\mathbf{r}) = |\Psi(\mathbf{r})|^2
 <p><span id="eq-p6"><span class="math display">\[
 i\hbar \frac{\partial \Psi(\mathbf{r}, t)}{\partial t} = \frac{\delta E}{\delta \Psi^*(\mathbf{r}, t)}
 \tag{6}\]</span></span></p>
-<p>izango da, non energia funtzionalaren ordena-parametroa</p>
+<p>izango da, non energia funtzionalaren orden parametroa</p>
 <p><span id="eq-p7"><span class="math display">\[
 E = \int \left( \frac{\hbar^2}{2m}|\nabla\Psi|^2 + V_{ext}(\mathbf{r})|\Psi|^2 + \frac{g}{2}|\Psi|^4 \right) d\mathbf{r}
 \tag{7}\]</span></span></p>
-<p>Orain ikusiko ditugu <a href="#eq-GPE" class="quarto-xref">Equation&nbsp;2</a>-ren kontserbazio legeak. Lehenengo, kontuan izanda <span class="math inline">\(\int |\Psi|^2 \; d\mathbf{r} = N\)</span> dela, hau da, partikula kopurua konstante mantentzen dela. Beraz, <a href="#eq-GPE" class="quarto-xref">Equation&nbsp;2</a> <span class="math inline">\(\Psi^*\)</span>-rekin biderkatuz probabilitatearen kontserbazio legea lortzen da:</p>
+<p>Orain ikusiko ditugu <a href="#eq-GPE" class="quarto-xref">Equation&nbsp;2</a>-ren kontserbazio legeak. Lehenengo, kontuan izanda <span class="math inline">\(\int |\Psi|^2 \; d\mathbf{r} = N\)</span> dela, hau da, partikula kopurua konstante mantenduko dela. Beraz, <a href="#eq-GPE" class="quarto-xref">Equation&nbsp;2</a> <span class="math inline">\(\Psi^*\)</span>-rekin biderkatuz lortuko dugu hurrengo probabilitatearen kontserbazioaren legea lortzen da.</p>
 <p><span id="eq-kontinuidad"><span class="math display">\[
 \frac{\partial n}{\partial t} + \text{div}\mathbf{j} = 0
 \tag{8}\]</span></span></p>
@@ -254,15 +201,15 @@ E = \int \left( \frac{\hbar^2}{2m}|\nabla\Psi|^2 + V_{ext}(\mathbf{r})|\Psi|^2 +
 <p><span id="eq-korrontea"><span class="math display">\[
 \mathbf{j}(\mathbf{r}, t) = -\frac{i\hbar}{2m} (\Psi^* \nabla \Psi - \Psi \nabla \Psi^*) = n \frac{\hbar}{m} \nabla S
 \tag{9}\]</span></span></p>
-<p>non <span class="math inline">\(S\)</span> ordena-parametroaren fasea den. Gogoratu, ordena-parametroa funtzio konplexua izanda honela idatzi dezakegula:</p>
+<p>non <span class="math inline">\(S\)</span> orden parametroaren fasea den. Gogoratu, orden parametroa funtzio konplexua izanda honela idatzi dezakegula:</p>
 <p><span id="eq-uf"><span class="math display">\[
 \Psi(\mathbf{r},t) = \sqrt{n(\mathbf{r},t)}e^{i S(\mathbf{r},t)}.
 \tag{10}\]</span></span></p>
-<p>Ekuazio honetatik lortu ahal dugu zein den kondentsatuaren abiadura fasearen bitartez:</p>
+<p>Ekuazio honetatik lortu ahal dugu zein den kondentsatuaren abiadura fasearen bitartez</p>
 <p><span id="eq-abiadura"><span class="math display">\[
-\mathbf{v_s}(\mathbf{r},t) = \frac{\hbar}{m} \nabla S.
+\mathbf{v_s}(\mathbf{r},t) = \frac{\hbar}{m} \nabla S
 \tag{11}\]</span></span></p>
-<p>Gainera, ikusi dezakegunez hau irrotazionala izango da, zentsua daukana, azkenean superfluido guztiek propietate hau erakusten baitute.</p>
+<p>gainera ikusi dezakegunez hau irrotazionala izango da, zentsua daukana, azkenean superfluido guztiek propietate hau erakusten baitute.</p>
 <p>Jakinda energia ere kontserbatu egingo dela lortu ahal izango dugu momentu dentsitatearen ekuazioa.</p>
 <p><span id="eq-momentu-kontserbazioa"><span class="math display">\[
 m \frac{\partial j_i}{\partial t} + \frac{\partial \Pi_{ik}}{\partial x_k} = -n \frac{\partial V_{ext}}{\partial x_i},
@@ -272,7 +219,7 @@ m \frac{\partial j_i}{\partial t} + \frac{\partial \Pi_{ik}}{\partial x_k} = -n 
 \Pi_{ik} = \frac{\hbar^2}{4m^2} \left[ \frac{\partial \Psi}{\partial x_i} \frac{\partial \Psi^*}{\partial x_k} - \Psi \frac{\partial^2 \Psi^*}{\partial x_i \partial x_k} + \text{c.c.} \right] + \frac{gn^2}{2} \delta_{ik},
 \tag{13}\]</span></span></p>
 <p>momentuaren fluxu tentsorea da. Ohartu, kanpo indar barik momentua kontserbatu egingo dela.</p>
-<p>Erabilgarria da fasearentzako ekuazio bat lortzea. Hau lortzen da <a href="#eq-uf" class="quarto-xref">Equation&nbsp;10</a> <a href="#eq-GPE" class="quarto-xref">Equation&nbsp;2</a> sartuz:</p>
+<p>Erabilgarria da lortzea ekuazio bat fasearentzat, hau lortzen da <a href="#eq-uf" class="quarto-xref">Equation&nbsp;10</a> <a href="#eq-GPE" class="quarto-xref">Equation&nbsp;2</a> sartzen</p>
 <p><span id="eq-S"><span class="math display">\[
 \hbar \frac{\partial}{\partial t} S + \left( \frac{1}{2} m \mathbf{v}_s^2 + V_{ext} + gn - \frac{\hbar^2}{2m\sqrt{n}} \nabla^2 \sqrt{n} \right) = 0.
 \tag{14}\]</span></span></p>
@@ -291,16 +238,16 @@ m \frac{\partial j_i}{\partial t} + \frac{\partial \Pi_{ik}}{\partial x_k} = -n 
 \tag{17}\]</span></span></p>
 <p>non suposatu egin dugu gure potentziala ez dela denboraren menpekoa. <span class="math inline">\(\mu\)</span>-ren balioa normalizazio baldintzak ezarriko digu.</p>
 </section>
-<section id="bortex-interakzio-txikiko-bose-gasan" class="level3" data-number="1.1.2">
-<h3 data-number="1.1.2" class="anchored" data-anchor-id="bortex-interakzio-txikiko-bose-gasan"><span class="header-section-number">1.1.2</span> Bortex interakzio txikiko Bose gasan</h3>
+<section id="bortex-zuzenak-interakzio-txikiko-bose-gasan" class="level3">
+<h3 class="anchored" data-anchor-id="bortex-zuzenak-interakzio-txikiko-bose-gasan">Bortex zuzenak interakzio txikiko Bose gasan</h3>
 <p>Esan dugunez, GPE deskribatuta dago <a href="#eq-guf" class="quarto-xref">Equation&nbsp;15</a>-ren bitartez, hau da, magnitude orden bat denborarekiko menpekotasuna duena, non menpekotasuna fase global bat deskribatzen duen potentziak kimikoaren funtzioa dena.</p>
-<p>Orain aztertuko ditugu bortez soluzioak. Hauek ematen dira gure kondentsatuaren dentsitatea zerorantz doanean. Hauek ematen diren eremuak, berreskuratze luzera baino txikiagoko eskualdetan gertatzen dira eta kontuan izan behar dugu presio kuantikoaren terminoa GPE-n.&nbsp;Normalean, azkar biratzen duen erreferentzia sisteman izango dira egonkorrak, sistema horretan energiaren funtzionala zero baita.</p>
+<p>Orain aztertuko ditugu bortez soluzioak. Hauek ematen dira gure kondentsatuaren dentsitatea zerorantz doanean. Hauek ematen diren eremuak, berreskuratze distantzia baino txikiagoko eskualdetan gertatzen dira eta kontuan izan behar dugu presio kuantikoaren terminoa GPE-n.&nbsp;Normalean, azkar biratzen duen erreferentzia sisteman izango dira egonkorrak, sistema horretan energiaren funtzionala zero baita.</p>
 <p>Superfluidoetan dauden biraketak ez dira solido zurrunean dauden bezalakoak <span class="math inline">\(\mathbf{v} = \mathbf{\Omega} \times \mathbf{r}\)</span>, baizik eta deskribatuta egongo da bortizitatea difusioarekin: <span class="math inline">\(\text{curl}\mathbf{v} = 2\mathbf{\Omega}\)</span>. Hau konturatzen bagara, kontraesan bat izango da superfluidoak irrotazionalak direla esan genuelako, hau da, espero dugu hauek ez biratzea solido zurruna bezala.</p>
-<p>Demagun dugula <span class="math inline">\(R\)</span> erradioko eta <span class="math inline">\(L\)</span> luzerako zilindro batean gasa konfinatuta. Izango dugun soluzioa hurrengo formakoa izango da:</p>
+<p>Demagun daukagula <span class="math inline">\(R\)</span> erradioko eta <span class="math inline">\(L\)</span> luzerako zilindro batean gasa konfinatuta. Izango dugun soluzioa hurrengo formakoa izango datos</p>
 <p><span id="eq-zuf"><span class="math display">\[
 \Psi_0(\mathbf{r}) = e^{is\varphi}|\Psi_0(r)|,
 \tag{18}\]</span></span></p>
-<p>non sartu ditugun koordenatu zilindrikoak <span class="math inline">\(z\)</span>, <span class="math inline">\(r\)</span> eta <span class="math inline">\(\varphi\)</span>. <span class="math inline">\(s\)</span> zenbaki osoa da, gure uhin-funtzioa balio bakarra izan dezan. Konturatzen bagara <a href="#eq-zuf" class="quarto-xref">Equation&nbsp;18</a> <span class="math inline">\(l_z\)</span>-ren autobalioa izango da <span class="math inline">\(l_z = s \hbar\)</span> izaten. Beraz, bortex osoaren momentu angeluarra <span class="math inline">\(L_z = N s \hbar\)</span> izango da. <a href="#eq-zuf" class="quarto-xref">Equation&nbsp;18</a> adierazten du gas bat biratzen hurrengo abiadura tangentzialarekin</p>
+<p>non sartu ditugun koordenatu zilindrikoak <span class="math inline">\(z\)</span>, <span class="math inline">\(r\)</span> eta <span class="math inline">\(\varphi\)</span>. <span class="math inline">\(s\)</span> dago gure uhin funtzioak balio bakarra izateko. Konturatzen bagara <a href="#eq-zuf" class="quarto-xref">Equation&nbsp;18</a> <span class="math inline">\(l_z\)</span>-ren autobalioa izango da <span class="math inline">\(l_z = s \hbar\)</span> izaten. Beraz, bortex osoaren lomentu angeluarra <span class="math inline">\(L_z = N s \hbar\)</span> izango da. <a href="#eq-zuf" class="quarto-xref">Equation&nbsp;18</a> adierazten du gas bat biratzen hurrengo abiadura tangentzialarekin</p>
 <p><span id="eq-abiadura-tangen"><span class="math display">\[
 v_s = \frac{\hbar}{m}\frac{s}{r}.
 \tag{19}\]</span></span></p>
@@ -310,7 +257,7 @@ v_s = \frac{\hbar}{m}\frac{s}{r}.
 <div id="fig-vel-eremuak" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-vel-eremuak-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Index_files/figure-html/fig-vel-eremuak-output-1.png" class="img-fluid figure-img">
+<img src="pitaevskii_files/figure-html/fig-vel-eremuak-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vel-eremuak-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: Abiadura-eremu tangentziala fluxu irrotazionalerako (<span class="math inline">\(v_{\text{irr}}\)</span>) eta errotazio rigidoko (<span class="math inline">\(v_{\text{rig}}\)</span>) fluxurako. Abiadura-eremu irrotazionala <span class="math inline">\(1/r\)</span> bezala dibergitzen da <span class="math inline">\(r \to 0\)</span> denean. Hemen <span class="math inline">\(r\)</span> eta <span class="math inline">\(v\)</span> unitate arbitrarioetan (a.u.) neurtzen dira.
@@ -319,7 +266,7 @@ Figure&nbsp;1: Abiadura-eremu tangentziala fluxu irrotazionalerako (<span class=
 </div>
 </div>
 </div>
-<p>Ordezkatuz <a href="#eq-zuf" class="quarto-xref">Equation&nbsp;18</a> <a href="#eq-egonGPE" class="quarto-xref">Equation&nbsp;17</a>, lortuko dugun adierazpena <span class="math inline">\(|\Psi_0|\)</span>-rentzat:</p>
+<p>Ordezkatuz <a href="#eq-zuf" class="quarto-xref">Equation&nbsp;18</a> <a href="#eq-egonGPE" class="quarto-xref">Equation&nbsp;17</a>, lortuko dugun adierazpena <span class="math inline">\(|\Psi_0|\)</span>:</p>
 <p><span id="eq-20"><span class="math display">\[
 -\frac{\hbar^2}{2m} \frac{1}{r} \frac{d}{dr} \left( r \frac{d|\Psi_0|}{dr} \right) + \frac{\hbar^2 s^2}{2mr^2} |\Psi_0| + g|\Psi_0|^3 - \mu|\Psi_0| = 0.
 \tag{20}\]</span></span></p>
@@ -327,17 +274,17 @@ Figure&nbsp;1: Abiadura-eremu tangentziala fluxu irrotazionalerako (<span class=
 <p><span id="eq-aduf"><span class="math display">\[
 |\Psi_0| = \sqrt{n} f(\eta),
 \tag{21}\]</span></span></p>
-<p>non <span class="math inline">\(\eta = r/\xi\)</span> eta <span class="math inline">\(\xi = \hbar / \sqrt{2mgn}\)</span> berreskuratze luzera den. Funtzio honek betetzen duen ekuazioa</p>
+<p>non <span class="math inline">\(\eta = r/\xi\)</span> eta <span class="math inline">\(\xi = \hbar / \sqrt{2mgn}\)</span> berreskuratze luzera. Funtzio honek betetzen duen ekuazioa</p>
 <p><span id="eq-f"><span class="math display">\[
 \frac{1}{\eta} \frac{d}{d\eta} \left( \eta \frac{df}{d\eta} \right) + \left( 1 - \frac{s^2}{\eta^2} \right) f - f^3 = 0,
 \tag{22}\]</span></span></p>
-<p>non muga baldintzak <span class="math inline">\(f(\eta\to\infty) = 1\)</span> eta <span class="math inline">\(f(0) = 0\)</span> izan behar diren. Hau numerikoki ebasten badugu ikusten da (<a href="#fig-bortex-profila" class="quarto-xref">Figure&nbsp;2</a>) nola <span class="math inline">\(r\)</span> <span class="math inline">\(\xi\)</span>-ren ordenakoa denenean dentsitate aldaketa bortitza izango den.</p>
+<p>non muga baldintzak <span class="math inline">\(f(\eta\to\infty) = 1\)</span> eta <span class="math inline">\(f(0) = 0\)</span> izan behar diren. Hau numerikoki ebasten badugu ikusten da (<a href="#fig-bortex-profila" class="quarto-xref">Figure&nbsp;2</a>) nola <span class="math inline">\(r\)</span>-ren ordenekoa denean izango dugun aldaketa dentsitatean bortitza izango dentsitatean</p>
 <div id="cell-fig-bortex-profila" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div id="fig-bortex-profila" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-bortex-profila-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Index_files/figure-html/fig-bortex-profila-output-1.png" class="img-fluid figure-img">
+<img src="pitaevskii_files/figure-html/fig-bortex-profila-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bortex-profila-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2: <a href="#eq-f" class="quarto-xref">Equation&nbsp;22</a>-ren soluzio numerikoak <span class="math inline">\(s=1\)</span> eta <span class="math inline">\(s=2\)</span> kasuetarako. Ikusten da nola kondentsatuaren dentsitatea aldatzen den <span class="math inline">\(\eta\)</span>-ren funtzioan.
@@ -346,29 +293,12 @@ Figure&nbsp;2: <a href="#eq-f" class="quarto-xref">Equation&nbsp;22</a>-ren solu
 </div>
 </div>
 </div>
-<p><code>{{&lt; include SIMULACION/simulacion.qmd &gt;}}</code></p>
-
 
 
 </section>
 </section>
-</section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-Pitaevskii" class="csl-entry" role="listitem">
-Pitaevskii, Lev, and Sandro Stringari. 2016. <em>Bose-Einstein Condensation and Superfluidity</em>. Oxford University Press. <a href="https://doi.org/10.1093/acprof:oso/9780198758884.001.0001">https://doi.org/10.1093/acprof:oso/9780198758884.001.0001</a>.
-</div>
-</div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{gonzález_gonzález2026,
-  author = {González González, Hugo},
-  title = {BEC Simulazioa},
-  date = {2026-02-15},
-  langid = {en},
-  abstract = {This analysis provides ... \textbar{}}
-}
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-gonzález_gonzález2026" class="csl-entry quarto-appendix-citeas" role="listitem">
-González González, Hugo. 2026. <span>“BEC Simulazioa.”</span> Grade of
-Physics TFG, Bose-Einstein Condensation. February 15, 2026.
-</div></div></section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
