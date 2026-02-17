@@ -295,4 +295,14 @@ ax.annotate(r'$s=2$', xy=(2, 0.4), xytext=(2.5, 0.2),
 
 plt.show()
 ```
+## Superfluidotasuna
 
+Aipatu dugunez, BEC-a superfluido baten moduan jokatzen du tenperatura kritiko bat baino hotsago dagoenean. Parte honetan eztabaidatuko ditugu Landauren superfluidoen hidrodinamika, eta nola teoria honek ahalbidetzen dituen aurkitutako ordena-parametroaren fasearen fluktuazioak BEC-aren teorian.
+
+### Landauren irizpidea superfluidotasunarentzako
+
+Landauren superfluidoen teoria garatzeko, energiaren eta momentuaren transformazio Galilearrak erabiliko erabiliko ditugu. $E$ eta $\mathbf{P}$ izango dira energia eta momentua fluidoaren pausaguneko sisteman $K$. Orduan $K'$ sisteman, $\mathbf{V}$ abiaduraz mugitzen dena $K$ sistemarekiko, energia eta momentuaren adierazpenak:
+
+$$
+E' = E - \mathbf{P.V} + \frac{1}{2} M V^2, \; \mathbf{P'} = \mathbf{P} - M \mathbf{V}
+$$
