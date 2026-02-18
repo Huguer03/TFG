@@ -305,8 +305,34 @@ Landauren superfluidoen teoria garatzeko, energiaren eta momentuaren transformaz
 
 $$
 E' = E - \mathbf{P.V} + \frac{1}{2} M V^2, \; \mathbf{P'} = \mathbf{P} - M \mathbf{v}
-$$
+$${#eq-p8}
 
 non $M$ fluidoaren masa den.
 
+Kontsidera dezagun fluido bat, kapilar baten zehar higitzen dena $\mathbf{v}$ abiadurarekin. Fluidoa biskositatea badu, galdutako energia modelizatu ahal dugu higitzen den pertubazio baten moduan. Perturbazio honen energia eta momentua fluidoaren pausaguneko sisteman $\mathbf{p}$ eta $E_0 + \epsilon(\mathbf{p})$ izango dira, non $E_0$ pertubazioaren oinarrizko energia den eta $\epsilon(\mathbf{p})$ kitzikapenak sortutako energia. Kapilarraren pausaguneko sisteman ikusiko dugu:
 
+$$
+E' = E_0 + \epsilon(\mathbf{p}) + \mathbf{p.v} + \frac{1}{2} M v^2, \mathbf{P'} = \mathbf{p} + M \mathbf{v}
+$${#eq-p9}
+
+[@eq-p9] ikusi ahal dugu nola energia eta momentu aldaketak, kapilarraren pausaguneko sisteman, $\epsilon(\mathbf{p}) + \mathbf{p.v}$ eta $\mathbf{p}$ diren. Orduan, $\epsilon(\mathbf{p}) + \mathbf{p.v}$ negatiboa izan behar da berezko kitzikapena izateko. Hau posiblea izateko, $v > \epsilon(\mathbf{p}) / p$ izan behar da. Suposatzen badugu $\mathbf{p}$ momentua kapilarrari transferitzen diola, hau bero moduan disipatu egingo da eta fluidoa ez da egonkorra izango. Baina abiadura, 
+
+$$
+v_c = \text{min}_p \frac{\epsilon(\mathbf{p})}{p}
+$${#eq-vc}
+
+baino txikiago bada, kitzikapenak ezin dira agertu. Hau da Landauren superfluidotasunaren baldintza.
+
+$$
+v < v_c
+$${#eq-LSC}
+
+Fluidoaren eta kapilarraren abiadura erlatiboak, [@eq-vc] balio kritikoa baino txikiagoa bada. Orduna marruskadura gabeko fluxua izango dugu. Egoera honi, metaegonkorra deritzogu. Egonkorra da bat-bateko kitzikapenekiko.
+
+Interakzio ahuleko Bose gasa Landauren irispidea betetzen du, non abiadura kritikoa soinuaren abiadura izango den. $^4He$-ren kasuan ere beteko egingo du Landauren irispidea, baina kasu honetan abiadura kritikoa soinuaren abiadura baino txikiagoa izango da, $^4He$ partikulen elkarrekintza handiagoa baita.
+
+Demagun temperatura txikia dela. Gure fluidoaren propietateak izango dira interakzio gabeko gas baten kitzikapenak (kuasipartikulak) oreka termikoan bezalakoak. kuasipartikulak dira sistemaren masaren portzio bat garraiatzen dituztenak. Gainera, hauek talka egitean kapilarraren hormekin energia disipatu egingo dute, fluido normal baten moduan. Beraz, izango ditugu bi fase, bat normala $\mathbf{v_n}$-rekin eta beste bat superfluidoa dena $\mathbf{v_s}$, non abiadura hauek izango dira kapilarraren pausaguneko sistemarekiko. Orduan kitzikapenen energia $\epsilon(\mathbf{p}) + \mathbf{p.}(\mathbf{v_s - v_n})$. Orekan dauden kitzikapenen banaketa funtzioa:
+
+$$
+N_{\mathbf{p}} = \left[ exp(\frac{\epsilon(\mathbf{p}) + \mathbf{p.} (\mathbf{v_s - v_n})}{k_B T}) - 1 \right]^{-1}
+$${#eq-Np}

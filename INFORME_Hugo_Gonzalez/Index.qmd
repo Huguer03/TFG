@@ -1,5 +1,6 @@
 ---
 title: "BEC simulazioa"
+lang: eu
 author:
   - name: "Hugo González González"
     email: hgonzalez031@ikasle.ehu.eus
