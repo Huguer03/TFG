@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -54,14 +54,15 @@ div.csl-indent {
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-dda6bcf18c14475f7348b817eb15352b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-e4313fbd540256e77f908a333d521360.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -110,7 +111,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -146,6 +147,10 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#gross-pitaevskii-ekuazioa-gpe" id="toc-gross-pitaevskii-ekuazioa-gpe" class="nav-link" data-scroll-target="#gross-pitaevskii-ekuazioa-gpe"><span class="header-section-number">1.1.1</span> Gross-Pitaevskii ekuazioa (GPE)</a></li>
   <li><a href="#bortex-interakzio-txikiko-bose-gasan" id="toc-bortex-interakzio-txikiko-bose-gasan" class="nav-link" data-scroll-target="#bortex-interakzio-txikiko-bose-gasan"><span class="header-section-number">1.1.2</span> Bortex interakzio txikiko Bose gasan</a></li>
+  </ul></li>
+  <li><a href="#superfluidotasuna" id="toc-superfluidotasuna" class="nav-link" data-scroll-target="#superfluidotasuna"><span class="header-section-number">1.2</span> Superfluidotasuna</a>
+  <ul class="collapse">
+  <li><a href="#landauren-irizpidea-superfluidotasunarentzako" id="toc-landauren-irizpidea-superfluidotasunarentzako" class="nav-link" data-scroll-target="#landauren-irizpidea-superfluidotasunarentzako"><span class="header-section-number">1.2.1</span> Landauren irizpidea superfluidotasunarentzako</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -310,7 +315,7 @@ v_s = \frac{\hbar}{m}\frac{s}{r}.
 <div id="fig-vel-eremuak" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-vel-eremuak-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Index_files/figure-html/fig-vel-eremuak-output-1.png" class="img-fluid figure-img">
+<img src="Index_files/figure-html/fig-vel-eremuak-output-1.png" width="508" height="366" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vel-eremuak-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: Abiadura-eremu tangentziala fluxu irrotazionalerako (<span class="math inline">\(v_{\text{irr}}\)</span>) eta errotazio rigidoko (<span class="math inline">\(v_{\text{rig}}\)</span>) fluxurako. Abiadura-eremu irrotazionala <span class="math inline">\(1/r\)</span> bezala dibergitzen da <span class="math inline">\(r \to 0\)</span> denean. Hemen <span class="math inline">\(r\)</span> eta <span class="math inline">\(v\)</span> unitate arbitrarioetan (a.u.) neurtzen dira.
@@ -337,7 +342,7 @@ Figure&nbsp;1: Abiadura-eremu tangentziala fluxu irrotazionalerako (<span class=
 <div id="fig-bortex-profila" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-bortex-profila-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Index_files/figure-html/fig-bortex-profila-output-1.png" class="img-fluid figure-img">
+<img src="Index_files/figure-html/fig-bortex-profila-output-1.png" width="546" height="366" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bortex-profila-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2: <a href="#eq-f" class="quarto-xref">Equation&nbsp;22</a>-ren soluzio numerikoak <span class="math inline">\(s=1\)</span> eta <span class="math inline">\(s=2\)</span> kasuetarako. Ikusten da nola kondentsatuaren dentsitatea aldatzen den <span class="math inline">\(\eta\)</span>-ren funtzioan.
@@ -346,6 +351,17 @@ Figure&nbsp;2: <a href="#eq-f" class="quarto-xref">Equation&nbsp;22</a>-ren solu
 </div>
 </div>
 </div>
+</section>
+</section>
+<section id="superfluidotasuna" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="superfluidotasuna"><span class="header-section-number">1.2</span> Superfluidotasuna</h2>
+<p>Aipatu dugunez, BEC-a superfluido baten moduan jokatzen du tenperatura kritiko bat baino hotsago dagoenean. Parte honetan eztabaidatuko ditugu Landauren superfluidoen hidrodinamika, eta nola teoria honek ahalbidetzen dituen aurkitutako ordena-parametroaren fasearen fluktuazioak BEC-aren teorian.</p>
+<section id="landauren-irizpidea-superfluidotasunarentzako" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="landauren-irizpidea-superfluidotasunarentzako"><span class="header-section-number">1.2.1</span> Landauren irizpidea superfluidotasunarentzako</h3>
+<p>Landauren superfluidoen teoria garatzeko, energiaren eta momentuaren transformazio Galilearrak erabiliko erabiliko ditugu. <span class="math inline">\(E\)</span> eta <span class="math inline">\(\mathbf{P}\)</span> izango dira energia eta momentua fluidoaren pausaguneko sisteman <span class="math inline">\(K\)</span>. Orduan <span class="math inline">\(K'\)</span> sisteman, <span class="math inline">\(\mathbf{V}\)</span> abiaduraz mugitzen dena <span class="math inline">\(K\)</span> sistemarekiko, energia eta momentuaren adierazpenak:</p>
+<p><span class="math display">\[
+E' = E - \mathbf{P.V} + \frac{1}{2} M V^2, \; \mathbf{P'} = \mathbf{P} - M \mathbf{V}
+\]</span></p>
 <p><code>{{&lt; include SIMULACION/simulacion.qmd &gt;}}</code></p>
 
 
@@ -420,13 +436,14 @@ Physics TFG, Bose-Einstein Condensation. February 15, 2026.
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
