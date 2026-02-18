@@ -331,8 +331,35 @@ Fluidoaren eta kapilarraren abiadura erlatiboak, [@eq-vc] balio kritikoa baino t
 
 Interakzio ahuleko Bose gasa Landauren irispidea betetzen du, non abiadura kritikoa soinuaren abiadura izango den. $^4He$-ren kasuan ere beteko egingo du Landauren irispidea, baina kasu honetan abiadura kritikoa soinuaren abiadura baino txikiagoa izango da, $^4He$ partikulen elkarrekintza handiagoa baita.
 
-Demagun temperatura txikia dela. Gure fluidoaren propietateak izango dira interakzio gabeko gas baten kitzikapenak (kuasipartikulak) oreka termikoan bezalakoak. kuasipartikulak dira sistemaren masaren portzio bat garraiatzen dituztenak. Gainera, hauek talka egitean kapilarraren hormekin energia disipatu egingo dute, fluido normal baten moduan. Beraz, izango ditugu bi fase, bat normala $\mathbf{v_n}$-rekin eta beste bat superfluidoa dena $\mathbf{v_s}$, non abiadura hauek izango dira kapilarraren pausaguneko sistemarekiko. Orduan kitzikapenen energia $\epsilon(\mathbf{p}) + \mathbf{p.}(\mathbf{v_s - v_n})$. Orekan dauden kitzikapenen banaketa funtzioa:
+Demagun temperatura txikia dela. Gure fluidoaren propietateak izango dira interakzio gabeko gas baten kitzikapenak (kuasipartikulak) oreka termikoan bezalakoak. kuasipartikulak dira sistemaren masaren parte bat garraiatzen dituztenak. Gainera, hauek talka egitean kapilarraren hormekin energia disipatu egingo dute, fluido normal baten moduan. Beraz, izango ditugu bi fase, bat normala $\mathbf{v_n}$-rekin eta beste bat superfluidoa dena $\mathbf{v_s}$, non abiadura hauek izango dira kapilarraren pausaguneko sistemarekiko. Orduan kitzikapenen energia $\epsilon(\mathbf{p}) + \mathbf{p.}(\mathbf{v_s - v_n})$. Orekan dauden kitzikapenen, $\mathbf{p}$ banaketa funtzioa:
 
 $$
-N_{\mathbf{p}} = \left[ exp(\frac{\epsilon(\mathbf{p}) + \mathbf{p.} (\mathbf{v_s - v_n})}{k_B T}) - 1 \right]^{-1}
+N_{\mathbf{p}} = \left[ exp\left(\frac{\epsilon(\mathbf{p}) + \mathbf{p.} (\mathbf{v_s - v_n})}{k_B T}\right) - 1 \right]^{-1}
 $${#eq-Np}
+
+Ekuazio hau betetzeko $\mathbf{p}$-ren balio guztietarako (hau da, kitzikapenen energia positiboa izateko) $|\mathbf{v_s} - \mathbf{v_n}|$ abiadura kritikoa baino txikiagoa izan beharko da. Orduan, $N_\mathbf{p}$ beti izango da positiboa. Oreka termodinamikoan gaudenean, superfluido fasearen eta fase normalaren arteko marruskadurarik ez dago. Hau gertatzekotan, gero eta kitzikapen gehiago sortuko lirateke eta, ondorioz, superfluido fasea apurtuko zen.
+
+Kontuan izanda bi faseak batera daudela, fluidoaren masa dentsitatea idatz dezakegu hurrengo moduan: $\rho = \rho_n + \rho_s$ ([@Pitaevskii] erabiltzen du $\rho = n m$ dentsitatea hemendik aurrera literatura orokorrean hau egiten baitenez, $n$ erabili beharrean). Likidoaren masa korrontea definitu dezakegu:
+
+$$
+m \mathbf{j} = \rho_s \mathbf{v_s} + \rho_n \mathbf{v_n}
+$${#eq-mj}
+
+Hau erabili ahal dugu definitzeko fluido normalaren dentsitatea. Jar gaitezen superfluidoaren pausaguneko sisteman, orduan $m\mathbf{j} = \rho_n \mathbf{v_n}$ izango dugu. Beraz, likidoak dakarren momentu osoa $\mathbf{P} = \sum_{\mathbf{p}} N_{\mathbf{p}} \mathbf{p}$ izango da. Onekin, [@eq-mj] berridatzi dezakegu:
+
+$$
+m \mathbf{j} = \int \; \frac{d \mathbf{p}}{(2 \pi \hbar)^3} \mathbf{p} N_{\mathbf{p}}
+$${#eq-intmj}
+
+eta esan dugunez, superfluidoaren pausaguneko sisteman gaudenez
+
+$$
+\rho_n \mathbf{v_n} = \int \; \frac{d \mathbf{p}}{(2 \pi \hbar)^3} \mathbf{p} N_{\mathbf{p}}
+$${#eq-intrhov}
+
+izango dugu. $\mathbf{v_n}$ txikia izango denez (oreka termikoan egoteko) $N_{\mathbf{p}}$ seriean garatu dezakegu termino linealerarte. Hau eginez, lortuko dugu fase normalaren masa dentsitatea.
+
+$$
+\rho_n = - \frac{1}{3} \int \; \frac{d \mathbf{p}}{(2 \pi \hbar)^3} \frac{d N_{\mathbf{p}}(\epsilon)}{d \epsilon} p^2
+$${#eq-masadentitatea}
+
