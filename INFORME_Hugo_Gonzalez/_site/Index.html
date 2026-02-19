@@ -376,10 +376,27 @@ v &lt; v_c
 \tag{26}\]</span></span></p>
 <p>Fluidoaren eta kapilarraren abiadura erlatiboak, <a href="#eq-vc" class="quarto-xref">Ekuazioa&nbsp;25</a> balio kritikoa baino txikiagoa bada. Orduna marruskadura gabeko fluxua izango dugu. Egoera honi, metaegonkorra deritzogu. Egonkorra da bat-bateko kitzikapenekiko.</p>
 <p>Interakzio ahuleko Bose gasa Landauren irispidea betetzen du, non abiadura kritikoa soinuaren abiadura izango den. <span class="math inline">\(^4He\)</span>-ren kasuan ere beteko egingo du Landauren irispidea, baina kasu honetan abiadura kritikoa soinuaren abiadura baino txikiagoa izango da, <span class="math inline">\(^4He\)</span> partikulen elkarrekintza handiagoa baita.</p>
-<p>Demagun temperatura txikia dela. Gure fluidoaren propietateak izango dira interakzio gabeko gas baten kitzikapenak (kuasipartikulak) oreka termikoan bezalakoak. kuasipartikulak dira sistemaren masaren portzio bat garraiatzen dituztenak. Gainera, hauek talka egitean kapilarraren hormekin energia disipatu egingo dute, fluido normal baten moduan. Beraz, izango ditugu bi fase, bat normala <span class="math inline">\(\mathbf{v_n}\)</span>-rekin eta beste bat superfluidoa dena <span class="math inline">\(\mathbf{v_s}\)</span>, non abiadura hauek izango dira kapilarraren pausaguneko sistemarekiko. Orduan kitzikapenen energia <span class="math inline">\(\epsilon(\mathbf{p}) + \mathbf{p.}(\mathbf{v_s - v_n})\)</span>. Orekan dauden kitzikapenen banaketa funtzioa:</p>
+<p>Demagun temperatura txikia dela. Gure fluidoaren propietateak izango dira interakzio gabeko gas baten kitzikapenak (kuasipartikulak) oreka termikoan bezalakoak. kuasipartikulak dira sistemaren masaren parte bat garraiatzen dituztenak. Gainera, hauek talka egitean kapilarraren hormekin energia disipatu egingo dute, fluido normal baten moduan. Beraz, izango ditugu bi fase, bat normala <span class="math inline">\(\mathbf{v_n}\)</span>-rekin eta beste bat superfluidoa dena <span class="math inline">\(\mathbf{v_s}\)</span>, non abiadura hauek izango dira kapilarraren pausaguneko sistemarekiko. Orduan kitzikapenen energia <span class="math inline">\(\epsilon(\mathbf{p}) + \mathbf{p.}(\mathbf{v_s - v_n})\)</span>. Orekan dauden kitzikapenen, <span class="math inline">\(\mathbf{p}\)</span> banaketa funtzioa:</p>
 <p><span id="eq-Np"><span class="math display">\[
-N_{\mathbf{p}} = \left[ exp(\frac{\epsilon(\mathbf{p}) + \mathbf{p.} (\mathbf{v_s - v_n})}{k_B T}) - 1 \right]^{-1}
+N_{\mathbf{p}} = \left[ exp\left(\frac{\epsilon(\mathbf{p}) + \mathbf{p.} (\mathbf{v_s - v_n})}{k_B T}\right) - 1 \right]^{-1}
 \tag{27}\]</span></span></p>
+<p>Ekuazio hau betetzeko <span class="math inline">\(\mathbf{p}\)</span>-ren balio guztietarako (hau da, kitzikapenen energia positiboa izateko) <span class="math inline">\(|\mathbf{v_s} - \mathbf{v_n}|\)</span> abiadura kritikoa baino txikiagoa izan beharko da. Orduan, <span class="math inline">\(N_\mathbf{p}\)</span> beti izango da positiboa. Oreka termodinamikoan gaudenean, superfluido fasearen eta fase normalaren arteko marruskadurarik ez dago. Hau gertatzekotan, gero eta kitzikapen gehiago sortuko lirateke eta, ondorioz, superfluido fasea apurtuko zen.</p>
+<p>Kontuan izanda bi faseak batera daudela, fluidoaren masa dentsitatea idatz dezakegu hurrengo moduan: <span class="math inline">\(\rho = \rho_n + \rho_s\)</span> (<span class="citation" data-cites="Pitaevskii">(<a href="#ref-Pitaevskii" role="doc-biblioref">Pitaevskii eta Stringari 2016</a>)</span> erabiltzen du <span class="math inline">\(\rho = n m\)</span> dentsitatea hemendik aurrera literatura orokorrean hau egiten baitenez, <span class="math inline">\(n\)</span> erabili beharrean). Likidoaren masa korrontea definitu dezakegu:</p>
+<p><span id="eq-mj"><span class="math display">\[
+m \mathbf{j} = \rho_s \mathbf{v_s} + \rho_n \mathbf{v_n}
+\tag{28}\]</span></span></p>
+<p>Hau erabili ahal dugu definitzeko fluido normalaren dentsitatea. Jar gaitezen superfluidoaren pausaguneko sisteman, orduan <span class="math inline">\(m\mathbf{j} = \rho_n \mathbf{v_n}\)</span> izango dugu. Beraz, likidoak dakarren momentu osoa <span class="math inline">\(\mathbf{P} = \sum_{\mathbf{p}} N_{\mathbf{p}} \mathbf{p}\)</span> izango da. Onekin, <a href="#eq-mj" class="quarto-xref">Ekuazioa&nbsp;28</a> berridatzi dezakegu:</p>
+<p><span id="eq-intmj"><span class="math display">\[
+m \mathbf{j} = \int \; \frac{d \mathbf{p}}{(2 \pi \hbar)^3} \mathbf{p} N_{\mathbf{p}}
+\tag{29}\]</span></span></p>
+<p>eta esan dugunez, superfluidoaren pausaguneko sisteman gaudenez</p>
+<p><span id="eq-intrhov"><span class="math display">\[
+\rho_n \mathbf{v_n} = \int \; \frac{d \mathbf{p}}{(2 \pi \hbar)^3} \mathbf{p} N_{\mathbf{p}}
+\tag{30}\]</span></span></p>
+<p>izango dugu. <span class="math inline">\(\mathbf{v_n}\)</span> txikia izango denez (oreka termikoan egoteko) <span class="math inline">\(N_{\mathbf{p}}\)</span> seriean garatu dezakegu termino linealerarte. Hau eginez, lortuko dugu fase normalaren masa dentsitatea.</p>
+<p><span id="eq-masadentitatea"><span class="math display">\[
+\rho_n = - \frac{1}{3} \int \; \frac{d \mathbf{p}}{(2 \pi \hbar)^3} \frac{d N_{\mathbf{p}}(\epsilon)}{d \epsilon} p^2
+\tag{31}\]</span></span></p>
 <p><code>{{&lt; include SIMULACION/simulacion.qmd &gt;}}</code></p>
 
 

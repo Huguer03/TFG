@@ -357,9 +357,20 @@ $$
 \rho_n \mathbf{v_n} = \int \; \frac{d \mathbf{p}}{(2 \pi \hbar)^3} \mathbf{p} N_{\mathbf{p}}
 $${#eq-intrhov}
 
-izango dugu. $\mathbf{v_n}$ txikia izango denez (oreka termikoan egoteko) $N_{\mathbf{p}}$ seriean garatu dezakegu termino linealerarte. Hau eginez, lortuko dugu fase normalaren masa dentsitatea.
+izango dugu. $\mathbf{v_n}$ txikia izango denez (oreka termikoan egoteko) $N_{\mathbf{p}}$ seriean garatu dezakegu termino linealerarte. Hau eginez, lortuko dugu fase normalaren masa dentsitatea
 
 $$
-\rho_n = - \frac{1}{3} \int \; \frac{d \mathbf{p}}{(2 \pi \hbar)^3} \frac{d N_{\mathbf{p}}(\epsilon)}{d \epsilon} p^2
+\rho_n = - \frac{1}{3} \int \; \frac{d \mathbf{p}}{(2 \pi \hbar)^3} \frac{d N_{\mathbf{p}}(\epsilon)}{d \epsilon} p^2,
 $${#eq-masadentitatea}
+
+isotropikoa izango dena $\mathbf{p}$-rekiko. Oso erabilgarria da, kalkulatu ahal dugulako fase normalaren banaketa kitzikapenen funtzioen bitartez. Baina zenbait limite dauzkagu, $N_{\mathbf{p}}$ ez badago ondo definitua, desorden handia dogoenean, beste era bat bilatu beharko dugu kalkulatu ahal izateko fase normalaren dentsitatea.
+
+ 
+
+
+
+
+
+
+
 
