@@ -365,7 +365,15 @@ $${#eq-masadentitatea}
 
 isotropikoa izango dena $\mathbf{p}$-rekiko. Oso erabilgarria da, kalkulatu ahal dugulako fase normalaren banaketa kitzikapenen funtzioen bitartez. Baina zenbait limite dauzkagu, $N_{\mathbf{p}}$ ez badago ondo definitua, desorden handia dogoenean, beste era bat bilatu beharko dugu kalkulatu ahal izateko fase normalaren dentsitatea.
 
- 
+## Bose-Einstein kondentsatua eta superfluidotasuna 
+
+Orain nahi dugu BEC-aren eta superfluidoasunaren arteko erlazioa aztertu. Lehen egin dugun moduan, kondentsatuaren $\Psi_0$ uhin-funtzioaren propietateak aztertu nahi ditugu, transformazio Galilear bat egitean. Garrantzitsua da aipatzea, $|\Psi_0|^2$ dentsitatea uniformea izan arren, gure uhin-funtzioa ez da inbariante bat izango transformazio Galilear batekiko fase bat gehitu beharko diogulako. Fase honen kalkulua egiteko erabili dezakegu [@eq-p1]. Erreza da baieztatzea
+
+$$
+\hat{\Psi}' = \hat{\Psi}(\mathbf{r-v}t,t) \exp \left[ \frac{i}{\hbar} \left( m \mathbf{v.r} - \frac{1}{2} m v^2 t \right) \right],
+$${#eq-phiGalilear}
+
+non $\mathbf{v}$ bektore konstante bat den, soluzio bat dela. Hau eremu eragilearen transformazio Galilearra da. ordena-parametroa eta bere itxarotako balio izango dute transformazio berbera. Dakigunez, gure fluidoa orekan dagoen erreferentzia sisteman, izango dugun uhin-funtzioa 
 
 
 

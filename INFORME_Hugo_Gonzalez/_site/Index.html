@@ -151,6 +151,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#landauren-irizpidea-superfluidotasunarentzako" id="toc-landauren-irizpidea-superfluidotasunarentzako" class="nav-link" data-scroll-target="#landauren-irizpidea-superfluidotasunarentzako"><span class="header-section-number">1.2.1</span> Landauren irizpidea superfluidotasunarentzako</a></li>
   </ul></li>
+  <li><a href="#bose-einstein-kondentsatua-eta-superfluidotasuna" id="toc-bose-einstein-kondentsatua-eta-superfluidotasuna" class="nav-link" data-scroll-target="#bose-einstein-kondentsatua-eta-superfluidotasuna"><span class="header-section-number">1.3</span> Bose-Einstein kondentsatua eta superfluidotasuna</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -393,15 +394,24 @@ m \mathbf{j} = \int \; \frac{d \mathbf{p}}{(2 \pi \hbar)^3} \mathbf{p} N_{\mathb
 <p><span id="eq-intrhov"><span class="math display">\[
 \rho_n \mathbf{v_n} = \int \; \frac{d \mathbf{p}}{(2 \pi \hbar)^3} \mathbf{p} N_{\mathbf{p}}
 \tag{30}\]</span></span></p>
-<p>izango dugu. <span class="math inline">\(\mathbf{v_n}\)</span> txikia izango denez (oreka termikoan egoteko) <span class="math inline">\(N_{\mathbf{p}}\)</span> seriean garatu dezakegu termino linealerarte. Hau eginez, lortuko dugu fase normalaren masa dentsitatea.</p>
+<p>izango dugu. <span class="math inline">\(\mathbf{v_n}\)</span> txikia izango denez (oreka termikoan egoteko) <span class="math inline">\(N_{\mathbf{p}}\)</span> seriean garatu dezakegu termino linealerarte. Hau eginez, lortuko dugu fase normalaren masa dentsitatea</p>
 <p><span id="eq-masadentitatea"><span class="math display">\[
-\rho_n = - \frac{1}{3} \int \; \frac{d \mathbf{p}}{(2 \pi \hbar)^3} \frac{d N_{\mathbf{p}}(\epsilon)}{d \epsilon} p^2
+\rho_n = - \frac{1}{3} \int \; \frac{d \mathbf{p}}{(2 \pi \hbar)^3} \frac{d N_{\mathbf{p}}(\epsilon)}{d \epsilon} p^2,
 \tag{31}\]</span></span></p>
+<p>isotropikoa izango dena <span class="math inline">\(\mathbf{p}\)</span>-rekiko. Oso erabilgarria da, kalkulatu ahal dugulako fase normalaren banaketa kitzikapenen funtzioen bitartez. Baina zenbait limite dauzkagu, <span class="math inline">\(N_{\mathbf{p}}\)</span> ez badago ondo definitua, desorden handia dogoenean, beste era bat bilatu beharko dugu kalkulatu ahal izateko fase normalaren dentsitatea.</p>
+</section>
+</section>
+<section id="bose-einstein-kondentsatua-eta-superfluidotasuna" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="bose-einstein-kondentsatua-eta-superfluidotasuna"><span class="header-section-number">1.3</span> Bose-Einstein kondentsatua eta superfluidotasuna</h2>
+<p>Orain nahi dugu BEC-aren eta superfluidoasunaren arteko erlazioa aztertu. Lehen egin dugun moduan, kondentsatuaren <span class="math inline">\(\Psi_0\)</span> uhin-funtzioaren propietateak aztertu nahi ditugu, transformazio Galilear bat egitean. Garrantzitsua da aipatzea, <span class="math inline">\(|\Psi_0|^2\)</span> dentsitatea uniformea izan arren, gure uhin-funtzioa ez da inbariante bat izango transformazio Galilear batekiko fase bat gehitu beharko diogulako. Fase honen kalkulua egiteko erabili dezakegu <a href="#eq-p1" class="quarto-xref">Ekuazioa&nbsp;1</a>. Erreza da baieztatzea</p>
+<p><span id="eq-phiGalilear"><span class="math display">\[
+\hat{\Psi}' = \hat{\Psi}(\mathbf{r-v}t,t) \exp \left[ \frac{i}{\hbar} \left( m \mathbf{v.r} - \frac{1}{2} m v^2 t \right) \right],
+\tag{32}\]</span></span></p>
+<p>non <span class="math inline">\(\mathbf{v}\)</span> bektore konstante bat den, soluzio bat dela. Hau eremu eragilearen transformazio Galilearra da. ordena-parametroa eta bere itxarotako balio izango dute transformazio berbera. Dakigunez, gure fluidoa orekan dagoen erreferentzia sisteman, izango dugun uhin-funtzioa</p>
 <p><code>{{&lt; include SIMULACION/simulacion.qmd &gt;}}</code></p>
 
 
 
-</section>
 </section>
 </section>
 

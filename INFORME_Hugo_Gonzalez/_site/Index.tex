@@ -1,0 +1,664 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  basque,
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Aurkibidea}
+\else
+  \newcommand\contentsname{Aurkibidea}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{Irudien zerrenda}
+\else
+  \newcommand\listfigurename{Irudien zerrenda}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{Taulen zerrenda}
+\else
+  \newcommand\listtablename{Taulen zerrenda}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Irudia}
+\else
+  \newcommand\figurename{Irudia}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Taula}
+\else
+  \newcommand\tablename{Taula}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Zerrendatua}
+\newcommand*\listoflistings{\listof{codelisting}{Zerrendatuen zerrenda}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={BEC simulazioa},
+  pdfauthor={Hugo González González},
+  pdflang={eu},
+  pdfkeywords={TFG, Grade of Physics, Physics Lab, BEC},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{BEC simulazioa}
+\author{Hugo González González}
+\date{2026-02-18}
+\begin{document}
+\maketitle
+\begin{abstract}
+This analysis provides \ldots{} \textbar{}
+\end{abstract}
+
+
+\section{Oinarrizko teoria}\label{oinarrizko-teoria}
+
+Atal hau (Pitaevskii eta Stringari 2016) liburuan oinarrituta dago.
+Aztertuko ditugu oinarrizko gauzak GPE ekuazioa ulertu ahal izateko.
+
+\subsection{Ez-uniforme Bose gasak
+T=0K}\label{ez-uniforme-bose-gasak-t0k}
+
+Ikertuko ditugu Bose gas diluituen dinamika.
+
+\subsubsection{Gross-Pitaevskii ekuazioa
+(GPE)}\label{gross-pitaevskii-ekuazioa-gpe}
+
+Elektromagnetismoan egiten dugun bezala, \(\hat{\Psi}(\mathbf{r}, t)\)
+eremu eragilea eremu klasiko batekin, \(\Psi_0(\mathbf{r}, t)\),
+ordezkatuko dugu. Azken honi kondentsatuaren uhin-funtzioa edo
+ordena-parametroa deitzen zaio. Orain behar dugu ekuazio bat duena
+funtzio klasikoaren dinamika. Hau lortzeko gogoratu Heisemberg-en
+irudian hurrengo erlazioa bete behar duela \(\hat{\Psi}\):
+
+\[
+i\hbar \frac{\partial}{\partial t} \hat{\Psi}(\mathbf{r}, t) = [\hat{\Psi}(\mathbf{r}, t), \hat{H}]
+\]
+
+\begin{equation}\phantomsection\label{eq-p1}{
+= \left[ -\frac{\hbar^2 \nabla^2}{2m} + V_{ext}(\mathbf{r}, t) + \int \hat{\Psi}^\dagger(\mathbf{r}', t) V(\mathbf{r}' - \mathbf{r}) \hat{\Psi}(\mathbf{r}', t) d\mathbf{r}' \right] \hat{\Psi}(\mathbf{r}, t),
+}\end{equation}
+
+non \(V_{ext}(\mathbf{r}, t)\) kanpo-potentziala den eta
+\(V(\mathbf{r}' - \mathbf{r})\)
+
+Aldaketa egin ahal izateko, Bornen hurbilketa bete beharko da.
+Honetarako \(V_{eff}\) bete beharko ditu energia txikiko sakabanaketaren
+baldintzak eta \(\Psi_0\) era motelean aldatuko da
+elkarrekintza-potentzialaren barrutian. Hau betetzen bada
+\(\mathbf{r'}\) \(\mathbf{r}\)-rekin aldatu dezakegu.
+
+\begin{equation}\phantomsection\label{eq-GPE}{
+i\hbar \frac{\partial}{\partial t} \Psi(\mathbf{r}, t) = \left( -\frac{\hbar^2 \nabla^2}{2m} + V_{ext}(\mathbf{r}, t) + g|\Psi(\mathbf{r}, t)|^2 \right) \Psi(\mathbf{r}, t)
+}\end{equation}
+
+non ordena-parametroa \(g = \int V_{eff} \; d\mathbf{r}\) den. Hau
+s-wave sakabanaketaren \(a\) parametroaren funtzioan jar dezakegu:
+
+\begin{equation}\phantomsection\label{eq-p3}{
+g = \frac{4 \pi \hbar^2 a}{m}
+}\end{equation}
+
+non \(a\) s-uhinen sakabanatze-luzera den eta \(m\) atomo baten masa.
+
+Hau izango da Maxwell ekuazioen analogoa baina energia eta momentuaren
+erlazioa fotoiena izan beharrean De Brogliren erlazioa beteko dute.
+
+Zenbait baldintza bete beharko dira Ekuazioa~\ref{eq-GPE} erabili ahal
+izateko.
+
+\begin{itemize}
+\tightlist
+\item
+  BEC-a sortzeko partikula kopuru handia behar ditugu.
+\item
+  Temperatura txikia izatea behar dugu partikulen artean sortzen diren
+  elkarrekintzak txikiak izateko.
+\item
+  Gure uhin funtzioa dago normalizatuta hurrengo moduan:
+  \(\int |\Psi|^2 \; d\mathbf{r} = N\)
+\item
+  Ekuazioa bete egingo da \(\mathbf{r} \gg a\) denean.
+\end{itemize}
+
+Hau guztia betetzen bada, gasaren dentsitatea kondentzatuarenarekin bat
+etorriko da:
+
+\begin{equation}\phantomsection\label{eq-density}{
+n(\mathbf{r}) = |\Psi(\mathbf{r})|^2
+}\end{equation}
+
+Beste era bat izango da egoera estazionario bat inposatzen
+
+\begin{equation}\phantomsection\label{eq-p5}{
+\delta \left[ -i\hbar \int \Psi^* \frac{\partial}{\partial t} \Psi \, d\mathbf{r}dt + \int E \, dt \right] = 0
+}\end{equation}
+
+akzioari. Honekin izango dugun ekuazioa
+
+\begin{equation}\phantomsection\label{eq-p6}{
+i\hbar \frac{\partial \Psi(\mathbf{r}, t)}{\partial t} = \frac{\delta E}{\delta \Psi^*(\mathbf{r}, t)}
+}\end{equation}
+
+izango da, non energia funtzionalaren ordena-parametroa
+
+\begin{equation}\phantomsection\label{eq-p7}{
+E = \int \left( \frac{\hbar^2}{2m}|\nabla\Psi|^2 + V_{ext}(\mathbf{r})|\Psi|^2 + \frac{g}{2}|\Psi|^4 \right) d\mathbf{r}
+}\end{equation}
+
+Orain ikusiko ditugu Ekuazioa~\ref{eq-GPE}-ren kontserbazio legeak.
+Lehenengo, kontuan izanda \(\int |\Psi|^2 \; d\mathbf{r} = N\) dela, hau
+da, partikula kopurua konstante mantentzen dela. Beraz,
+Ekuazioa~\ref{eq-GPE} \(\Psi^*\)-rekin biderkatuz probabilitatearen
+kontserbazio legea lortzen da:
+
+\begin{equation}\phantomsection\label{eq-kontinuidad}{
+\frac{\partial n}{\partial t} + \text{div}\mathbf{j} = 0
+}\end{equation}
+
+non erabili dugun Ekuazioa~\ref{eq-density} eta sartu dugun korronte
+dentsitatea:
+
+\begin{equation}\phantomsection\label{eq-korrontea}{
+\mathbf{j}(\mathbf{r}, t) = -\frac{i\hbar}{2m} (\Psi^* \nabla \Psi - \Psi \nabla \Psi^*) = n \frac{\hbar}{m} \nabla S
+}\end{equation}
+
+non \(S\) ordena-parametroaren fasea den. Gogoratu, ordena-parametroa
+funtzio konplexua izanda honela idatzi dezakegula:
+
+\begin{equation}\phantomsection\label{eq-uf}{
+\Psi(\mathbf{r},t) = \sqrt{n(\mathbf{r},t)}e^{i S(\mathbf{r},t)}.
+}\end{equation}
+
+Ekuazio honetatik lortu ahal dugu zein den kondentsatuaren abiadura
+fasearen bitartez:
+
+\begin{equation}\phantomsection\label{eq-abiadura}{
+\mathbf{v_s}(\mathbf{r},t) = \frac{\hbar}{m} \nabla S.
+}\end{equation}
+
+Gainera, ikusi dezakegunez hau irrotazionala izango da, zentsua daukana,
+azkenean superfluido guztiek propietate hau erakusten baitute.
+
+Jakinda energia ere kontserbatu egingo dela lortu ahal izango dugu
+momentu dentsitatearen ekuazioa.
+
+\begin{equation}\phantomsection\label{eq-momentu-kontserbazioa}{
+m \frac{\partial j_i}{\partial t} + \frac{\partial \Pi_{ik}}{\partial x_k} = -n \frac{\partial V_{ext}}{\partial x_i},
+}\end{equation}
+
+non
+
+\begin{equation}\phantomsection\label{eq-momentu-tentsorea}{
+\Pi_{ik} = \frac{\hbar^2}{4m^2} \left[ \frac{\partial \Psi}{\partial x_i} \frac{\partial \Psi^*}{\partial x_k} - \Psi \frac{\partial^2 \Psi^*}{\partial x_i \partial x_k} + \text{c.c.} \right] + \frac{gn^2}{2} \delta_{ik},
+}\end{equation}
+
+momentuaren fluxu tentsorea da. Ohartu, kanpo indar barik momentua
+kontserbatu egingo dela.
+
+Erabilgarria da fasearentzako ekuazio bat lortzea. Hau lortzen da
+Ekuazioa~\ref{eq-uf} Ekuazioa~\ref{eq-GPE} sartuz:
+
+\begin{equation}\phantomsection\label{eq-S}{
+\hbar \frac{\partial}{\partial t} S + \left( \frac{1}{2} m \mathbf{v}_s^2 + V_{ext} + gn - \frac{\hbar^2}{2m\sqrt{n}} \nabla^2 \sqrt{n} \right) = 0.
+}\end{equation}
+
+Konturatu Ekuazioa~\ref{eq-density} eta Ekuazioa~\ref{eq-S} osatzen
+dutela ekuazio multzo bat analogoa dena GPE ekuazioarekin. \(\hbar\)
+ekuazioan sartzen da dentsitatearen gradientearen bitartez, honi deitzen
+zaio ``presio kuantikoa''.
+
+Ekuazioa~\ref{eq-GPE}-ren soluzio geldikorra forma simple bat du
+
+\begin{equation}\phantomsection\label{eq-guf}{
+\Psi(\mathbf{r},t) = \Psi_0(\mathbf{r}) e^{-\frac{i\mu t}{\hbar}}.
+}\end{equation}
+
+Denboraren menpekotasuna potentzial kimikoa zehazten du
+
+\begin{equation}\phantomsection\label{eq-muux28Eux29}{
+\mu = \frac{\partial E}{\partial N},
+}\end{equation}
+
+guzti honekin Gross-Pitaevskii ekuazioa honela idatzi dezakegu
+
+\begin{equation}\phantomsection\label{eq-egonGPE}{
+\left( -\frac{\hbar^2 \nabla^2}{2m} + V_{ext}(\mathbf{r}) + g|\Psi_0(\mathbf{r})|^2 - \mu \right) \Psi_0(\mathbf{r}) = 0,
+}\end{equation}
+
+non suposatu egin dugu gure potentziala ez dela denboraren menpekoa.
+\(\mu\)-ren balioa normalizazio baldintzak ezarriko digu.
+
+\subsubsection{Bortex interakzio txikiko Bose
+gasan}\label{bortex-interakzio-txikiko-bose-gasan}
+
+Esan dugunez, GPE deskribatuta dago Ekuazioa~\ref{eq-guf}-ren bitartez,
+hau da, magnitude orden bat denborarekiko menpekotasuna duena, non
+menpekotasuna fase global bat deskribatzen duen potentziak kimikoaren
+funtzioa dena.
+
+Orain aztertuko ditugu bortez soluzioak. Hauek ematen dira gure
+kondentsatuaren dentsitatea zerorantz doanean. Hauek ematen diren
+eremuak, berreskuratze luzera baino txikiagoko eskualdetan gertatzen
+dira eta kontuan izan behar dugu presio kuantikoaren terminoa
+GPE-n.~Normalean, azkar biratzen duen erreferentzia sisteman izango dira
+egonkorrak, sistema horretan energiaren funtzionala zero baita.
+
+Superfluidoetan dauden biraketak ez dira solido zurrunean dauden
+bezalakoak \(\mathbf{v} = \mathbf{\Omega} \times \mathbf{r}\), baizik
+eta deskribatuta egongo da bortizitatea difusioarekin:
+\(\text{curl}\mathbf{v} = 2\mathbf{\Omega}\). Hau konturatzen bagara,
+kontraesan bat izango da superfluidoak irrotazionalak direla esan
+genuelako, hau da, espero dugu hauek ez biratzea solido zurruna bezala.
+
+Demagun dugula \(R\) erradioko eta \(L\) luzerako zilindro batean gasa
+konfinatuta. Izango dugun soluzioa hurrengo formakoa izango da:
+
+\begin{equation}\phantomsection\label{eq-zuf}{
+\Psi_0(\mathbf{r}) = e^{is\varphi}|\Psi_0(r)|,
+}\end{equation}
+
+non sartu ditugun koordenatu zilindrikoak \(z\), \(r\) eta \(\varphi\).
+\(s\) zenbaki osoa da, gure uhin-funtzioa balio bakarra izan dezan.
+Konturatzen bagara Ekuazioa~\ref{eq-zuf} \(l_z\)-ren autobalioa izango
+da \(l_z = s \hbar\) izaten. Beraz, bortex osoaren momentu angeluarra
+\(L_z = N s \hbar\) izango da. Ekuazioa~\ref{eq-zuf} adierazten du gas
+bat biratzen hurrengo abiadura tangentzialarekin
+
+\begin{equation}\phantomsection\label{eq-abiadura-tangen}{
+v_s = \frac{\hbar}{m}\frac{s}{r}.
+}\end{equation}
+
+Konturatzen bagara hau guztiz desberdina da solido zurrunean
+geneukanarekin, hau \(1/r\)-ren proportzionala baita
+(Irudia~\ref{fig-vel-eremuak}).
+
+\begin{figure}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{Index_files/figure-latex/fig-vel-eremuak-output-1.pdf}}
+
+}
+
+\caption{\label{fig-vel-eremuak}Abiadura-eremu tangentziala fluxu
+irrotazionalerako (\(v_{\text{irr}}\)) eta errotazio rigidoko
+(\(v_{\text{rig}}\)) fluxurako. Abiadura-eremu irrotazionala \(1/r\)
+bezala dibergitzen da \(r \to 0\) denean. Hemen \(r\) eta \(v\) unitate
+arbitrarioetan (a.u.) neurtzen dira.}
+
+\end{figure}%
+
+Ordezkatuz Ekuazioa~\ref{eq-zuf} Ekuazioa~\ref{eq-egonGPE}, lortuko
+dugun adierazpena \(|\Psi_0|\)-rentzat:
+
+\begin{equation}\phantomsection\label{eq-20}{
+-\frac{\hbar^2}{2m} \frac{1}{r} \frac{d}{dr} \left( r \frac{d|\Psi_0|}{dr} \right) + \frac{\hbar^2 s^2}{2mr^2} |\Psi_0| + g|\Psi_0|^3 - \mu|\Psi_0| = 0.
+}\end{equation}
+
+Bortexaren distantzia handietara dakigu izan behar dugun dentsitatea
+kondentsatuarena izango dela \(|\Psi_0| \to \sqrt{n}\). Hau dela eta,
+sartuko dugu hurrengo funtzio adimensionala \(f(\eta)\) eta gure
+dentsitatea:
+
+\begin{equation}\phantomsection\label{eq-aduf}{
+|\Psi_0| = \sqrt{n} f(\eta),
+}\end{equation}
+
+non \(\eta = r/\xi\) eta \(\xi = \hbar / \sqrt{2mgn}\) berreskuratze
+luzera den. Funtzio honek betetzen duen ekuazioa
+
+\begin{equation}\phantomsection\label{eq-f}{
+\frac{1}{\eta} \frac{d}{d\eta} \left( \eta \frac{df}{d\eta} \right) + \left( 1 - \frac{s^2}{\eta^2} \right) f - f^3 = 0,
+}\end{equation}
+
+non muga baldintzak \(f(\eta\to\infty) = 1\) eta \(f(0) = 0\) izan behar
+diren. Hau numerikoki ebasten badugu ikusten da
+(Irudia~\ref{fig-bortex-profila}) nola \(r\) \(\xi\)-ren ordenakoa
+denenean dentsitate aldaketa bortitza izango den.
+
+\begin{figure}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{Index_files/figure-latex/fig-bortex-profila-output-1.pdf}}
+
+}
+
+\caption{\label{fig-bortex-profila}Ekuazioa~\ref{eq-f}-ren soluzio
+numerikoak \(s=1\) eta \(s=2\) kasuetarako. Ikusten da nola
+kondentsatuaren dentsitatea aldatzen den \(\eta\)-ren funtzioan.}
+
+\end{figure}%
+
+\subsection{Superfluidotasuna}\label{superfluidotasuna}
+
+Aipatu dugunez, BEC-a superfluido baten moduan jokatzen du tenperatura
+kritiko bat baino hotsago dagoenean. Parte honetan eztabaidatuko ditugu
+Landauren superfluidoen hidrodinamika, eta nola teoria honek
+ahalbidetzen dituen aurkitutako ordena-parametroaren fasearen
+fluktuazioak BEC-aren teorian.
+
+\subsubsection{Landauren irizpidea
+superfluidotasunarentzako}\label{landauren-irizpidea-superfluidotasunarentzako}
+
+Landauren superfluidoen teoria garatzeko, energiaren eta momentuaren
+transformazio Galilearrak erabiliko erabiliko ditugu. \(E\) eta
+\(\mathbf{P}\) izango dira energia eta momentua fluidoaren pausaguneko
+sisteman \(K\). Orduan \(K'\) sisteman, \(\mathbf{v}\) abiaduraz
+mugitzen dena \(K\) sistemarekiko, energia eta momentuaren adierazpenak:
+
+\begin{equation}\phantomsection\label{eq-p8}{
+E' = E - \mathbf{P.V} + \frac{1}{2} M V^2, \; \mathbf{P'} = \mathbf{P} - M \mathbf{v}
+}\end{equation}
+
+non \(M\) fluidoaren masa den.
+
+Kontsidera dezagun fluido bat, kapilar baten zehar higitzen dena
+\(\mathbf{v}\) abiadurarekin. Fluidoa biskositatea badu, galdutako
+energia modelizatu ahal dugu higitzen den pertubazio baten moduan.
+Perturbazio honen energia eta momentua fluidoaren pausaguneko sisteman
+\(\mathbf{p}\) eta \(E_0 + \epsilon(\mathbf{p})\) izango dira, non
+\(E_0\) pertubazioaren oinarrizko energia den eta
+\(\epsilon(\mathbf{p})\) kitzikapenak sortutako energia. Kapilarraren
+pausaguneko sisteman ikusiko dugu:
+
+\begin{equation}\phantomsection\label{eq-p9}{
+E' = E_0 + \epsilon(\mathbf{p}) + \mathbf{p.v} + \frac{1}{2} M v^2, \mathbf{P'} = \mathbf{p} + M \mathbf{v}
+}\end{equation}
+
+Ekuazioa~\ref{eq-p9} ikusi ahal dugu nola energia eta momentu aldaketak,
+kapilarraren pausaguneko sisteman,
+\(\epsilon(\mathbf{p}) + \mathbf{p.v}\) eta \(\mathbf{p}\) diren.
+Orduan, \(\epsilon(\mathbf{p}) + \mathbf{p.v}\) negatiboa izan behar da
+berezko kitzikapena izateko. Hau posiblea izateko,
+\(v > \epsilon(\mathbf{p}) / p\) izan behar da. Suposatzen badugu
+\(\mathbf{p}\) momentua kapilarrari transferitzen diola, hau bero moduan
+disipatu egingo da eta fluidoa ez da egonkorra izango. Baina abiadura,
+
+\begin{equation}\phantomsection\label{eq-vc}{
+v_c = \text{min}_p \frac{\epsilon(\mathbf{p})}{p}
+}\end{equation}
+
+baino txikiago bada, kitzikapenak ezin dira agertu. Hau da Landauren
+superfluidotasunaren baldintza.
+
+\begin{equation}\phantomsection\label{eq-LSC}{
+v < v_c
+}\end{equation}
+
+Fluidoaren eta kapilarraren abiadura erlatiboak, Ekuazioa~\ref{eq-vc}
+balio kritikoa baino txikiagoa bada. Orduna marruskadura gabeko fluxua
+izango dugu. Egoera honi, metaegonkorra deritzogu. Egonkorra da
+bat-bateko kitzikapenekiko.
+
+Interakzio ahuleko Bose gasa Landauren irispidea betetzen du, non
+abiadura kritikoa soinuaren abiadura izango den. \(^4He\)-ren kasuan ere
+beteko egingo du Landauren irispidea, baina kasu honetan abiadura
+kritikoa soinuaren abiadura baino txikiagoa izango da, \(^4He\)
+partikulen elkarrekintza handiagoa baita.
+
+Demagun temperatura txikia dela. Gure fluidoaren propietateak izango
+dira interakzio gabeko gas baten kitzikapenak (kuasipartikulak) oreka
+termikoan bezalakoak. kuasipartikulak dira sistemaren masaren parte bat
+garraiatzen dituztenak. Gainera, hauek talka egitean kapilarraren
+hormekin energia disipatu egingo dute, fluido normal baten moduan.
+Beraz, izango ditugu bi fase, bat normala \(\mathbf{v_n}\)-rekin eta
+beste bat superfluidoa dena \(\mathbf{v_s}\), non abiadura hauek izango
+dira kapilarraren pausaguneko sistemarekiko. Orduan kitzikapenen energia
+\(\epsilon(\mathbf{p}) + \mathbf{p.}(\mathbf{v_s - v_n})\). Orekan
+dauden kitzikapenen, \(\mathbf{p}\) banaketa funtzioa:
+
+\begin{equation}\phantomsection\label{eq-Np}{
+N_{\mathbf{p}} = \left[ exp\left(\frac{\epsilon(\mathbf{p}) + \mathbf{p.} (\mathbf{v_s - v_n})}{k_B T}\right) - 1 \right]^{-1}
+}\end{equation}
+
+Ekuazio hau betetzeko \(\mathbf{p}\)-ren balio guztietarako (hau da,
+kitzikapenen energia positiboa izateko)
+\(|\mathbf{v_s} - \mathbf{v_n}|\) abiadura kritikoa baino txikiagoa izan
+beharko da. Orduan, \(N_\mathbf{p}\) beti izango da positiboa. Oreka
+termodinamikoan gaudenean, superfluido fasearen eta fase normalaren
+arteko marruskadurarik ez dago. Hau gertatzekotan, gero eta kitzikapen
+gehiago sortuko lirateke eta, ondorioz, superfluido fasea apurtuko zen.
+
+Kontuan izanda bi faseak batera daudela, fluidoaren masa dentsitatea
+idatz dezakegu hurrengo moduan: \(\rho = \rho_n + \rho_s\) ((Pitaevskii
+eta Stringari 2016) erabiltzen du \(\rho = n m\) dentsitatea hemendik
+aurrera literatura orokorrean hau egiten baitenez, \(n\) erabili
+beharrean). Likidoaren masa korrontea definitu dezakegu:
+
+\begin{equation}\phantomsection\label{eq-mj}{
+m \mathbf{j} = \rho_s \mathbf{v_s} + \rho_n \mathbf{v_n}
+}\end{equation}
+
+Hau erabili ahal dugu definitzeko fluido normalaren dentsitatea. Jar
+gaitezen superfluidoaren pausaguneko sisteman, orduan
+\(m\mathbf{j} = \rho_n \mathbf{v_n}\) izango dugu. Beraz, likidoak
+dakarren momentu osoa
+\(\mathbf{P} = \sum_{\mathbf{p}} N_{\mathbf{p}} \mathbf{p}\) izango da.
+Onekin, Ekuazioa~\ref{eq-mj} berridatzi dezakegu:
+
+\begin{equation}\phantomsection\label{eq-intmj}{
+m \mathbf{j} = \int \; \frac{d \mathbf{p}}{(2 \pi \hbar)^3} \mathbf{p} N_{\mathbf{p}}
+}\end{equation}
+
+eta esan dugunez, superfluidoaren pausaguneko sisteman gaudenez
+
+\begin{equation}\phantomsection\label{eq-intrhov}{
+\rho_n \mathbf{v_n} = \int \; \frac{d \mathbf{p}}{(2 \pi \hbar)^3} \mathbf{p} N_{\mathbf{p}}
+}\end{equation}
+
+izango dugu. \(\mathbf{v_n}\) txikia izango denez (oreka termikoan
+egoteko) \(N_{\mathbf{p}}\) seriean garatu dezakegu termino
+linealerarte. Hau eginez, lortuko dugu fase normalaren masa dentsitatea
+
+\begin{equation}\phantomsection\label{eq-masadentitatea}{
+\rho_n = - \frac{1}{3} \int \; \frac{d \mathbf{p}}{(2 \pi \hbar)^3} \frac{d N_{\mathbf{p}}(\epsilon)}{d \epsilon} p^2,
+}\end{equation}
+
+isotropikoa izango dena \(\mathbf{p}\)-rekiko. Oso erabilgarria da,
+kalkulatu ahal dugulako fase normalaren banaketa kitzikapenen funtzioen
+bitartez. Baina zenbait limite dauzkagu, \(N_{\mathbf{p}}\) ez badago
+ondo definitua, desorden handia dogoenean, beste era bat bilatu beharko
+dugu kalkulatu ahal izateko fase normalaren dentsitatea.
+
+\subsection{Bose-Einstein kondentsatua eta
+superfluidotasuna}\label{bose-einstein-kondentsatua-eta-superfluidotasuna}
+
+Orain nahi dugu BEC-aren eta superfluidoasunaren arteko erlazioa
+aztertu. Lehen egin dugun moduan, kondentsatuaren \(\Phi_0\)
+uhin-funtzioaren propietateak aztertu nahi ditugu, transformazio
+Galilear bat egitean. Garrantzitsua da aipatzea, \(|\Phi_0|^2\)
+dentsitatea uniformea izan arren, gure uhin-funtzioa ez da inbariante
+bat izango transformazio Galilear batekiko fase bat gehitu beharko
+diogulako. Fase honen kalkulua egiteko erabili dezakegu
+Ekuazioa~\ref{eq-p1}. Erreza da baieztatzea
+
+\begin{equation}\phantomsection\label{eq-phiGalilear}{
+\hat{\Phi}' = \hat{\Phi}(\mathbf{r-v}t,t) \exp \left[ \frac{i}{\hbar} \left( m \mathbf{v.r} - \frac{1}{2} m v^2 t \right) \right],
+}\end{equation}
+
+non \(\mathbf{v}\) bektore konstante bat den, soluzio bat dela. Hau da
+eremu eragilearen transformazio Galilearra. ordena-parametroa eta bere
+itxarotako balio izango dute transformazio berbera.
+
+\texttt{\{\{\textless{}\ include\ SIMULACION/simulacion.qmd\ \textgreater{}\}\}}
+
+\phantomsection\label{refs}
+\begin{CSLReferences}{1}{0}
+\bibitem[\citeproctext]{ref-Pitaevskii}
+Pitaevskii, Lev, eta Sandro Stringari. 2016. \emph{Bose-Einstein
+Condensation and Superfluidity}. Oxford University Press.
+\url{https://doi.org/10.1093/acprof:oso/9780198758884.001.0001}.
+
+\end{CSLReferences}
+
+
+
+
+\end{document}
