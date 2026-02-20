@@ -134,6 +134,36 @@ $${#eq-egonGPE}
 
 non suposatu egin dugu gure potentziala ez dela denboraren menpekoa. $\mu$-ren balioa normalizazio baldintzak ezarriko digu.
 
+## Thomas-Fermi limitea
+
+[@eq-S] ekuazioan ikusi dugu parte bat presio kuantiko modukoa izango dela. Honek bi zatitan banatu dezakegu: $gn$ interakzio partean eta Bohm-en potentzialean ($Q$). Honen forma hurrengoa da:
+
+$$
+Q = - \frac{\hbar^2}{2m} \frac{\nabla^2 \sqrt{n}}{\sqrt{n}}.
+$${#eq-Q}
+
+Thomas-Fermi limitean, $\nabla^2 \sqrt{n}/\sqrt{n}$ magnitudea berreskuratze luzera $\xi = \hbar / \sqrt{2mgn}$ (hau erakusten du noiz izango dugun kondentsatua a la ez, oso txikia, edo orden berekoa, bada sistemaren luzera karakteristikoa interakzioak eta gero ez du denborarik berreskuratzeko eta apurtzen da kondentsatua) baino askoz handiagoa bada (hau da, $\sqrt{n}$ oso era motelean aldatzen bada denbora eta espazioan zehar) $Q$ guztiz arbuiagarria izango da eta berridatz dezakegu [@eq-S] abiadura eremu bat bezala:
+
+$$
+m \frac{\partial \mathbf{v}_s}{\partial t} + \nabla \left( \frac{1}{2}m\mathbf{v}_s^2 + V_{ext} + gn \right) = 0 
+$${#eq-TF}
+
+non ekuazio hau bat datorren Eulerren ekuazioarekin, fluido batentzat kanpo potentzial baten eraginean eta biskositate barik. Fluido honen presioa $P = gn^2/2$ eta soinuaren abiadura $c=\sqrt{gn/m}$. Horretaz gain, berridatzi dezakegu [@eq-kontinuidad] $\mathbf{v}_s$-ren menpean 
+
+$$
+\frac{\partial n}{\partial t} + \text{div}(v_sn) = 0,
+$${#eq-kontinuidad_vs_rho}
+
+ekuazio bikote hauek hurrengo atalean ikusiko dugunez superfluido baten hidrodinamikari datorkie.
+
+Thomas-Fermi hurbilketan oinarrizko egoerak forma erreza hartzen du, $v_s = 0$. Hau da, energia zinetikoa guztiz arbuiatuz lortuko dugu. Era honetan izango dugu:
+
+$$
+gn(\mathbf{r}) + V_{ext}(\mathbf{r}) = \mu
+$${#eq-5.23}
+
+non $\mu$ oinarrizko egoerari dagokion potentzial kimikoa den. Kanpo eremurik ez daukagunean ailegatzen gara Bogoliubov erlazioari $\mu = gn$.
+ 
 ### Bortex interakzio txikiko Bose gasan
 
 Esan dugunez, GPE deskribatuta dago [@eq-guf]-ren bitartez, hau da, magnitude orden bat denborarekiko menpekotasuna duena, non menpekotasuna fase global bat deskribatzen duen potentziak kimikoaren funtzioa dena.
@@ -295,7 +325,7 @@ ax.annotate(r'$s=2$', xy=(2, 0.4), xytext=(2.5, 0.2),
 
 plt.show()
 ```
-## Superfluidotasuna
+## Superfluidotasuna 
 
 Aipatu dugunez, BEC-a superfluido baten moduan jokatzen du tenperatura kritiko bat baino hotsago dagoenean. Parte honetan eztabaidatuko ditugu Landauren superfluidoen hidrodinamika, eta nola teoria honek ahalbidetzen dituen aurkitutako ordena-parametroaren fasearen fluktuazioak BEC-aren teorian.
 
@@ -365,20 +395,58 @@ $${#eq-masadentitatea}
 
 isotropikoa izango dena $\mathbf{p}$-rekiko. Oso erabilgarria da, kalkulatu ahal dugulako fase normalaren banaketa kitzikapenen funtzioen bitartez. Baina zenbait limite dauzkagu, $N_{\mathbf{p}}$ ez badago ondo definitua, desorden handia dogoenean, beste era bat bilatu beharko dugu kalkulatu ahal izateko fase normalaren dentsitatea.
 
-## Bose-Einstein kondentsatua eta superfluidotasuna 
+### Bose-Einstein kondentsatua eta superfluidotasuna 
 
-Orain nahi dugu BEC-aren eta superfluidoasunaren arteko erlazioa aztertu. Lehen egin dugun moduan, kondentsatuaren $\Psi_0$ uhin-funtzioaren propietateak aztertu nahi ditugu, transformazio Galilear bat egitean. Garrantzitsua da aipatzea, $|\Psi_0|^2$ dentsitatea uniformea izan arren, gure uhin-funtzioa ez da inbariante bat izango transformazio Galilear batekiko fase bat gehitu beharko diogulako. Fase honen kalkulua egiteko erabili dezakegu [@eq-p1]. Erreza da baieztatzea
+Orain nahi dugu BEC-aren eta superfluidoasunaren arteko erlazioa aztertu. Lehen egin dugun moduan, kondentsatuaren $\Psi_0$ uhin-funtzioaren propietateak aztertu nahi ditugu, transformazio Galilear bat egitean. Garrantzitsua da aipatzea, $|\Psi_0|^2$ dentsitatea uniformea izan arren, gure uhin-funtzioa ez da aldaezin bat izango transformazio Galilear batekiko fase bat gehitu beharko diogulako. Fase honen kalkulua egiteko erabili dezakegu [@eq-p1]. Erreza da baieztatzea
 
 $$
 \hat{\Psi}' = \hat{\Psi}(\mathbf{r-v}t,t) \exp \left[ \frac{i}{\hbar} \left( m \mathbf{v.r} - \frac{1}{2} m v^2 t \right) \right],
 $${#eq-phiGalilear}
 
-non $\mathbf{v}$ bektore konstante bat den, soluzio bat dela. Hau eremu eragilearen transformazio Galilearra da. ordena-parametroa eta bere itxarotako balio izango dute transformazio berbera. Dakigunez, gure fluidoa orekan dagoen erreferentzia sisteman, izango dugun uhin-funtzioa 
+non $\mathbf{v}$ bektore konstante bat den, soluzio bat dela. Hau eremu eragilearen transformazio Galilearra da. ordena-parametroa eta bere itxarotako balio izango dute transformazio berbera. Dakigunez, gure fluidoa orekan dagoen erreferentzia sisteman, izango dugun uhin-funtzioa $\Psi_0 = \sqrt{n_0} e^{-i \mu t / \hbar}$, non $n_0$ $\mathbf{r}$-ren independiente den konstantea. Baina, fluidoa $\mathbf{v}$ abiadurarekin mugitzen den erreferentzia sisteman jarriz, lehen esan dugunez modulua es da aldatuko, fasea ez bezala. gure ordena-parametro berria $\Psi_0 = \sqrt{n_0} e^{iS}$ non gure fase berria
 
+$$
+S(\sqrt{r},t) = \frac{1}{\hbar} \left[ m \mathbf{v.r} - \left( \frac{1}{2} m v^2 + \mu \right) t \right]
+$${#eq-6.15}
 
+izango den. Gainera, Hamilton-Jacobi ekuazio batetik hasi garenez (Schrödinger-en ekuazioa), dakigu gure superfluidoaren abiadura fasearen paraleloa izango dela:
 
+$$
+\mathbf{v}_s = \frac{\hbar}{m} \nabla S.
+$${#eq-p6.16}
 
+Abiadura hau, era motelean aldatu ahal da denboran eta espazioan zehar. Gainera, guztiz orokorra da, ez baititugu inolako hurbilketak egin.
 
+### Superfluidoen hidrodinamikaren teoria (T=0K)
 
+Temperatura nulua denean, portaera makroskopikoa erakusten duen ekuazioa fluido irrotazional klasiko batena da. Kitzikapen termikoen gabezian, deskribatu dezakegu gure sistema bi parametroen menpe, superfluidoaren abiadurarekin eta bere masa dentsitatearekin. Masa dentsitatea lortuko dugu jarraitutasun ekuazioaren bitartez,
 
+$$
+\frac{\partial \rho}{t} + \text{div} (\mathbf{v}_s \rho) = 0
+$${#eq-p6.17}
 
+masaren kontserbazioa ezartzen duena. Abiadura eremuaren ekuazioa lortzeko, fasea [@eq-6.15] betetzen duela erabiliko dugu
+
+$$
+\hbar \frac{\partial S}{\partial t} = - \left( \frac{1}{2} m v^2 + \mu \right).
+$${#eq-p6.18}
+
+Aurreko atalean aurresan genuen bezala, ekuazio hau ez da bakarrik baliagarria orekan (biak denbora eta posizioarekiko menpekotasunik ez daukatenean), baizik eta hauek biak era motelean aldatzen direnean denbora eta espazioan zehar. Orduan, aurreko adierazpenaren gradientea hartuz eta [@eq-p6.16] adierazpena erabiliz lortuko dugu abiadura eremuaren adierazpena
+
+$$
+m \frac{\partial \mathbf{v}_s}{\partial t} + \nabla \left( \frac{1}{2} m \mathbf{v}_s^2 + \mu(\rho) \right) = 0
+$${#eq-6.19}
+
+non potentziak kimikoa lokalki ebaluatzen da, kontuan izanda fluidoaren dentsitate puntuala. Konturatzen bagara, adierazpen honek Eulerren ekuazioaren antza dauka, baina kanpoko potentziala ez dagoenean. Beraz $V_{ext}$ bat gehitu ahal diogu
+
+$$
+m \frac{\partial \mathbf{v}_s}{\partial t} + \nabla \left( \frac{1}{2} m \mathbf{v}_s^2 + \mu(\rho) + V_{ext} \right) = 0.
+$${#eq-6.20}
+
+Oinarrizko egoera aztertzean, hau da $\mathbf{v}_s = 0$ denean berreskuaretzen dugu Thomas-Fermiren limitea non potentzial kimikoa 
+
+$$
+\mu(\rho(\mathbf{r})) + V_{ext}(\mathbf{r}) = \mu_0
+$${#eq-p6.21}
+
+izango den.

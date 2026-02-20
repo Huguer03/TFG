@@ -145,13 +145,16 @@ window.Quarto = {
   <li><a href="#ez-uniforme-bose-gasak-t0k" id="toc-ez-uniforme-bose-gasak-t0k" class="nav-link" data-scroll-target="#ez-uniforme-bose-gasak-t0k"><span class="header-section-number">1.1</span> Ez-uniforme Bose gasak T=0K</a>
   <ul class="collapse">
   <li><a href="#gross-pitaevskii-ekuazioa-gpe" id="toc-gross-pitaevskii-ekuazioa-gpe" class="nav-link" data-scroll-target="#gross-pitaevskii-ekuazioa-gpe"><span class="header-section-number">1.1.1</span> Gross-Pitaevskii ekuazioa (GPE)</a></li>
-  <li><a href="#bortex-interakzio-txikiko-bose-gasan" id="toc-bortex-interakzio-txikiko-bose-gasan" class="nav-link" data-scroll-target="#bortex-interakzio-txikiko-bose-gasan"><span class="header-section-number">1.1.2</span> Bortex interakzio txikiko Bose gasan</a></li>
   </ul></li>
-  <li><a href="#superfluidotasuna" id="toc-superfluidotasuna" class="nav-link" data-scroll-target="#superfluidotasuna"><span class="header-section-number">1.2</span> Superfluidotasuna</a>
+  <li><a href="#thomas-fermi-limitea" id="toc-thomas-fermi-limitea" class="nav-link" data-scroll-target="#thomas-fermi-limitea"><span class="header-section-number">1.2</span> Thomas-Fermi limitea</a>
   <ul class="collapse">
-  <li><a href="#landauren-irizpidea-superfluidotasunarentzako" id="toc-landauren-irizpidea-superfluidotasunarentzako" class="nav-link" data-scroll-target="#landauren-irizpidea-superfluidotasunarentzako"><span class="header-section-number">1.2.1</span> Landauren irizpidea superfluidotasunarentzako</a></li>
+  <li><a href="#bortex-interakzio-txikiko-bose-gasan" id="toc-bortex-interakzio-txikiko-bose-gasan" class="nav-link" data-scroll-target="#bortex-interakzio-txikiko-bose-gasan"><span class="header-section-number">1.2.1</span> Bortex interakzio txikiko Bose gasan</a></li>
   </ul></li>
-  <li><a href="#bose-einstein-kondentsatua-eta-superfluidotasuna" id="toc-bose-einstein-kondentsatua-eta-superfluidotasuna" class="nav-link" data-scroll-target="#bose-einstein-kondentsatua-eta-superfluidotasuna"><span class="header-section-number">1.3</span> Bose-Einstein kondentsatua eta superfluidotasuna</a></li>
+  <li><a href="#superfluidotasuna" id="toc-superfluidotasuna" class="nav-link" data-scroll-target="#superfluidotasuna"><span class="header-section-number">1.3</span> Superfluidotasuna</a>
+  <ul class="collapse">
+  <li><a href="#landauren-irizpidea-superfluidotasunarentzako" id="toc-landauren-irizpidea-superfluidotasunarentzako" class="nav-link" data-scroll-target="#landauren-irizpidea-superfluidotasunarentzako"><span class="header-section-number">1.3.1</span> Landauren irizpidea superfluidotasunarentzako</a></li>
+  <li><a href="#bose-einstein-kondentsatua-eta-superfluidotasuna" id="toc-bose-einstein-kondentsatua-eta-superfluidotasuna" class="nav-link" data-scroll-target="#bose-einstein-kondentsatua-eta-superfluidotasuna"><span class="header-section-number">1.3.2</span> Bose-Einstein kondentsatua eta superfluidotasuna</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -296,19 +299,40 @@ m \frac{\partial j_i}{\partial t} + \frac{\partial \Pi_{ik}}{\partial x_k} = -n 
 \tag{17}\]</span></span></p>
 <p>non suposatu egin dugu gure potentziala ez dela denboraren menpekoa. <span class="math inline">\(\mu\)</span>-ren balioa normalizazio baldintzak ezarriko digu.</p>
 </section>
-<section id="bortex-interakzio-txikiko-bose-gasan" class="level3" data-number="1.1.2">
-<h3 data-number="1.1.2" class="anchored" data-anchor-id="bortex-interakzio-txikiko-bose-gasan"><span class="header-section-number">1.1.2</span> Bortex interakzio txikiko Bose gasan</h3>
+</section>
+<section id="thomas-fermi-limitea" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="thomas-fermi-limitea"><span class="header-section-number">1.2</span> Thomas-Fermi limitea</h2>
+<p><a href="#eq-S" class="quarto-xref">Ekuazioa&nbsp;14</a> ekuazioan ikusi dugu parte bat presio kuantiko modukoa izango dela. Honek bi zatitan banatu dezakegu: <span class="math inline">\(gn\)</span> interakzio partean eta Bohm-en potentzialean (<span class="math inline">\(Q\)</span>). Honen forma hurrengoa da:</p>
+<p><span id="eq-Q"><span class="math display">\[
+Q = - \frac{\hbar^2}{2m} \frac{\nabla^2 \sqrt{n}}{\sqrt{n}}.
+\tag{18}\]</span></span></p>
+<p>Thomas-Fermi limitean, <span class="math inline">\(\nabla^2 \sqrt{n}/\sqrt{n}\)</span> magnitudea berreskuratze luzera <span class="math inline">\(\xi = \hbar / \sqrt{2mgn}\)</span> (hau erakusten du noiz izango dugun kondentsatua a la ez, oso txikia, edo orden berekoa, bada sistemaren luzera karakteristikoa interakzioak eta gero ez du denborarik berreskuratzeko eta apurtzen da kondentsatua) baino askoz handiagoa bada (hau da, <span class="math inline">\(\sqrt{n}\)</span> oso era motelean aldatzen bada denbora eta espazioan zehar) <span class="math inline">\(Q\)</span> guztiz arbuiagarria izango da eta berridatz dezakegu <a href="#eq-S" class="quarto-xref">Ekuazioa&nbsp;14</a> abiadura eremu bat bezala:</p>
+<p><span id="eq-TF"><span class="math display">\[
+m \frac{\partial \mathbf{v}_s}{\partial t} + \nabla \left( \frac{1}{2}m\mathbf{v}_s^2 + V_{ext} + gn \right) = 0
+\tag{19}\]</span></span></p>
+<p>non ekuazio hau bat datorren Eulerren ekuazioarekin, fluido batentzat kanpo potentzial baten eraginean eta biskositate barik. Fluido honen presioa <span class="math inline">\(P = gn^2/2\)</span> eta soinuaren abiadura <span class="math inline">\(c=\sqrt{gn/m}\)</span>. Horretaz gain, berridatzi dezakegu <a href="#eq-kontinuidad" class="quarto-xref">Ekuazioa&nbsp;8</a> <span class="math inline">\(\mathbf{v}_s\)</span>-ren menpean</p>
+<p><span id="eq-kontinuidad_vs_rho"><span class="math display">\[
+\frac{\partial n}{\partial t} + \text{div}(v_sn) = 0,
+\tag{20}\]</span></span></p>
+<p>ekuazio bikote hauek hurrengo atalean ikusiko dugunez superfluido baten hidrodinamikari datorkie.</p>
+<p>Thomas-Fermi hurbilketan oinarrizko egoerak forma erreza hartzen du, <span class="math inline">\(v_s = 0\)</span>. Hau da, energia zinetikoa guztiz arbuiatuz lortuko dugu. Era honetan izango dugu:</p>
+<p><span id="eq-5.23"><span class="math display">\[
+gn(\mathbf{r}) + V_{ext}(\mathbf{r}) = \mu
+\tag{21}\]</span></span></p>
+<p>non <span class="math inline">\(\mu\)</span> oinarrizko egoerari dagokion potentzial kimikoa den. Kanpo eremurik ez daukagunean ailegatzen gara Bogoliubov erlazioari <span class="math inline">\(\mu = gn\)</span></p>
+<section id="bortex-interakzio-txikiko-bose-gasan" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="bortex-interakzio-txikiko-bose-gasan"><span class="header-section-number">1.2.1</span> Bortex interakzio txikiko Bose gasan</h3>
 <p>Esan dugunez, GPE deskribatuta dago <a href="#eq-guf" class="quarto-xref">Ekuazioa&nbsp;15</a>-ren bitartez, hau da, magnitude orden bat denborarekiko menpekotasuna duena, non menpekotasuna fase global bat deskribatzen duen potentziak kimikoaren funtzioa dena.</p>
 <p>Orain aztertuko ditugu bortez soluzioak. Hauek ematen dira gure kondentsatuaren dentsitatea zerorantz doanean. Hauek ematen diren eremuak, berreskuratze luzera baino txikiagoko eskualdetan gertatzen dira eta kontuan izan behar dugu presio kuantikoaren terminoa GPE-n.&nbsp;Normalean, azkar biratzen duen erreferentzia sisteman izango dira egonkorrak, sistema horretan energiaren funtzionala zero baita.</p>
 <p>Superfluidoetan dauden biraketak ez dira solido zurrunean dauden bezalakoak <span class="math inline">\(\mathbf{v} = \mathbf{\Omega} \times \mathbf{r}\)</span>, baizik eta deskribatuta egongo da bortizitatea difusioarekin: <span class="math inline">\(\text{curl}\mathbf{v} = 2\mathbf{\Omega}\)</span>. Hau konturatzen bagara, kontraesan bat izango da superfluidoak irrotazionalak direla esan genuelako, hau da, espero dugu hauek ez biratzea solido zurruna bezala.</p>
 <p>Demagun dugula <span class="math inline">\(R\)</span> erradioko eta <span class="math inline">\(L\)</span> luzerako zilindro batean gasa konfinatuta. Izango dugun soluzioa hurrengo formakoa izango da:</p>
 <p><span id="eq-zuf"><span class="math display">\[
 \Psi_0(\mathbf{r}) = e^{is\varphi}|\Psi_0(r)|,
-\tag{18}\]</span></span></p>
-<p>non sartu ditugun koordenatu zilindrikoak <span class="math inline">\(z\)</span>, <span class="math inline">\(r\)</span> eta <span class="math inline">\(\varphi\)</span>. <span class="math inline">\(s\)</span> zenbaki osoa da, gure uhin-funtzioa balio bakarra izan dezan. Konturatzen bagara <a href="#eq-zuf" class="quarto-xref">Ekuazioa&nbsp;18</a> <span class="math inline">\(l_z\)</span>-ren autobalioa izango da <span class="math inline">\(l_z = s \hbar\)</span> izaten. Beraz, bortex osoaren momentu angeluarra <span class="math inline">\(L_z = N s \hbar\)</span> izango da. <a href="#eq-zuf" class="quarto-xref">Ekuazioa&nbsp;18</a> adierazten du gas bat biratzen hurrengo abiadura tangentzialarekin</p>
+\tag{22}\]</span></span></p>
+<p>non sartu ditugun koordenatu zilindrikoak <span class="math inline">\(z\)</span>, <span class="math inline">\(r\)</span> eta <span class="math inline">\(\varphi\)</span>. <span class="math inline">\(s\)</span> zenbaki osoa da, gure uhin-funtzioa balio bakarra izan dezan. Konturatzen bagara <a href="#eq-zuf" class="quarto-xref">Ekuazioa&nbsp;22</a> <span class="math inline">\(l_z\)</span>-ren autobalioa izango da <span class="math inline">\(l_z = s \hbar\)</span> izaten. Beraz, bortex osoaren momentu angeluarra <span class="math inline">\(L_z = N s \hbar\)</span> izango da. <a href="#eq-zuf" class="quarto-xref">Ekuazioa&nbsp;22</a> adierazten du gas bat biratzen hurrengo abiadura tangentzialarekin</p>
 <p><span id="eq-abiadura-tangen"><span class="math display">\[
 v_s = \frac{\hbar}{m}\frac{s}{r}.
-\tag{19}\]</span></span></p>
+\tag{23}\]</span></span></p>
 <p>Konturatzen bagara hau guztiz desberdina da solido zurrunean geneukanarekin, hau <span class="math inline">\(1/r\)</span>-ren proportzionala baita (<a href="#fig-vel-eremuak" class="quarto-xref">Irudia&nbsp;1</a>).</p>
 <div id="cell-fig-vel-eremuak" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
@@ -324,18 +348,18 @@ Irudia&nbsp;1: Abiadura-eremu tangentziala fluxu irrotazionalerako (<span class=
 </div>
 </div>
 </div>
-<p>Ordezkatuz <a href="#eq-zuf" class="quarto-xref">Ekuazioa&nbsp;18</a> <a href="#eq-egonGPE" class="quarto-xref">Ekuazioa&nbsp;17</a>, lortuko dugun adierazpena <span class="math inline">\(|\Psi_0|\)</span>-rentzat:</p>
+<p>Ordezkatuz <a href="#eq-zuf" class="quarto-xref">Ekuazioa&nbsp;22</a> <a href="#eq-egonGPE" class="quarto-xref">Ekuazioa&nbsp;17</a>, lortuko dugun adierazpena <span class="math inline">\(|\Psi_0|\)</span>-rentzat:</p>
 <p><span id="eq-20"><span class="math display">\[
 -\frac{\hbar^2}{2m} \frac{1}{r} \frac{d}{dr} \left( r \frac{d|\Psi_0|}{dr} \right) + \frac{\hbar^2 s^2}{2mr^2} |\Psi_0| + g|\Psi_0|^3 - \mu|\Psi_0| = 0.
-\tag{20}\]</span></span></p>
+\tag{24}\]</span></span></p>
 <p>Bortexaren distantzia handietara dakigu izan behar dugun dentsitatea kondentsatuarena izango dela <span class="math inline">\(|\Psi_0| \to \sqrt{n}\)</span>. Hau dela eta, sartuko dugu hurrengo funtzio adimensionala <span class="math inline">\(f(\eta)\)</span> eta gure dentsitatea:</p>
 <p><span id="eq-aduf"><span class="math display">\[
 |\Psi_0| = \sqrt{n} f(\eta),
-\tag{21}\]</span></span></p>
+\tag{25}\]</span></span></p>
 <p>non <span class="math inline">\(\eta = r/\xi\)</span> eta <span class="math inline">\(\xi = \hbar / \sqrt{2mgn}\)</span> berreskuratze luzera den. Funtzio honek betetzen duen ekuazioa</p>
 <p><span id="eq-f"><span class="math display">\[
 \frac{1}{\eta} \frac{d}{d\eta} \left( \eta \frac{df}{d\eta} \right) + \left( 1 - \frac{s^2}{\eta^2} \right) f - f^3 = 0,
-\tag{22}\]</span></span></p>
+\tag{26}\]</span></span></p>
 <p>non muga baldintzak <span class="math inline">\(f(\eta\to\infty) = 1\)</span> eta <span class="math inline">\(f(0) = 0\)</span> izan behar diren. Hau numerikoki ebasten badugu ikusten da (<a href="#fig-bortex-profila" class="quarto-xref">Irudia&nbsp;2</a>) nola <span class="math inline">\(r\)</span> <span class="math inline">\(\xi\)</span>-ren ordenakoa denenean dentsitate aldaketa bortitza izango den.</p>
 <div id="cell-fig-bortex-profila" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
@@ -345,7 +369,7 @@ Irudia&nbsp;1: Abiadura-eremu tangentziala fluxu irrotazionalerako (<span class=
 <img src="Index_files/figure-html/fig-bortex-profila-output-1.png" width="546" height="366" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bortex-profila-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Irudia&nbsp;2: <a href="#eq-f" class="quarto-xref">Ekuazioa&nbsp;22</a>-ren soluzio numerikoak <span class="math inline">\(s=1\)</span> eta <span class="math inline">\(s=2\)</span> kasuetarako. Ikusten da nola kondentsatuaren dentsitatea aldatzen den <span class="math inline">\(\eta\)</span>-ren funtzioan.
+Irudia&nbsp;2: <a href="#eq-f" class="quarto-xref">Ekuazioa&nbsp;26</a>-ren soluzio numerikoak <span class="math inline">\(s=1\)</span> eta <span class="math inline">\(s=2\)</span> kasuetarako. Ikusten da nola kondentsatuaren dentsitatea aldatzen den <span class="math inline">\(\eta\)</span>-ren funtzioan.
 </figcaption>
 </figure>
 </div>
@@ -353,65 +377,73 @@ Irudia&nbsp;2: <a href="#eq-f" class="quarto-xref">Ekuazioa&nbsp;22</a>-ren solu
 </div>
 </section>
 </section>
-<section id="superfluidotasuna" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="superfluidotasuna"><span class="header-section-number">1.2</span> Superfluidotasuna</h2>
+<section id="superfluidotasuna" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="superfluidotasuna"><span class="header-section-number">1.3</span> Superfluidotasuna</h2>
 <p>Aipatu dugunez, BEC-a superfluido baten moduan jokatzen du tenperatura kritiko bat baino hotsago dagoenean. Parte honetan eztabaidatuko ditugu Landauren superfluidoen hidrodinamika, eta nola teoria honek ahalbidetzen dituen aurkitutako ordena-parametroaren fasearen fluktuazioak BEC-aren teorian.</p>
-<section id="landauren-irizpidea-superfluidotasunarentzako" class="level3" data-number="1.2.1">
-<h3 data-number="1.2.1" class="anchored" data-anchor-id="landauren-irizpidea-superfluidotasunarentzako"><span class="header-section-number">1.2.1</span> Landauren irizpidea superfluidotasunarentzako</h3>
+<section id="landauren-irizpidea-superfluidotasunarentzako" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="landauren-irizpidea-superfluidotasunarentzako"><span class="header-section-number">1.3.1</span> Landauren irizpidea superfluidotasunarentzako</h3>
 <p>Landauren superfluidoen teoria garatzeko, energiaren eta momentuaren transformazio Galilearrak erabiliko erabiliko ditugu. <span class="math inline">\(E\)</span> eta <span class="math inline">\(\mathbf{P}\)</span> izango dira energia eta momentua fluidoaren pausaguneko sisteman <span class="math inline">\(K\)</span>. Orduan <span class="math inline">\(K'\)</span> sisteman, <span class="math inline">\(\mathbf{v}\)</span> abiaduraz mugitzen dena <span class="math inline">\(K\)</span> sistemarekiko, energia eta momentuaren adierazpenak:</p>
 <p><span id="eq-p8"><span class="math display">\[
 E' = E - \mathbf{P.V} + \frac{1}{2} M V^2, \; \mathbf{P'} = \mathbf{P} - M \mathbf{v}
-\tag{23}\]</span></span></p>
+\tag{27}\]</span></span></p>
 <p>non <span class="math inline">\(M\)</span> fluidoaren masa den.</p>
 <p>Kontsidera dezagun fluido bat, kapilar baten zehar higitzen dena <span class="math inline">\(\mathbf{v}\)</span> abiadurarekin. Fluidoa biskositatea badu, galdutako energia modelizatu ahal dugu higitzen den pertubazio baten moduan. Perturbazio honen energia eta momentua fluidoaren pausaguneko sisteman <span class="math inline">\(\mathbf{p}\)</span> eta <span class="math inline">\(E_0 + \epsilon(\mathbf{p})\)</span> izango dira, non <span class="math inline">\(E_0\)</span> pertubazioaren oinarrizko energia den eta <span class="math inline">\(\epsilon(\mathbf{p})\)</span> kitzikapenak sortutako energia. Kapilarraren pausaguneko sisteman ikusiko dugu:</p>
 <p><span id="eq-p9"><span class="math display">\[
 E' = E_0 + \epsilon(\mathbf{p}) + \mathbf{p.v} + \frac{1}{2} M v^2, \mathbf{P'} = \mathbf{p} + M \mathbf{v}
-\tag{24}\]</span></span></p>
-<p><a href="#eq-p9" class="quarto-xref">Ekuazioa&nbsp;24</a> ikusi ahal dugu nola energia eta momentu aldaketak, kapilarraren pausaguneko sisteman, <span class="math inline">\(\epsilon(\mathbf{p}) + \mathbf{p.v}\)</span> eta <span class="math inline">\(\mathbf{p}\)</span> diren. Orduan, <span class="math inline">\(\epsilon(\mathbf{p}) + \mathbf{p.v}\)</span> negatiboa izan behar da berezko kitzikapena izateko. Hau posiblea izateko, <span class="math inline">\(v &gt; \epsilon(\mathbf{p}) / p\)</span> izan behar da. Suposatzen badugu <span class="math inline">\(\mathbf{p}\)</span> momentua kapilarrari transferitzen diola, hau bero moduan disipatu egingo da eta fluidoa ez da egonkorra izango. Baina abiadura,</p>
+\tag{28}\]</span></span></p>
+<p><a href="#eq-p9" class="quarto-xref">Ekuazioa&nbsp;28</a> ikusi ahal dugu nola energia eta momentu aldaketak, kapilarraren pausaguneko sisteman, <span class="math inline">\(\epsilon(\mathbf{p}) + \mathbf{p.v}\)</span> eta <span class="math inline">\(\mathbf{p}\)</span> diren. Orduan, <span class="math inline">\(\epsilon(\mathbf{p}) + \mathbf{p.v}\)</span> negatiboa izan behar da berezko kitzikapena izateko. Hau posiblea izateko, <span class="math inline">\(v &gt; \epsilon(\mathbf{p}) / p\)</span> izan behar da. Suposatzen badugu <span class="math inline">\(\mathbf{p}\)</span> momentua kapilarrari transferitzen diola, hau bero moduan disipatu egingo da eta fluidoa ez da egonkorra izango. Baina abiadura,</p>
 <p><span id="eq-vc"><span class="math display">\[
 v_c = \text{min}_p \frac{\epsilon(\mathbf{p})}{p}
-\tag{25}\]</span></span></p>
+\tag{29}\]</span></span></p>
 <p>baino txikiago bada, kitzikapenak ezin dira agertu. Hau da Landauren superfluidotasunaren baldintza.</p>
 <p><span id="eq-LSC"><span class="math display">\[
 v &lt; v_c
-\tag{26}\]</span></span></p>
-<p>Fluidoaren eta kapilarraren abiadura erlatiboak, <a href="#eq-vc" class="quarto-xref">Ekuazioa&nbsp;25</a> balio kritikoa baino txikiagoa bada. Orduna marruskadura gabeko fluxua izango dugu. Egoera honi, metaegonkorra deritzogu. Egonkorra da bat-bateko kitzikapenekiko.</p>
+\tag{30}\]</span></span></p>
+<p>Fluidoaren eta kapilarraren abiadura erlatiboak, <a href="#eq-vc" class="quarto-xref">Ekuazioa&nbsp;29</a> balio kritikoa baino txikiagoa bada. Orduna marruskadura gabeko fluxua izango dugu. Egoera honi, metaegonkorra deritzogu. Egonkorra da bat-bateko kitzikapenekiko.</p>
 <p>Interakzio ahuleko Bose gasa Landauren irispidea betetzen du, non abiadura kritikoa soinuaren abiadura izango den. <span class="math inline">\(^4He\)</span>-ren kasuan ere beteko egingo du Landauren irispidea, baina kasu honetan abiadura kritikoa soinuaren abiadura baino txikiagoa izango da, <span class="math inline">\(^4He\)</span> partikulen elkarrekintza handiagoa baita.</p>
 <p>Demagun temperatura txikia dela. Gure fluidoaren propietateak izango dira interakzio gabeko gas baten kitzikapenak (kuasipartikulak) oreka termikoan bezalakoak. kuasipartikulak dira sistemaren masaren parte bat garraiatzen dituztenak. Gainera, hauek talka egitean kapilarraren hormekin energia disipatu egingo dute, fluido normal baten moduan. Beraz, izango ditugu bi fase, bat normala <span class="math inline">\(\mathbf{v_n}\)</span>-rekin eta beste bat superfluidoa dena <span class="math inline">\(\mathbf{v_s}\)</span>, non abiadura hauek izango dira kapilarraren pausaguneko sistemarekiko. Orduan kitzikapenen energia <span class="math inline">\(\epsilon(\mathbf{p}) + \mathbf{p.}(\mathbf{v_s - v_n})\)</span>. Orekan dauden kitzikapenen, <span class="math inline">\(\mathbf{p}\)</span> banaketa funtzioa:</p>
 <p><span id="eq-Np"><span class="math display">\[
 N_{\mathbf{p}} = \left[ exp\left(\frac{\epsilon(\mathbf{p}) + \mathbf{p.} (\mathbf{v_s - v_n})}{k_B T}\right) - 1 \right]^{-1}
-\tag{27}\]</span></span></p>
+\tag{31}\]</span></span></p>
 <p>Ekuazio hau betetzeko <span class="math inline">\(\mathbf{p}\)</span>-ren balio guztietarako (hau da, kitzikapenen energia positiboa izateko) <span class="math inline">\(|\mathbf{v_s} - \mathbf{v_n}|\)</span> abiadura kritikoa baino txikiagoa izan beharko da. Orduan, <span class="math inline">\(N_\mathbf{p}\)</span> beti izango da positiboa. Oreka termodinamikoan gaudenean, superfluido fasearen eta fase normalaren arteko marruskadurarik ez dago. Hau gertatzekotan, gero eta kitzikapen gehiago sortuko lirateke eta, ondorioz, superfluido fasea apurtuko zen.</p>
 <p>Kontuan izanda bi faseak batera daudela, fluidoaren masa dentsitatea idatz dezakegu hurrengo moduan: <span class="math inline">\(\rho = \rho_n + \rho_s\)</span> (<span class="citation" data-cites="Pitaevskii">(<a href="#ref-Pitaevskii" role="doc-biblioref">Pitaevskii eta Stringari 2016</a>)</span> erabiltzen du <span class="math inline">\(\rho = n m\)</span> dentsitatea hemendik aurrera literatura orokorrean hau egiten baitenez, <span class="math inline">\(n\)</span> erabili beharrean). Likidoaren masa korrontea definitu dezakegu:</p>
 <p><span id="eq-mj"><span class="math display">\[
 m \mathbf{j} = \rho_s \mathbf{v_s} + \rho_n \mathbf{v_n}
-\tag{28}\]</span></span></p>
-<p>Hau erabili ahal dugu definitzeko fluido normalaren dentsitatea. Jar gaitezen superfluidoaren pausaguneko sisteman, orduan <span class="math inline">\(m\mathbf{j} = \rho_n \mathbf{v_n}\)</span> izango dugu. Beraz, likidoak dakarren momentu osoa <span class="math inline">\(\mathbf{P} = \sum_{\mathbf{p}} N_{\mathbf{p}} \mathbf{p}\)</span> izango da. Onekin, <a href="#eq-mj" class="quarto-xref">Ekuazioa&nbsp;28</a> berridatzi dezakegu:</p>
+\tag{32}\]</span></span></p>
+<p>Hau erabili ahal dugu definitzeko fluido normalaren dentsitatea. Jar gaitezen superfluidoaren pausaguneko sisteman, orduan <span class="math inline">\(m\mathbf{j} = \rho_n \mathbf{v_n}\)</span> izango dugu. Beraz, likidoak dakarren momentu osoa <span class="math inline">\(\mathbf{P} = \sum_{\mathbf{p}} N_{\mathbf{p}} \mathbf{p}\)</span> izango da. Onekin, <a href="#eq-mj" class="quarto-xref">Ekuazioa&nbsp;32</a> berridatzi dezakegu:</p>
 <p><span id="eq-intmj"><span class="math display">\[
 m \mathbf{j} = \int \; \frac{d \mathbf{p}}{(2 \pi \hbar)^3} \mathbf{p} N_{\mathbf{p}}
-\tag{29}\]</span></span></p>
+\tag{33}\]</span></span></p>
 <p>eta esan dugunez, superfluidoaren pausaguneko sisteman gaudenez</p>
 <p><span id="eq-intrhov"><span class="math display">\[
 \rho_n \mathbf{v_n} = \int \; \frac{d \mathbf{p}}{(2 \pi \hbar)^3} \mathbf{p} N_{\mathbf{p}}
-\tag{30}\]</span></span></p>
+\tag{34}\]</span></span></p>
 <p>izango dugu. <span class="math inline">\(\mathbf{v_n}\)</span> txikia izango denez (oreka termikoan egoteko) <span class="math inline">\(N_{\mathbf{p}}\)</span> seriean garatu dezakegu termino linealerarte. Hau eginez, lortuko dugu fase normalaren masa dentsitatea</p>
 <p><span id="eq-masadentitatea"><span class="math display">\[
 \rho_n = - \frac{1}{3} \int \; \frac{d \mathbf{p}}{(2 \pi \hbar)^3} \frac{d N_{\mathbf{p}}(\epsilon)}{d \epsilon} p^2,
-\tag{31}\]</span></span></p>
+\tag{35}\]</span></span></p>
 <p>isotropikoa izango dena <span class="math inline">\(\mathbf{p}\)</span>-rekiko. Oso erabilgarria da, kalkulatu ahal dugulako fase normalaren banaketa kitzikapenen funtzioen bitartez. Baina zenbait limite dauzkagu, <span class="math inline">\(N_{\mathbf{p}}\)</span> ez badago ondo definitua, desorden handia dogoenean, beste era bat bilatu beharko dugu kalkulatu ahal izateko fase normalaren dentsitatea.</p>
 </section>
-</section>
-<section id="bose-einstein-kondentsatua-eta-superfluidotasuna" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="bose-einstein-kondentsatua-eta-superfluidotasuna"><span class="header-section-number">1.3</span> Bose-Einstein kondentsatua eta superfluidotasuna</h2>
-<p>Orain nahi dugu BEC-aren eta superfluidoasunaren arteko erlazioa aztertu. Lehen egin dugun moduan, kondentsatuaren <span class="math inline">\(\Psi_0\)</span> uhin-funtzioaren propietateak aztertu nahi ditugu, transformazio Galilear bat egitean. Garrantzitsua da aipatzea, <span class="math inline">\(|\Psi_0|^2\)</span> dentsitatea uniformea izan arren, gure uhin-funtzioa ez da inbariante bat izango transformazio Galilear batekiko fase bat gehitu beharko diogulako. Fase honen kalkulua egiteko erabili dezakegu <a href="#eq-p1" class="quarto-xref">Ekuazioa&nbsp;1</a>. Erreza da baieztatzea</p>
+<section id="bose-einstein-kondentsatua-eta-superfluidotasuna" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="bose-einstein-kondentsatua-eta-superfluidotasuna"><span class="header-section-number">1.3.2</span> Bose-Einstein kondentsatua eta superfluidotasuna</h3>
+<p>Orain nahi dugu BEC-aren eta superfluidoasunaren arteko erlazioa aztertu. Lehen egin dugun moduan, kondentsatuaren <span class="math inline">\(\Psi_0\)</span> uhin-funtzioaren propietateak aztertu nahi ditugu, transformazio Galilear bat egitean. Garrantzitsua da aipatzea, <span class="math inline">\(|\Psi_0|^2\)</span> dentsitatea uniformea izan arren, gure uhin-funtzioa ez da aldaezin bat izango transformazio Galilear batekiko fase bat gehitu beharko diogulako. Fase honen kalkulua egiteko erabili dezakegu <a href="#eq-p1" class="quarto-xref">Ekuazioa&nbsp;1</a>. Erreza da baieztatzea</p>
 <p><span id="eq-phiGalilear"><span class="math display">\[
 \hat{\Psi}' = \hat{\Psi}(\mathbf{r-v}t,t) \exp \left[ \frac{i}{\hbar} \left( m \mathbf{v.r} - \frac{1}{2} m v^2 t \right) \right],
-\tag{32}\]</span></span></p>
-<p>non <span class="math inline">\(\mathbf{v}\)</span> bektore konstante bat den, soluzio bat dela. Hau eremu eragilearen transformazio Galilearra da. ordena-parametroa eta bere itxarotako balio izango dute transformazio berbera. Dakigunez, gure fluidoa orekan dagoen erreferentzia sisteman, izango dugun uhin-funtzioa</p>
+\tag{36}\]</span></span></p>
+<p>non <span class="math inline">\(\mathbf{v}\)</span> bektore konstante bat den, soluzio bat dela. Hau eremu eragilearen transformazio Galilearra da. ordena-parametroa eta bere itxarotako balio izango dute transformazio berbera. Dakigunez, gure fluidoa orekan dagoen erreferentzia sisteman, izango dugun uhin-funtzioa <span class="math inline">\(\Psi_0 = \sqrt{n_0} e^{-i \mu t / \hbar}\)</span>, non <span class="math inline">\(n_0\)</span> <span class="math inline">\(\mathbf{r}\)</span>-ren independiente den konstantea. Baina, fluidoa <span class="math inline">\(\mathbf{v}\)</span> abiadurarekin mugitzen den erreferentzia sisteman jarriz, lehen esan dugunez modulua es da aldatuko, fasea ez bezala. gure ordena-parametro berria <span class="math inline">\(\Psi_0 = \sqrt{n_0} e^{iS}\)</span> non gure fase berria</p>
+<p><span id="eq-newphase"><span class="math display">\[
+S(\sqrt{r},t) = \frac{1}{\hbar} \left[ m \mathbf{v.r} - \left( \frac{1}{2} m v^2 + \mu \right) t \right]
+\tag{37}\]</span></span></p>
+<p>izango den. Gainera, Hamilton-Jacobi ekuazio batetik hasi garenez (Schrödinger-en ekuazioa), dakigu gure superfluidoaren abiadura fasearen paraleloa izango dela:</p>
+<p><span id="eq-superfluidVelocity"><span class="math display">\[
+\mathbf{v}_s = \frac{\hbar}{m} \nabla S.
+\tag{38}\]</span></span></p>
+<p>Abiadura hau, era motelean aldatu ahal da denboran eta espazioan zehar. Gainera, guztiz orokorra da, ez baititugu inolako hurbilketak egin.</p>
 <p><code>{{&lt; include SIMULACION/simulacion.qmd &gt;}}</code></p>
 
 
 
+</section>
 </section>
 </section>
 
