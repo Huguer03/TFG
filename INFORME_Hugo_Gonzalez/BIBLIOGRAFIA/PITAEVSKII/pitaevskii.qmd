@@ -134,7 +134,7 @@ $${#eq-egonGPE}
 
 non suposatu egin dugu gure potentziala ez dela denboraren menpekoa. $\mu$-ren balioa normalizazio baldintzak ezarriko digu.
 
-## Thomas-Fermi limitea
+### Thomas-Fermi limitea
 
 [@eq-S] ekuazioan ikusi dugu parte bat presio kuantiko modukoa izango dela. Honek bi zatitan banatu dezakegu: $gn$ interakzio partean eta Bohm-en potentzialean ($Q$). Honen forma hurrengoa da:
 
@@ -451,7 +451,7 @@ $${#eq-p6.21}
 
 izango den.
 
-## hidrodinamika kuantikoa
+### hidrodinamika kuantikoa
 
 [@eq-p6.17] eta [@eq-p6.19] adierazpenak, fluidoaren oszilazio txikiak soinu uhinak direla adierazten dute. Mekanika kuantikoan, soinu uhin hauei fonoiak dira. Hau da, soinu uhinak ohiko erregelen bitartez kuantizatzean lortzen ditugun kuasipartikulak dira. Hidrodinamika klasikoaren ekuazioak kuantizatzeko, eremu klasikoak kuantizatu beharko ditugu. Hau erabilgarria izango da interakzio handiko Bose-Einstein kondentsatuak aztertzean.
 
@@ -529,4 +529,38 @@ $$
 A_k = \left( \frac{\hbar k \bar{\rho}}{c} \right)^{1/2}.
 $${#eq-p6.32}
 
+### Superfluidoen biraketa eta bortize kuantizatuak
 
+Superfluidoek, ezin dute solido zurrun gisa biratu. Biraketa bat lortuko du bortize kuantizatuen bitartez. Nahiz eta, bortize baten abiadura-eremua irrotazionala izan, bere zirkulazioa kuantizatuta dago:
+
+$$
+\oint \mathbf{v}_s \cdot d\mathbf{l} = 2\pi \frac{\hbar}{m} s, \quad (s \in \mathbb{Z}),
+$${#eq-p6.89}
+
+non $s$ bortizearen karga den. Hau behartzen du zirkulazioa $h/m$ unitateetan dagoela. Orduan bortez baten abiadura tangentziala:
+
+$$
+v_s = s \frac{\hbar}{m} \frac{1}{r}
+$${#eq-p6.90}
+
+non $r$ bortez-lerrotik dagoen distantzia den.
+
+Bortize baten energia zinetikoa bere luzerarekiko, honela adieraz daiteke:
+
+$$
+E_v = L \pi \rho_s s^2 \left( \frac{\hbar}{m} \right)^2 \ln \left( \frac{R}{r_c} \right)
+$${#eq-p6.92}
+
+non $R$ sistemaren da eta $r_c$ bortizearen nukleoaren tamaina. Bortizea energetikoki baimendua egoteko, gure sistema osoa $\Omega$ abiadura angeluar minimo batekin biratu beharko du:
+
+$$
+\Omega_c = \frac{\hbar}{m R^2} \ln \left( \frac{R}{r_c} \right).
+$${#eq-p6.93}
+
+$\Omega$ gero eta handiagoa eginez gero, gero eta bortize gehiagoren zorrera ahalbidetzen da. Bortize kopuru maximoa $\Omega$ jakin batentzako:
+
+$$
+n_v = \frac{m}{\pi \hbar} \Omega
+$${#eq-p6.95}
+
+izango da.

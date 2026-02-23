@@ -394,6 +394,54 @@ guzti honekin Gross-Pitaevskii ekuazioa honela idatzi dezakegu
 non suposatu egin dugu gure potentziala ez dela denboraren menpekoa.
 \(\mu\)-ren balioa normalizazio baldintzak ezarriko digu.
 
+\subsection{Thomas-Fermi limitea}\label{thomas-fermi-limitea}
+
+Ekuazioa~\ref{eq-S} ekuazioan ikusi dugu parte bat presio kuantiko
+modukoa izango dela. Honek bi zatitan banatu dezakegu: \(gn\) interakzio
+partean eta Bohm-en potentzialean (\(Q\)). Honen forma hurrengoa da:
+
+\begin{equation}\phantomsection\label{eq-Q}{
+Q = - \frac{\hbar^2}{2m} \frac{\nabla^2 \sqrt{n}}{\sqrt{n}}.
+}\end{equation}
+
+Thomas-Fermi limitean, \(\nabla^2 \sqrt{n}/\sqrt{n}\) magnitudea
+berreskuratze luzera \(\xi = \hbar / \sqrt{2mgn}\) (hau erakusten du
+noiz izango dugun kondentsatua a la ez, oso txikia, edo orden berekoa,
+bada sistemaren luzera karakteristikoa interakzioak eta gero ez du
+denborarik berreskuratzeko eta apurtzen da kondentsatua) baino askoz
+handiagoa bada (hau da, \(\sqrt{n}\) oso era motelean aldatzen bada
+denbora eta espazioan zehar) \(Q\) guztiz arbuiagarria izango da eta
+berridatz dezakegu Ekuazioa~\ref{eq-S} abiadura eremu bat bezala:
+
+\begin{equation}\phantomsection\label{eq-TF}{
+m \frac{\partial \mathbf{v}_s}{\partial t} + \nabla \left( \frac{1}{2}m\mathbf{v}_s^2 + V_{ext} + gn \right) = 0 
+}\end{equation}
+
+non ekuazio hau bat datorren Eulerren ekuazioarekin, fluido batentzat
+kanpo potentzial baten eraginean eta biskositate barik. Fluido honen
+presioa \(P = gn^2/2\) eta soinuaren abiadura \(c=\sqrt{gn/m}\).
+Horretaz gain, berridatzi dezakegu Ekuazioa~\ref{eq-kontinuidad}
+\(\mathbf{v}_s\)-ren menpean
+
+\begin{equation}\phantomsection\label{eq-kontinuidad_vs_rho}{
+\frac{\partial n}{\partial t} + \text{div}(v_sn) = 0,
+}\end{equation}
+
+ekuazio bikote hauek hurrengo atalean ikusiko dugunez superfluido baten
+hidrodinamikari datorkie.
+
+Thomas-Fermi hurbilketan oinarrizko egoerak forma erreza hartzen du,
+\(v_s = 0\). Hau da, energia zinetikoa guztiz arbuiatuz lortuko dugu.
+Era honetan izango dugu:
+
+\begin{equation}\phantomsection\label{eq-5.23}{
+gn(\mathbf{r}) + V_{ext}(\mathbf{r}) = \mu
+}\end{equation}
+
+non \(\mu\) oinarrizko egoerari dagokion potentzial kimikoa den. Kanpo
+eremurik ez daukagunean ailegatzen gara Bogoliubov erlazioari
+\(\mu = gn\).
+
 \subsubsection{Bortex interakzio txikiko Bose
 gasan}\label{bortex-interakzio-txikiko-bose-gasan}
 
@@ -627,30 +675,265 @@ bitartez. Baina zenbait limite dauzkagu, \(N_{\mathbf{p}}\) ez badago
 ondo definitua, desorden handia dogoenean, beste era bat bilatu beharko
 dugu kalkulatu ahal izateko fase normalaren dentsitatea.
 
-\subsection{Bose-Einstein kondentsatua eta
+\subsubsection{Bose-Einstein kondentsatua eta
 superfluidotasuna}\label{bose-einstein-kondentsatua-eta-superfluidotasuna}
 
 Orain nahi dugu BEC-aren eta superfluidoasunaren arteko erlazioa
-aztertu. Lehen egin dugun moduan, kondentsatuaren \(\Phi_0\)
+aztertu. Lehen egin dugun moduan, kondentsatuaren \(\Psi_0\)
 uhin-funtzioaren propietateak aztertu nahi ditugu, transformazio
-Galilear bat egitean. Garrantzitsua da aipatzea, \(|\Phi_0|^2\)
-dentsitatea uniformea izan arren, gure uhin-funtzioa ez da inbariante
-bat izango transformazio Galilear batekiko fase bat gehitu beharko
+Galilear bat egitean. Garrantzitsua da aipatzea, \(|\Psi_0|^2\)
+dentsitatea uniformea izan arren, gure uhin-funtzioa ez da aldaezin bat
+izango transformazio Galilear batekiko fase bat gehitu beharko
 diogulako. Fase honen kalkulua egiteko erabili dezakegu
 Ekuazioa~\ref{eq-p1}. Erreza da baieztatzea
 
 \begin{equation}\phantomsection\label{eq-phiGalilear}{
-\hat{\Phi}' = \hat{\Phi}(\mathbf{r-v}t,t) \exp \left[ \frac{i}{\hbar} \left( m \mathbf{v.r} - \frac{1}{2} m v^2 t \right) \right],
+\hat{\Psi}' = \hat{\Psi}(\mathbf{r-v}t,t) \exp \left[ \frac{i}{\hbar} \left( m \mathbf{v.r} - \frac{1}{2} m v^2 t \right) \right],
 }\end{equation}
 
-non \(\mathbf{v}\) bektore konstante bat den, soluzio bat dela. Hau da
-eremu eragilearen transformazio Galilearra. ordena-parametroa eta bere
-itxarotako balio izango dute transformazio berbera.
+non \(\mathbf{v}\) bektore konstante bat den, soluzio bat dela. Hau
+eremu eragilearen transformazio Galilearra da. ordena-parametroa eta
+bere itxarotako balio izango dute transformazio berbera. Dakigunez, gure
+fluidoa orekan dagoen erreferentzia sisteman, izango dugun uhin-funtzioa
+\(\Psi_0 = \sqrt{n_0} e^{-i \mu t / \hbar}\), non \(n_0\)
+\(\mathbf{r}\)-ren independiente den konstantea. Baina, fluidoa
+\(\mathbf{v}\) abiadurarekin mugitzen den erreferentzia sisteman jarriz,
+lehen esan dugunez modulua es da aldatuko, fasea ez bezala. gure
+ordena-parametro berria \(\Psi_0 = \sqrt{n_0} e^{iS}\) non gure fase
+berria
+
+\begin{equation}\phantomsection\label{eq-6.15}{
+S(\sqrt{r},t) = \frac{1}{\hbar} \left[ m \mathbf{v.r} - \left( \frac{1}{2} m v^2 + \mu \right) t \right]
+}\end{equation}
+
+izango den. Gainera, Hamilton-Jacobi ekuazio batetik hasi garenez
+(Schrödinger-en ekuazioa), dakigu gure superfluidoaren abiadura fasearen
+paraleloa izango dela:
+
+\begin{equation}\phantomsection\label{eq-p6.16}{
+\mathbf{v}_s = \frac{\hbar}{m} \nabla S.
+}\end{equation}
+
+Abiadura hau, era motelean aldatu ahal da denboran eta espazioan zehar.
+Gainera, guztiz orokorra da, ez baititugu inolako hurbilketak egin.
+
+\subsubsection{Superfluidoen hidrodinamikaren teoria
+(T=0K)}\label{superfluidoen-hidrodinamikaren-teoria-t0k}
+
+Temperatura nulua denean, portaera makroskopikoa erakusten duen ekuazioa
+fluido irrotazional klasiko batena da. Kitzikapen termikoen gabezian,
+deskribatu dezakegu gure sistema bi parametroen menpe, superfluidoaren
+abiadurarekin eta bere masa dentsitatearekin. Masa dentsitatea lortuko
+dugu jarraitutasun ekuazioaren bitartez,
+
+\begin{equation}\phantomsection\label{eq-p6.17}{
+\frac{\partial \rho}{t} + \text{div} (\mathbf{v}_s \rho) = 0
+}\end{equation}
+
+masaren kontserbazioa ezartzen duena. Abiadura eremuaren ekuazioa
+lortzeko, fasea Ekuazioa~\ref{eq-6.15} betetzen duela erabiliko dugu
+
+\begin{equation}\phantomsection\label{eq-p6.18}{
+\hbar \frac{\partial S}{\partial t} = - \left( \frac{1}{2} m v^2 + \mu \right).
+}\end{equation}
+
+Aurreko atalean aurresan genuen bezala, ekuazio hau ez da bakarrik
+baliagarria orekan (biak denbora eta posizioarekiko menpekotasunik ez
+daukatenean), baizik eta hauek biak era motelean aldatzen direnean
+denbora eta espazioan zehar. Orduan, aurreko adierazpenaren gradientea
+hartuz eta Ekuazioa~\ref{eq-p6.16} adierazpena erabiliz lortuko dugu
+abiadura eremuaren adierazpena
+
+\begin{equation}\phantomsection\label{eq-p6.19}{
+m \frac{\partial \mathbf{v}_s}{\partial t} + \nabla \left( \frac{1}{2} m \mathbf{v}_s^2 + \mu(\rho) \right) = 0
+}\end{equation}
+
+non potentziak kimikoa lokalki ebaluatzen da, kontuan izanda fluidoaren
+dentsitate puntuala. Konturatzen bagara, adierazpen honek Eulerren
+ekuazioaren antza dauka, baina kanpoko potentziala ez dagoenean. Beraz
+\(V_{ext}\) bat gehitu ahal diogu
+
+\begin{equation}\phantomsection\label{eq-p6.20}{
+m \frac{\partial \mathbf{v}_s}{\partial t} + \nabla \left( \frac{1}{2} m \mathbf{v}_s^2 + \mu(\rho) + V_{ext} \right) = 0.
+}\end{equation}
+
+Oinarrizko egoera aztertzean, hau da \(\mathbf{v}_s = 0\) denean
+berreskuaretzen dugu Thomas-Fermiren limitea non potentzial kimikoa
+
+\begin{equation}\phantomsection\label{eq-p6.21}{
+\mu(\rho(\mathbf{r})) + V_{ext}(\mathbf{r}) = \mu_0
+}\end{equation}
+
+izango den.
+
+\subsubsection{hidrodinamika kuantikoa}\label{hidrodinamika-kuantikoa}
+
+Ekuazioa~\ref{eq-p6.17} eta Ekuazioa~\ref{eq-p6.19} adierazpenak,
+fluidoaren oszilazio txikiak soinu uhinak direla adierazten dute.
+Mekanika kuantikoan, soinu uhin hauei fonoiak dira. Hau da, soinu uhinak
+ohiko erregelen bitartez kuantizatzean lortzen ditugun kuasipartikulak
+dira. Hidrodinamika klasikoaren ekuazioak kuantizatzeko, eremu klasikoak
+kuantizatu beharko ditugu. Hau erabilgarria izango da interakzio handiko
+Bose-Einstein kondentsatuak aztertzean.
+
+Kuantizazio prozesua egiteko, Hamiltondar klasikoaren adierazpena
+lortzea izango da erabilgarria. Likido baten energia
+
+\begin{equation}\phantomsection\label{eq-p6.22}{
+H = \int \; d\mathbf{r} \left( \frac{\rho}{2} (\nabla \phi)^2 + e(\rho) \right),
+}\end{equation}
+
+non \(\phi\) abiadura potentziala den \(\mathbf{v}_s = \nabla \phi\)
+eran definitua, \(\rho\) fluidoaren dentsitatea eta potentzial kimikoa
+sartu egin dugu fluidoaren bolumen unitateko energiaren bitartez
+\(e(\rho)\); hauen arteko erlazioa \(\mu = m \; de/d\rho\) izanda.
+Hamiltondarraren bariazioa eginez
+
+\begin{equation}\phantomsection\label{eq-p6.23}{
+\delta H = \int \left[ -\text{div}(\rho \mathbf{v}_s) \delta \phi + \left( \frac{1}{2} (\nabla \phi)^2 + \frac{\mu(\rho)}{m} \right) \right]
+}\end{equation}
+
+lortzen da. Honen bitartez Ekuazioa~\ref{eq-p6.17} eta
+Ekuazioa~\ref{eq-p6.19} hurrengo eran jar daiteke:
+
+\[
+\frac{\partial \rho}{\partial t} = \frac{\delta H}{\delta \phi}, \; \frac{\partial \phi}{\partial t} = - \frac{\delta H}{\delta \rho},
+\]
+
+beraz argi dago \(\phi \text{ eta } \rho\) gure problemaren aldagai
+konjokatuak direla. Landau 1941-tean, (Landau 1941) artikuluan, hurrengo
+trukatzailea proposatu zuen
+
+\begin{equation}\phantomsection\label{eq-p6.24}{
+[\hat{\phi}(\mathbf{r}), \hat{\rho}(\mathbf{r'})] = -i \hbar \delta(\mathbf{r} - \mathbf{r'}).
+}\end{equation}
+
+Era honetan pasatu gara hidrodinamika klasikotik, hidrodinamika
+kuantikora. Gainera fasea Ekuazioa~\ref{eq-p6.16} operadore batean
+bihurtu egiten da ere:
+
+\begin{equation}\phantomsection\label{eq-p6.25}{
+\hat{S} = \frac{m}{\hbar} \hat{\phi}.
+}\end{equation}
+
+Hamiltondarra Ekuazioa~\ref{eq-p6.22}, ondo simetrizatuz gero hermitikoa
+izan dadin, honela berridatzi dezakegu:
+
+\begin{equation}\phantomsection\label{eq-p6.26}{
+\hat{H} = \int \left( \nabla \hat{\phi} \frac{\hat{\rho}}{2} \nabla \hat{\phi} + e(\hat{\rho}) \right) d\mathbf{r}
+}\end{equation}
+
+Hidrodinamika kuantikoa arazoak ditu sistema makroskopikoaren uhin
+bektore txikiak aztertzen ez ditugunean. Baina oso baliagarria da
+Bogoliubov-en teoria ezin denean erabili, adibidez, interakzio handiko
+BEC-tan gertatzen den moduan.
+
+Helburua izango da, Ekuazioa~\ref{eq-p6.24} trukatzaile propietatea
+erabiltzea \(\hat{\rho}\) eta \(\hat{\phi}\) sortze (\(\hat{b}\)) eta
+deuseztatze (\(\hat{b}^\dagger\)) eragileen funtzioan adierazteko. Hau
+lortzeko, erabilgarria da erabiltzea masa dentsitatearen karga
+\(\hat{\rho}' = \hat{\rho} - \rho_0\) non nahi duguna da jakitea zenbat
+aldatu den dentsitate lokala sistemaren dentsitate konstantearekiko.
+Beraz karga dentsitatearen adierazpena
+
+\begin{equation}\phantomsection\label{eq-p6.27}{
+\hat{\rho}' = \frac{1}{\sqrt{2V}} \sum_{k \neq 0} A_k (\hat{b}_k e^{i\mathbf{k} \cdot \mathbf{r}} + \hat{b}_k^\dagger e^{-i\mathbf{k} \cdot \mathbf{r}})
+}\end{equation}
+
+izango da, non \(V\) sistema osoaren bolumena den.
+\(\hat{b}_k \text{ eta } \hat{b}_k^\dagger\) hurrengo erlazioa beteko
+dute
+
+\begin{equation}\phantomsection\label{eq-p6.28}{
+\hat{b}_k \hat{b}_k^\dagger - \hat{b}_k^\dagger \hat{b}_k = \delta_{kk'},
+}\end{equation}
+
+\(A_k\) koefizienteak aukeratu ditugu Hamiltondarra diagonala izateko.
+\(\hat{\phi}\) eragilea Ekuazioa~\ref{eq-p6.24} erlazioa betetzeko
+
+\begin{equation}\phantomsection\label{eq-p6.29}{
+\hat{\phi} = -\frac{1}{\sqrt{2V}} \sum_{k \neq 0} i\hbar (A_k)^{-1} (\hat{b}_k e^{i\mathbf{k} \cdot \mathbf{r}} - \hat{b}_k^\dagger e^{-i\mathbf{k} \cdot \mathbf{r}}).
+}\end{equation}
+
+Ekuazioa~\ref{eq-p6.26} Hamiltondarra garatzen badugu, termino lineala
+desagertu egingo da karkaren kontserbazioa dela eta. Orduan termino
+koadratikoa:
+
+\begin{equation}\phantomsection\label{eq-p6.30}{
+H^{(2)} = \int \left( \frac{1}{2} \bar{\rho}(\nabla \hat{\phi})^2 + \frac{c^2}{2} \frac{\hat{\rho}^2}{\bar{\rho}} \right) d\mathbf{r},
+}\end{equation}
+
+non \(c^2 = (\rho/m) d\mu/d\rho\) soinuaren abiadura den.
+Ekuazioa~\ref{eq-p6.27} eta Ekuazioa~\ref{eq-p6.29} aurreko
+adierazpenean ordezkatuz, lortuko dugu gire Hamiltondarraren forma
+diagonala
+
+\begin{equation}\phantomsection\label{eq-p6.31}{
+H^{(2)} = \sum_k \hbar \omega_k \hat{b}_k^\dagger \hat{b}_k,
+}\end{equation}
+
+izango dela. Ekuazioa~\ref{eq-p6.31} bat dator \(\omega_k = ck\)
+dispertsio erlazioa duten fonoien Hamiltondarrarekin. Gainera, \(A_k\)
+koefizienteen adierazpena lortu dezakegu
+
+\begin{equation}\phantomsection\label{eq-p6.32}{
+A_k = \left( \frac{\hbar k \bar{\rho}}{c} \right)^{1/2}.
+}\end{equation}
+
+\subsubsection{Superfluidoen biraketa eta bortize
+kuantizatuak}\label{superfluidoen-biraketa-eta-bortize-kuantizatuak}
+
+Superfluidoek, ezin dute solido zurrun gisa biratu. Biraketa bat lortuko
+du bortize kuantizatuen bitartez. Nahiz eta, bortize baten
+abiadura-eremua irrotazionala izan, bere zirkulazioa kuantizatuta dago:
+
+\begin{equation}\phantomsection\label{eq-p6.89}{
+\oint \mathbf{v}_s \cdot d\mathbf{l} = 2\pi \frac{\hbar}{m} s, \quad (s \in \mathbb{Z}),
+}\end{equation}
+
+non \(s\) bortizearen karga den. Hau behartzen du zirkulazioa \(h/m\)
+unitateetan dagoela. Orduan bortez baten abiadura tangentziala:
+
+\begin{equation}\phantomsection\label{eq-p6.90}{
+v_s = s \frac{\hbar}{m} \frac{1}{r}
+}\end{equation}
+
+non \(r\) bortez-lerrotik dagoen distantzia den.
+
+Bortize baten energia zinetikoa bere luzerarekiko, honela adieraz
+daiteke:
+
+\begin{equation}\phantomsection\label{eq-p6.92}{
+E_v = L \pi \rho_s s^2 \left( \frac{\hbar}{m} \right)^2 \ln \left( \frac{R}{r_c} \right)
+}\end{equation}
+
+non \(R\) sistemaren da eta \(r_c\) bortizearen nukleoaren tamaina.
+Bortizea energetikoki baimendua egoteko, gure sistema osoa \(\Omega\)
+abiadura angeluar minimo batekin biratu beharko du:
+
+\begin{equation}\phantomsection\label{eq-p6.93}{
+\Omega_c = \frac{\hbar}{m R^2} \ln \left( \frac{R}{r_c} \right).
+}\end{equation}
+
+\(\Omega\) gero eta handiagoa eginez gero, gero eta bortize gehiagoren
+zorrera ahalbidetzen da. Bortize kopuru maximoa \(\Omega\) jakin
+batentzako:
+
+\begin{equation}\phantomsection\label{eq-p6.95}{
+n_v = \frac{m}{\pi \hbar} \Omega
+}\end{equation}
+
+izango da.
 
 \texttt{\{\{\textless{}\ include\ SIMULACION/simulacion.qmd\ \textgreater{}\}\}}
 
 \phantomsection\label{refs}
 \begin{CSLReferences}{1}{0}
+\bibitem[\citeproctext]{ref-Landau1941Superfluidity}
+Landau, L. 1941. {«Theory of the Superfluidity of Helium II»}.
+\emph{Phys. Rev.} 60 (abuztuak): 356--58.
+\url{https://doi.org/10.1103/PhysRev.60.356}.
+
 \bibitem[\citeproctext]{ref-Pitaevskii}
 Pitaevskii, Lev, eta Sandro Stringari. 2016. \emph{Bose-Einstein
 Condensation and Superfluidity}. Oxford University Press.

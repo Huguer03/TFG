@@ -154,7 +154,10 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#landauren-irizpidea-superfluidotasunarentzako" id="toc-landauren-irizpidea-superfluidotasunarentzako" class="nav-link" data-scroll-target="#landauren-irizpidea-superfluidotasunarentzako"><span class="header-section-number">1.3.1</span> Landauren irizpidea superfluidotasunarentzako</a></li>
   <li><a href="#bose-einstein-kondentsatua-eta-superfluidotasuna" id="toc-bose-einstein-kondentsatua-eta-superfluidotasuna" class="nav-link" data-scroll-target="#bose-einstein-kondentsatua-eta-superfluidotasuna"><span class="header-section-number">1.3.2</span> Bose-Einstein kondentsatua eta superfluidotasuna</a></li>
+  <li><a href="#superfluidoen-hidrodinamikaren-teoria-t0k" id="toc-superfluidoen-hidrodinamikaren-teoria-t0k" class="nav-link" data-scroll-target="#superfluidoen-hidrodinamikaren-teoria-t0k"><span class="header-section-number">1.3.3</span> Superfluidoen hidrodinamikaren teoria (T=0K)</a></li>
   </ul></li>
+  <li><a href="#hidrodinamika-kuantikoa" id="toc-hidrodinamika-kuantikoa" class="nav-link" data-scroll-target="#hidrodinamika-kuantikoa"><span class="header-section-number">1.4</span> hidrodinamika kuantikoa</a></li>
+  <li><a href="#superfluidoen-biraketa-eta-bortize-kuantizatuak" id="toc-superfluidoen-biraketa-eta-bortize-kuantizatuak" class="nav-link" data-scroll-target="#superfluidoen-biraketa-eta-bortize-kuantizatuak"><span class="header-section-number">1.5</span> Superfluidoen biraketa eta bortize kuantizatuak</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -319,7 +322,7 @@ m \frac{\partial \mathbf{v}_s}{\partial t} + \nabla \left( \frac{1}{2}m\mathbf{v
 <p><span id="eq-5.23"><span class="math display">\[
 gn(\mathbf{r}) + V_{ext}(\mathbf{r}) = \mu
 \tag{21}\]</span></span></p>
-<p>non <span class="math inline">\(\mu\)</span> oinarrizko egoerari dagokion potentzial kimikoa den. Kanpo eremurik ez daukagunean ailegatzen gara Bogoliubov erlazioari <span class="math inline">\(\mu = gn\)</span></p>
+<p>non <span class="math inline">\(\mu\)</span> oinarrizko egoerari dagokion potentzial kimikoa den. Kanpo eremurik ez daukagunean ailegatzen gara Bogoliubov erlazioari <span class="math inline">\(\mu = gn\)</span>.</p>
 <section id="bortex-interakzio-txikiko-bose-gasan" class="level3" data-number="1.2.1">
 <h3 data-number="1.2.1" class="anchored" data-anchor-id="bortex-interakzio-txikiko-bose-gasan"><span class="header-section-number">1.2.1</span> Bortex interakzio txikiko Bose gasan</h3>
 <p>Esan dugunez, GPE deskribatuta dago <a href="#eq-guf" class="quarto-xref">Ekuazioa&nbsp;15</a>-ren bitartez, hau da, magnitude orden bat denborarekiko menpekotasuna duena, non menpekotasuna fase global bat deskribatzen duen potentziak kimikoaren funtzioa dena.</p>
@@ -431,23 +434,128 @@ m \mathbf{j} = \int \; \frac{d \mathbf{p}}{(2 \pi \hbar)^3} \mathbf{p} N_{\mathb
 \hat{\Psi}' = \hat{\Psi}(\mathbf{r-v}t,t) \exp \left[ \frac{i}{\hbar} \left( m \mathbf{v.r} - \frac{1}{2} m v^2 t \right) \right],
 \tag{36}\]</span></span></p>
 <p>non <span class="math inline">\(\mathbf{v}\)</span> bektore konstante bat den, soluzio bat dela. Hau eremu eragilearen transformazio Galilearra da. ordena-parametroa eta bere itxarotako balio izango dute transformazio berbera. Dakigunez, gure fluidoa orekan dagoen erreferentzia sisteman, izango dugun uhin-funtzioa <span class="math inline">\(\Psi_0 = \sqrt{n_0} e^{-i \mu t / \hbar}\)</span>, non <span class="math inline">\(n_0\)</span> <span class="math inline">\(\mathbf{r}\)</span>-ren independiente den konstantea. Baina, fluidoa <span class="math inline">\(\mathbf{v}\)</span> abiadurarekin mugitzen den erreferentzia sisteman jarriz, lehen esan dugunez modulua es da aldatuko, fasea ez bezala. gure ordena-parametro berria <span class="math inline">\(\Psi_0 = \sqrt{n_0} e^{iS}\)</span> non gure fase berria</p>
-<p><span id="eq-newphase"><span class="math display">\[
+<p><span id="eq-6.15"><span class="math display">\[
 S(\sqrt{r},t) = \frac{1}{\hbar} \left[ m \mathbf{v.r} - \left( \frac{1}{2} m v^2 + \mu \right) t \right]
 \tag{37}\]</span></span></p>
 <p>izango den. Gainera, Hamilton-Jacobi ekuazio batetik hasi garenez (Schrödinger-en ekuazioa), dakigu gure superfluidoaren abiadura fasearen paraleloa izango dela:</p>
-<p><span id="eq-superfluidVelocity"><span class="math display">\[
+<p><span id="eq-p6.16"><span class="math display">\[
 \mathbf{v}_s = \frac{\hbar}{m} \nabla S.
 \tag{38}\]</span></span></p>
 <p>Abiadura hau, era motelean aldatu ahal da denboran eta espazioan zehar. Gainera, guztiz orokorra da, ez baititugu inolako hurbilketak egin.</p>
+</section>
+<section id="superfluidoen-hidrodinamikaren-teoria-t0k" class="level3" data-number="1.3.3">
+<h3 data-number="1.3.3" class="anchored" data-anchor-id="superfluidoen-hidrodinamikaren-teoria-t0k"><span class="header-section-number">1.3.3</span> Superfluidoen hidrodinamikaren teoria (T=0K)</h3>
+<p>Temperatura nulua denean, portaera makroskopikoa erakusten duen ekuazioa fluido irrotazional klasiko batena da. Kitzikapen termikoen gabezian, deskribatu dezakegu gure sistema bi parametroen menpe, superfluidoaren abiadurarekin eta bere masa dentsitatearekin. Masa dentsitatea lortuko dugu jarraitutasun ekuazioaren bitartez,</p>
+<p><span id="eq-p6.17"><span class="math display">\[
+\frac{\partial \rho}{t} + \text{div} (\mathbf{v}_s \rho) = 0
+\tag{39}\]</span></span></p>
+<p>masaren kontserbazioa ezartzen duena. Abiadura eremuaren ekuazioa lortzeko, fasea <a href="#eq-6.15" class="quarto-xref">Ekuazioa&nbsp;37</a> betetzen duela erabiliko dugu</p>
+<p><span id="eq-p6.18"><span class="math display">\[
+\hbar \frac{\partial S}{\partial t} = - \left( \frac{1}{2} m v^2 + \mu \right).
+\tag{40}\]</span></span></p>
+<p>Aurreko atalean aurresan genuen bezala, ekuazio hau ez da bakarrik baliagarria orekan (biak denbora eta posizioarekiko menpekotasunik ez daukatenean), baizik eta hauek biak era motelean aldatzen direnean denbora eta espazioan zehar. Orduan, aurreko adierazpenaren gradientea hartuz eta <a href="#eq-p6.16" class="quarto-xref">Ekuazioa&nbsp;38</a> adierazpena erabiliz lortuko dugu abiadura eremuaren adierazpena</p>
+<p><span id="eq-p6.19"><span class="math display">\[
+m \frac{\partial \mathbf{v}_s}{\partial t} + \nabla \left( \frac{1}{2} m \mathbf{v}_s^2 + \mu(\rho) \right) = 0
+\tag{41}\]</span></span></p>
+<p>non potentziak kimikoa lokalki ebaluatzen da, kontuan izanda fluidoaren dentsitate puntuala. Konturatzen bagara, adierazpen honek Eulerren ekuazioaren antza dauka, baina kanpoko potentziala ez dagoenean. Beraz <span class="math inline">\(V_{ext}\)</span> bat gehitu ahal diogu</p>
+<p><span id="eq-p6.20"><span class="math display">\[
+m \frac{\partial \mathbf{v}_s}{\partial t} + \nabla \left( \frac{1}{2} m \mathbf{v}_s^2 + \mu(\rho) + V_{ext} \right) = 0.
+\tag{42}\]</span></span></p>
+<p>Oinarrizko egoera aztertzean, hau da <span class="math inline">\(\mathbf{v}_s = 0\)</span> denean berreskuaretzen dugu Thomas-Fermiren limitea non potentzial kimikoa</p>
+<p><span id="eq-p6.21"><span class="math display">\[
+\mu(\rho(\mathbf{r})) + V_{ext}(\mathbf{r}) = \mu_0
+\tag{43}\]</span></span></p>
+<p>izango den.</p>
+</section>
+</section>
+<section id="hidrodinamika-kuantikoa" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="hidrodinamika-kuantikoa"><span class="header-section-number">1.4</span> hidrodinamika kuantikoa</h2>
+<p><a href="#eq-p6.17" class="quarto-xref">Ekuazioa&nbsp;39</a> eta <a href="#eq-p6.19" class="quarto-xref">Ekuazioa&nbsp;41</a> adierazpenak, fluidoaren oszilazio txikiak soinu uhinak direla adierazten dute. Mekanika kuantikoan, soinu uhin hauei fonoiak dira. Hau da, soinu uhinak ohiko erregelen bitartez kuantizatzean lortzen ditugun kuasipartikulak dira. Hidrodinamika klasikoaren ekuazioak kuantizatzeko, eremu klasikoak kuantizatu beharko ditugu. Hau erabilgarria izango da interakzio handiko Bose-Einstein kondentsatuak aztertzean.</p>
+<p>Kuantizazio prozesua egiteko, Hamiltondar klasikoaren adierazpena lortzea izango da erabilgarria. Likido baten energia</p>
+<p><span id="eq-p6.22"><span class="math display">\[
+H = \int \; d\mathbf{r} \left( \frac{\rho}{2} (\nabla \phi)^2 + e(\rho) \right),
+\tag{44}\]</span></span></p>
+<p>non <span class="math inline">\(\phi\)</span> abiadura potentziala den <span class="math inline">\(\mathbf{v}_s = \nabla \phi\)</span> eran definitua, <span class="math inline">\(\rho\)</span> fluidoaren dentsitatea eta potentzial kimikoa sartu egin dugu fluidoaren bolumen unitateko energiaren bitartez <span class="math inline">\(e(\rho)\)</span>; hauen arteko erlazioa <span class="math inline">\(\mu = m \; de/d\rho\)</span> izanda. Hamiltondarraren bariazioa eginez</p>
+<p><span id="eq-p6.23"><span class="math display">\[
+\delta H = \int \left[ -\text{div}(\rho \mathbf{v}_s) \delta \phi + \left( \frac{1}{2} (\nabla \phi)^2 + \frac{\mu(\rho)}{m} \right) \right]
+\tag{45}\]</span></span></p>
+<p>lortzen da. Honen bitartez <a href="#eq-p6.17" class="quarto-xref">Ekuazioa&nbsp;39</a> eta <a href="#eq-p6.19" class="quarto-xref">Ekuazioa&nbsp;41</a> hurrengo eran jar daiteke:</p>
+<p><span class="math display">\[
+\frac{\partial \rho}{\partial t} = \frac{\delta H}{\delta \phi}, \; \frac{\partial \phi}{\partial t} = - \frac{\delta H}{\delta \rho},
+\]</span></p>
+<p>beraz argi dago <span class="math inline">\(\phi \text{ eta } \rho\)</span> gure problemaren aldagai konjokatuak direla. Landau 1941-tean, <span class="citation" data-cites="Landau1941Superfluidity">(<a href="#ref-Landau1941Superfluidity" role="doc-biblioref">Landau 1941</a>)</span> artikuluan, hurrengo trukatzailea proposatu zuen</p>
+<p><span id="eq-p6.24"><span class="math display">\[
+[\hat{\phi}(\mathbf{r}), \hat{\rho}(\mathbf{r'})] = -i \hbar \delta(\mathbf{r} - \mathbf{r'}).
+\tag{46}\]</span></span></p>
+<p>Era honetan pasatu gara hidrodinamika klasikotik, hidrodinamika kuantikora. Gainera fasea <a href="#eq-p6.16" class="quarto-xref">Ekuazioa&nbsp;38</a> operadore batean bihurtu egiten da ere:</p>
+<p><span id="eq-p6.25"><span class="math display">\[
+\hat{S} = \frac{m}{\hbar} \hat{\phi}.
+\tag{47}\]</span></span></p>
+<p>Hamiltondarra <a href="#eq-p6.22" class="quarto-xref">Ekuazioa&nbsp;44</a>, ondo simetrizatuz gero hermitikoa izan dadin, honela berridatzi dezakegu:</p>
+<p><span id="eq-p6.26"><span class="math display">\[
+\hat{H} = \int \left( \nabla \hat{\phi} \frac{\hat{\rho}}{2} \nabla \hat{\phi} + e(\hat{\rho}) \right) d\mathbf{r}
+\tag{48}\]</span></span></p>
+<p>Hidrodinamika kuantikoa arazoak ditu sistema makroskopikoaren uhin bektore txikiak aztertzen ez ditugunean. Baina oso baliagarria da Bogoliubov-en teoria ezin denean erabili, adibidez, interakzio handiko BEC-tan gertatzen den moduan.</p>
+<p>Helburua izango da, <a href="#eq-p6.24" class="quarto-xref">Ekuazioa&nbsp;46</a> trukatzaile propietatea erabiltzea <span class="math inline">\(\hat{\rho}\)</span> eta <span class="math inline">\(\hat{\phi}\)</span> sortze (<span class="math inline">\(\hat{b}\)</span>) eta deuseztatze (<span class="math inline">\(\hat{b}^\dagger\)</span>) eragileen funtzioan adierazteko. Hau lortzeko, erabilgarria da erabiltzea masa dentsitatearen karga <span class="math inline">\(\hat{\rho}' = \hat{\rho} - \rho_0\)</span> non nahi duguna da jakitea zenbat aldatu den dentsitate lokala sistemaren dentsitate konstantearekiko. Beraz karga dentsitatearen adierazpena</p>
+<p><span id="eq-p6.27"><span class="math display">\[
+\hat{\rho}' = \frac{1}{\sqrt{2V}} \sum_{k \neq 0} A_k (\hat{b}_k e^{i\mathbf{k} \cdot \mathbf{r}} + \hat{b}_k^\dagger e^{-i\mathbf{k} \cdot \mathbf{r}})
+\tag{49}\]</span></span></p>
+<p>izango da, non <span class="math inline">\(V\)</span> sistema osoaren bolumena den. <span class="math inline">\(\hat{b}_k \text{ eta } \hat{b}_k^\dagger\)</span> hurrengo erlazioa beteko dute</p>
+<p><span id="eq-p6.28"><span class="math display">\[
+\hat{b}_k \hat{b}_k^\dagger - \hat{b}_k^\dagger \hat{b}_k = \delta_{kk'},
+\tag{50}\]</span></span></p>
+<p><span class="math inline">\(A_k\)</span> koefizienteak aukeratu ditugu Hamiltondarra diagonala izateko. <span class="math inline">\(\hat{\phi}\)</span> eragilea <a href="#eq-p6.24" class="quarto-xref">Ekuazioa&nbsp;46</a> erlazioa betetzeko</p>
+<p><span id="eq-p6.29"><span class="math display">\[
+\hat{\phi} = -\frac{1}{\sqrt{2V}} \sum_{k \neq 0} i\hbar (A_k)^{-1} (\hat{b}_k e^{i\mathbf{k} \cdot \mathbf{r}} - \hat{b}_k^\dagger e^{-i\mathbf{k} \cdot \mathbf{r}}).
+\tag{51}\]</span></span></p>
+<p><a href="#eq-p6.26" class="quarto-xref">Ekuazioa&nbsp;48</a> Hamiltondarra garatzen badugu, termino lineala desagertu egingo da karkaren kontserbazioa dela eta. Orduan termino koadratikoa:</p>
+<p><span id="eq-p6.30"><span class="math display">\[
+H^{(2)} = \int \left( \frac{1}{2} \bar{\rho}(\nabla \hat{\phi})^2 + \frac{c^2}{2} \frac{\hat{\rho}^2}{\bar{\rho}} \right) d\mathbf{r},
+\tag{52}\]</span></span></p>
+<p>non <span class="math inline">\(c^2 = (\rho/m) d\mu/d\rho\)</span> soinuaren abiadura den. <a href="#eq-p6.27" class="quarto-xref">Ekuazioa&nbsp;49</a> eta <a href="#eq-p6.29" class="quarto-xref">Ekuazioa&nbsp;51</a> aurreko adierazpenean ordezkatuz, lortuko dugu gire Hamiltondarraren forma diagonala</p>
+<p><span id="eq-p6.31"><span class="math display">\[
+H^{(2)} = \sum_k \hbar \omega_k \hat{b}_k^\dagger \hat{b}_k,
+\tag{53}\]</span></span></p>
+<p>izango dela. <a href="#eq-p6.31" class="quarto-xref">Ekuazioa&nbsp;53</a> bat dator <span class="math inline">\(\omega_k = ck\)</span> dispertsio erlazioa duten fonoien Hamiltondarrarekin. Gainera, <span class="math inline">\(A_k\)</span> koefizienteen adierazpena lortu dezakegu</p>
+<p><span id="eq-p6.32"><span class="math display">\[
+A_k = \left( \frac{\hbar k \bar{\rho}}{c} \right)^{1/2}.
+\tag{54}\]</span></span></p>
+</section>
+<section id="superfluidoen-biraketa-eta-bortize-kuantizatuak" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="superfluidoen-biraketa-eta-bortize-kuantizatuak"><span class="header-section-number">1.5</span> Superfluidoen biraketa eta bortize kuantizatuak</h2>
+<p>Superfluidoek, ezin dute solido zurrun gisa biratu. Biraketa bat lortuko du bortize kuantizatuen bitartez. Nahiz eta, bortize baten abiadura-eremua irrotazionala izan, bere zirkulazioa kuantizatuta dago:</p>
+<p><span id="eq-p6.89"><span class="math display">\[
+\oint \mathbf{v}_s \cdot d\mathbf{l} = 2\pi \frac{\hbar}{m} s, \quad (s \in \mathbb{Z}),
+\tag{55}\]</span></span></p>
+<p>non <span class="math inline">\(s\)</span> bortizearen karga den. Hau behartzen du zirkulazioa <span class="math inline">\(h/m\)</span> unitateetan dagoela. Orduan bortez baten abiadura tangentziala:</p>
+<p><span id="eq-p6.90"><span class="math display">\[
+v_s = s \frac{\hbar}{m} \frac{1}{r}
+\tag{56}\]</span></span></p>
+<p>non <span class="math inline">\(r\)</span> bortez-lerrotik dagoen distantzia den.</p>
+<p>Bortize baten energia zinetikoa bere luzerarekiko, honela adieraz daiteke:</p>
+<p><span id="eq-p6.92"><span class="math display">\[
+E_v = L \pi \rho_s s^2 \left( \frac{\hbar}{m} \right)^2 \ln \left( \frac{R}{r_c} \right)
+\tag{57}\]</span></span></p>
+<p>non <span class="math inline">\(R\)</span> sistemaren da eta <span class="math inline">\(r_c\)</span> bortizearen nukleoaren tamaina. Bortizea energetikoki baimendua egoteko, gure sistema osoa <span class="math inline">\(\Omega\)</span> abiadura angeluar minimo batekin biratu beharko du:</p>
+<p><span id="eq-p6.93"><span class="math display">\[
+\Omega_c = \frac{\hbar}{m R^2} \ln \left( \frac{R}{r_c} \right).
+\tag{58}\]</span></span></p>
+<p><span class="math inline">\(\Omega\)</span> gero eta handiagoa eginez gero, gero eta bortize gehiagoren zorrera ahalbidetzen da. Bortize kopuru maximoa <span class="math inline">\(\Omega\)</span> jakin batentzako:</p>
+<p><span id="eq-p6.95"><span class="math display">\[
+n_v = \frac{m}{\pi \hbar} \Omega
+\tag{59}\]</span></span></p>
+<p>izango da.</p>
 <p><code>{{&lt; include SIMULACION/simulacion.qmd &gt;}}</code></p>
 
 
 
 </section>
 </section>
-</section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Erreferentziak</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Landau1941Superfluidity" class="csl-entry" role="listitem">
+Landau, L. 1941. <span>«Theory of the Superfluidity of Helium II»</span>. <em>Phys. Rev.</em> 60 (abuztuak): 356–58. <a href="https://doi.org/10.1103/PhysRev.60.356">https://doi.org/10.1103/PhysRev.60.356</a>.
+</div>
 <div id="ref-Pitaevskii" class="csl-entry" role="listitem">
 Pitaevskii, Lev, eta Sandro Stringari. 2016. <em>Bose-Einstein Condensation and Superfluidity</em>. Oxford University Press. <a href="https://doi.org/10.1093/acprof:oso/9780198758884.001.0001">https://doi.org/10.1093/acprof:oso/9780198758884.001.0001</a>.
 </div>
